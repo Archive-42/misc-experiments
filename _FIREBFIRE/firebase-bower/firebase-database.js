@@ -58,15 +58,7 @@ function __spreadArray(to, from) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * @fileoverview Firebase constants.  Some of these (@defines) can be overridden at compile-time.
- */
+
 var CONSTANTS = {
     /**
      * @define {boolean} Whether this is the client Node.js SDK.
@@ -92,19 +84,11 @@ var CONSTANTS = {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Throws an error if the provided assertion is falsy
- */
-var assert = function (assertion, message) {
-    if (!assertion) {
-        throw assertionError(message);
-    }
+
 };
 /**
  * Returns an Error object suitable for throwing.
@@ -126,11 +110,7 @@ var assertionError = function (message) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var stringToByteArray$1 = function (str) {
     // TODO(user): Use native implementations if/when available
@@ -138,11 +118,7 @@ var stringToByteArray$1 = function (str) {
     var p = 0;
     for (var i = 0; i < str.length; i++) {
         var c = str.charCodeAt(i);
-        if (c < 128) {
-            out[p++] = c;
-        }
-        else if (c < 2048) {
-            out[p++] = (c >> 6) | 192;
+ 192;
             out[p++] = (c & 63) | 128;
         }
         else if ((c & 0xfc00) === 0xd800 &&
@@ -435,11 +411,7 @@ var base64Decode = function (str) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Do a deep-copy of basic JavaScript Objects or Arrays.
@@ -451,11 +423,7 @@ function deepCopy(value) {
  * Copy properties from source to target (recursively allows extension
  * of Objects and Arrays).  Scalar values in the target are over-written.
  * If target is undefined, an object of the appropriate type will be created
- * (and returned).
- *
- * We recursively copy all child properties of plain Objects in the source- so
- * that namespace- like dictionaries are merged.
- *
+
  * Note that the target can be a function, in which case the properties in
  * the source Object are copied onto it as static properties of the Function.
  *
@@ -507,11 +475,7 @@ function isValidKey$1(key) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var Deferred = /** @class */ (function () {
     function Deferred() {
@@ -527,11 +491,7 @@ var Deferred = /** @class */ (function () {
      * Our API internals are not promiseified and cannot because our callback APIs have subtle expectations around
      * invoking promises inline, which Promises are forbidden to do. This method accepts an optional node-style callback
      * and returns a node-style callback which will resolve or reject the Deferred's promise.
-     */
-    Deferred.prototype.wrapCallback = function (callback) {
-        var _this = this;
-        return function (error, value) {
-            if (error) {
+
                 _this.reject(error);
             }
             else {
@@ -565,11 +525,7 @@ var Deferred = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function createMockUserToken(token, projectId) {
     if (token.uid) {
@@ -589,11 +545,7 @@ function createMockUserToken(token, projectId) {
     var payload = __assign({ 
         // Set all required fields to decent defaults
         iss: "https://securetoken.google.com/" + project, aud: project, iat: iat, exp: iat + 3600, auth_time: iat, sub: sub, user_id: sub, firebase: {
-            sign_in_provider: 'custom',
-            identities: {}
-        } }, token);
-    // Unsecured JWTs use the empty string as a signature.
-    var signature = '';
+
     return [
         base64urlEncodeWithoutPadding(JSON.stringify(header)),
         base64urlEncodeWithoutPadding(JSON.stringify(payload)),
@@ -611,11 +563,7 @@ function createMockUserToken(token, projectId) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns navigator.userAgent string or '' if it's not defined.
@@ -639,11 +587,7 @@ function getUA() {
  */
 function isMobileCordova() {
     return (typeof window !== 'undefined' &&
-        // @ts-ignore Setting up an broadly applicable index signature for Window
-        // just to deal with this case would probably be a bad idea.
-        !!(window['cordova'] || window['phonegap'] || window['PhoneGap']) &&
-        /ios|iphone|ipod|ipad|android|blackberry|iemobile/i.test(getUA()));
-}
+
 /**
  * Detect React Native.
  *
@@ -671,11 +615,7 @@ function isNodeSdk() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var ERROR_NAME = 'FirebaseError';
 // Based on code from:
@@ -703,11 +643,7 @@ var ErrorFactory = /** @class */ (function () {
     function ErrorFactory(service, serviceName, errors) {
         this.service = service;
         this.serviceName = serviceName;
-        this.errors = errors;
-    }
-    ErrorFactory.prototype.create = function (code) {
-        var data = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
+uments.length; _i++) {
             data[_i - 1] = arguments[_i];
         }
         var customData = data[0] || {};
@@ -739,11 +675,7 @@ var PATTERN = /\{\$([^}]+)}/g;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Evaluates a JSON string into a javascript object.
@@ -773,17 +705,9 @@ function stringify(data) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
-/**
- * Decodes a Firebase auth. token into constituent parts.
- *
- * Notes:
- * - May return with invalid / incomplete claims if there's no native base64 decoding support.
+complete claims if there's no native base64 decoding support.
  * - Doesn't check if the token is actually valid.
  */
 var decode = function (token) {
@@ -813,11 +737,7 @@ var decode = function (token) {
  */
 var isValidFormat = function (token) {
     var decoded = decode(token), claims = decoded.claims;
-    return !!claims && typeof claims === 'object' && claims.hasOwnProperty('iat');
-};
-/**
- * Attempts to peer into an auth token and determine if it's an admin auth token by looking at the claims portion.
- *
+
  * Notes:
  * - May return a false negative if there's no native base64 decoding support.
  * - Doesn't check if the token is actually valid.
@@ -837,11 +757,7 @@ var isAdmin = function (token) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function contains(obj, key) {
     return Object.prototype.hasOwnProperty.call(obj, key);
@@ -881,15 +797,7 @@ function map(obj, fn, contextObj) {
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Returns a querystring-formatted string (e.g. &arg=val&arg2=val2) from a
+d string (e.g. &arg=val&arg2=val2) from a
  * params object (e.g. {arg: 'val', arg2: 'val2'})
  * Note: You must prepend it with ? when adding it to a URL.
  */
@@ -922,11 +830,7 @@ function querystring(querystringParams) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * @fileoverview SHA-1 cryptographic hash.
@@ -934,11 +838,7 @@ function querystring(querystringParams) {
  * http://csrc.nist.gov/publications/fips/fips180-3/fips180-3_final.pdf.
  *
  * Usage:
- *   var sha1 = new sha1();
- *   sha1.update(bytes);
- *   var hash = sha1.digest();
- *
- * Performance:
+
  *   Chrome 23:   ~400 Mbit/s
  *   Firefox 16:  ~250 Mbit/s
  *
@@ -974,11 +874,7 @@ var Sha1 = /** @class */ (function () {
          * Contains data needed to pad messages less than 64 bytes.
          * @private
          */
-        this.pad_ = [];
-        /**
-         * @private {number}
-         */
-        this.inbuf_ = 0;
+
         /**
          * @private {number}
          */
@@ -1189,11 +1085,7 @@ function errorPrefix(fnName, argName) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // Code originally came from goog.crypt.stringToUtf8ByteArray, but for some reason they
 // automatically replaced '\r\n' with '\n', and they didn't handle surrogate pairs,
@@ -1245,11 +1137,7 @@ var stringToByteArray = function (str) {
 /**
  * Calculate length without actually converting; useful for doing cheaper validation.
  * @param {string} str
- * @return {number}
- */
-var stringLength = function (str) {
-    var p = 0;
-    for (var i = 0; i < str.length; i++) {
+h; i++) {
         var c = str.charCodeAt(i);
         if (c < 128) {
             p++;
@@ -1279,11 +1167,7 @@ var stringLength = function (str) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getModularInstance(service) {
     if (service && service._delegate) {
@@ -1339,17 +1223,9 @@ var Component = /** @class */ (function () {
  * @license
  * Copyright 2017 Google LLC
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+es/LICENSE-2.0
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var _a;
 /**
@@ -1409,11 +1285,7 @@ var defaultLogHandler = function (instance, logType) {
     }
     if (logType < instance.logLevel) {
         return;
-    }
-    var now = new Date().toISOString();
-    var method = ConsoleMethod[logType];
-    if (method) {
-        console[method].apply(console, __spreadArray(["[" + now + "]  " + instance.name + ":"], args));
+sole, __spreadArray(["[" + now + "]  " + instance.name + ":"], args));
     }
     else {
         throw new Error("Attempted to log a message with an invalid logType (value: " + logType + ")");
@@ -1541,11 +1413,7 @@ const version = "0.12.0";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** The semver (www.semver.org) version of the SDK. */
 let SDK_VERSION = '';
@@ -1567,11 +1435,7 @@ function setSDKVersion(version) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Wraps a DOM Storage object and:
@@ -1613,11 +1477,7 @@ class DOMStorageWrapper {
         }
         else {
             return jsonEval(storedVal);
-        }
-    }
-    remove(key) {
-        this.domStorage_.removeItem(this.prefixedName_(key));
-    }
+
     prefixedName_(name) {
         return this.prefix_ + name;
     }
@@ -1636,18 +1496,10 @@ class DOMStorageWrapper {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
- * An in-memory storage implementation that matches the API of DOMStorageWrapper
- * (TODO: create interface for both to implement).
- */
-class MemoryStorage {
-    constructor() {
+
         this.cache_ = {};
         this.isInMemoryStorage = true;
     }
@@ -1680,11 +1532,7 @@ class MemoryStorage {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Helper to create a DOMStorageWrapper or else fall back to MemoryStorage.
@@ -1716,11 +1564,7 @@ const createStoragefor = function (domStorageName) {
 /** A storage object that lasts across sessions */
 const PersistentStorage = createStoragefor('localStorage');
 /** A storage object that only lasts one session */
-const SessionStorage = createStoragefor('sessionStorage');
 
-/**
- * @license
- * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1728,11 +1572,7 @@ const SessionStorage = createStoragefor('sessionStorage');
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const logClient = new Logger('@firebase/database');
 /**
@@ -1764,11 +1604,7 @@ const buildLogMessage_ = function (...varArgs) {
             (arg &&
                 typeof arg === 'object' &&
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                typeof arg.length === 'number')) {
-            message += buildLogMessage_.apply(null, arg);
-        }
-        else if (typeof arg === 'object') {
-            message += stringify(arg);
+arg);
         }
         else {
             message += arg;
@@ -1812,11 +1648,7 @@ const log = function (...varArgs) {
         firstLog_ = false;
         if (logger === null && SessionStorage.get('logging_enabled') === true) {
             enableLogging$1(true);
-        }
-    }
-    if (logger) {
-        const message = buildLogMessage_.apply(null, varArgs);
-        logger(message);
+
     }
 };
 const logWrapper = function (prefix) {
@@ -2217,11 +2049,7 @@ const setTimeoutNonBlocking = function (fn, time) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Abstraction around AppCheck's token fetching capabilities.
@@ -2274,11 +2102,7 @@ class AppCheckTokenProvider {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Abstraction around FirebaseApp's token fetching capabilities.
@@ -2309,11 +2133,7 @@ class FirebaseAuthTokenProvider {
                         resolve(null);
                     }
                 }, 0);
-            });
-        }
-        return this.auth_.getToken(forceRefresh).catch(error => {
-            // TODO: Need to figure out all the cases this is raised and whether
-            // this makes sense.
+
             if (error && error.code === 'auth/token-not-initialized') {
                 log('Got auth/token-not-initialized error.  Treating as null token.');
                 return null;
@@ -2366,11 +2186,7 @@ class FirebaseAuthTokenProvider {
         warn(errorMessage);
     }
 }
-/* AuthTokenProvider that supplies a constant token. Used by Admin SDK or mockUserToken with emulators. */
-class EmulatorTokenProvider {
-    constructor(accessToken) {
-        this.accessToken = accessToken;
-    }
+
     getToken(forceRefresh) {
         return Promise.resolve({
             accessToken: this.accessToken
@@ -2397,11 +2213,7 @@ EmulatorTokenProvider.OWNER = 'owner';
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const PROTOCOL_VERSION = '5';
 const VERSION_PARAM = 'v';
@@ -2427,11 +2239,7 @@ const LONG_POLLING = 'long_polling';
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A class that holds metadata about a Repo object
@@ -2497,11 +2305,7 @@ function repoInfoNeedsQueryParam(repoInfo) {
 }
 /**
  * Returns the websocket URL for this repo
- * @param repoInfo - RepoInfo object
- * @param type - of connection
- * @param params - list
- * @returns The URL for this repo
- */
+
 function repoInfoConnectionURL(repoInfo, type, params) {
     assert(typeof type === 'string', 'typeof type must == string');
     assert(typeof params === 'object', 'typeof params must == object');
@@ -2527,11 +2331,7 @@ function repoInfoConnectionURL(repoInfo, type, params) {
         pairs.push(key + '=' + value);
     });
     return connURL + pairs.join('&');
-}
 
-/**
- * @license
- * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -2539,11 +2339,7 @@ function repoInfoConnectionURL(repoInfo, type, params) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Tracks a collection of stats.
@@ -2573,11 +2369,7 @@ class StatsCollection {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const collections = {};
 const reporters = {};
@@ -2606,11 +2398,7 @@ function statsManagerGetOrCreateReporter(repoInfo, creatorFunction) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * This class ensures the packets from the server arrive in order
@@ -2651,11 +2439,7 @@ class PacketReceiver {
                         this.onMessage_(toProcess[i]);
                     });
                 }
-            }
-            if (this.currentResponseNum === this.closeAfterResponse) {
-                if (this.onClose) {
-                    this.onClose();
-                    this.onClose = null;
+= null;
                 }
                 break;
             }
@@ -2674,11 +2458,7 @@ class PacketReceiver {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // URL query parameters associated with longpolling
 const FIREBASE_LONGPOLL_START_PARAM = 'start';
@@ -2689,11 +2469,7 @@ const FIREBASE_LONGPOLL_ID_PARAM = 'id';
 const FIREBASE_LONGPOLL_PW_PARAM = 'pw';
 const FIREBASE_LONGPOLL_SERIAL_PARAM = 'ser';
 const FIREBASE_LONGPOLL_CALLBACK_ID_PARAM = 'cb';
-const FIREBASE_LONGPOLL_SEGMENT_NUM_PARAM = 'seg';
-const FIREBASE_LONGPOLL_SEGMENTS_IN_PACKET = 'ts';
-const FIREBASE_LONGPOLL_DATA_PARAM = 'd';
-const FIREBASE_LONGPOLL_DISCONN_FRAME_REQUEST_PARAM = 'dframe';
-//Data size constants.
+
 //TODO: Perf: the maximum length actually differs from browser to browser.
 // We should check what browser we're on and set accordingly.
 const MAX_URL_DATA_SIZE = 1870;
@@ -2722,11 +2498,7 @@ class BrowserPollConnection {
      * @param transportSessionId Optional transportSessionid if we are
      * reconnecting for an existing transport session
      * @param lastSessionId Optional lastSessionId if the PersistentConnection has
-     * already created a connection previously
-     */
-    constructor(connId, repoInfo, applicationId, appCheckToken, authToken, transportSessionId, lastSessionId) {
-        this.connId = connId;
-        this.repoInfo = repoInfo;
+
         this.applicationId = applicationId;
         this.appCheckToken = appCheckToken;
         this.authToken = authToken;
@@ -2790,11 +2562,7 @@ class BrowserPollConnection {
                         this.scriptTagHolder.sendNewPolls = false;
                         // arg1 in this case is the last response number sent by the server. We should try to receive
                         // all of the responses up to this one before closing
-                        this.myPacketOrderer.closeAfter(arg1, () => {
-                            this.onClosed_();
-                        });
-                    }
-                    else {
+
                         this.onClosed_();
                     }
                 }
@@ -3272,11 +3040,7 @@ class FirebaseIFrameScriptHolder {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const WEBSOCKET_MAX_FRAME_SIZE = 16384;
 const WEBSOCKET_KEEPALIVE_INTERVAL = 45000;
@@ -3392,11 +3156,7 @@ class WebSocketConnection {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const error = e.message || e.data;
             if (error) {
-                this.log_(error);
-            }
-            this.onClosed_();
-        };
-    }
+
     /**
      * No-op for websockets, we don't need to do anything once the connection is confirmed as open
      */
@@ -3595,11 +3355,7 @@ WebSocketConnection.healthyTimeout = 30000;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Currently simplistic, this class manages what transport a Connection should use at various stages of its
@@ -3673,11 +3429,7 @@ class TransportManager {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // Abort upgrade attempt if it takes longer than 60s.
 const UPGRADE_TIMEOUT = 60000;
@@ -3723,11 +3475,7 @@ class Connection {
         this.appCheckToken_ = appCheckToken_;
         this.authToken_ = authToken_;
         this.onMessage_ = onMessage_;
-        this.onReady_ = onReady_;
-        this.onDisconnect_ = onDisconnect_;
-        this.onKill_ = onKill_;
-        this.lastSessionId = lastSessionId;
-        this.connectionCount = 0;
+
         this.pendingDataMessages = [];
         this.state_ = 0 /* CONNECTING */;
         this.log_ = logWrapper('c:' + this.id + ':');
@@ -3801,11 +3549,7 @@ class Connection {
             else if (conn === this.secondaryConn_) {
                 this.log_('Secondary connection lost.');
                 this.onSecondaryConnectionLost_();
-            }
-            else {
-                this.log_('closing an old connection');
-            }
-        };
+
     }
     connReceiver_(conn) {
         return (message) => {
@@ -4139,11 +3883,7 @@ class Connection {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Interface defining the set of actions that can be performed against the Firebase server
@@ -4180,11 +3920,7 @@ class ServerActions {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Base class to be used if you want to emit events. Call the constructor with
@@ -4245,11 +3981,7 @@ class EventEmitter {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Monitors online state (as reported by window.online/offline events).
@@ -4279,11 +4011,7 @@ class OnlineMonitor extends EventEmitter {
                 if (this.online_) {
                     this.online_ = false;
                     this.trigger('online', false);
-                }
-            }, false);
-        }
-    }
-    static getInstance() {
+
         return new OnlineMonitor();
     }
     getInitialEvent(eventType) {
@@ -4305,11 +4033,7 @@ class OnlineMonitor extends EventEmitter {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Maximum key depth. */
 const MAX_PATH_DEPTH = 32;
@@ -4324,11 +4048,7 @@ class Path {
     /**
      * @param pathOrString - Path string to parse, or another path, or the raw
      * tokens array
-     */
-    constructor(pathOrString, pieceNum) {
-        if (pieceNum === void 0) {
-            this.pieces_ = pathOrString.split('/');
-            // Remove empty pieces.
+s.
             let copyTo = 0;
             for (let i = 0; i < this.pieces_.length; i++) {
                 if (this.pieces_[i].length > 0) {
@@ -4389,11 +4109,7 @@ function pathToUrlEncodedString(path) {
             pathString += '/' + encodeURIComponent(String(path.pieces_[i]));
         }
     }
-    return pathString || '/';
-}
-/**
- * Shallow copy of the parts of the path.
- *
+
  */
 function pathSlice(path, begin = 0) {
     return path.pieces_.slice(path.pieceNum_ + begin);
@@ -4449,11 +4165,7 @@ function newRelativePath(outerPath, innerPath) {
         throw new Error('INTERNAL ERROR: innerPath (' +
             innerPath +
             ') is not within ' +
-            'outerPath (' +
-            outerPath +
-            ')');
-    }
-}
+
 /**
  * @returns -1, 0, 1 if left is less, equal, or greater than the right.
  */
@@ -4583,11 +4295,7 @@ function validationPathToErrorString(validationPath) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class VisibilityMonitor extends EventEmitter {
     constructor() {
@@ -4648,11 +4356,7 @@ class VisibilityMonitor extends EventEmitter {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const RECONNECT_MIN_DELAY = 1000;
 const RECONNECT_MAX_DELAY_DEFAULT = 60 * 5 * 1000; // 5 minutes in milliseconds (Case: 1858)
@@ -4735,11 +4439,7 @@ class PersistentConnection extends ServerActions {
     get(query) {
         this.initConnection_();
         const deferred = new Deferred();
-        const request = {
-            p: query._path.toString(),
-            q: query._queryObject
-        };
-        const outstandingGet = {
+
             action: 'g',
             request,
             onComplete: (message) => {
@@ -4800,11 +4500,7 @@ class PersistentConnection extends ServerActions {
         }
     }
     sendGet_(index) {
-        const get = this.outstandingGets_[index];
-        this.sendRequest('g', get.request, (message) => {
-            delete this.outstandingGets_[index];
-            this.outstandingGetCount_--;
-            if (this.outstandingGetCount_ === 0) {
+etCount_ === 0) {
                 this.outstandingGets_ = [];
             }
             if (get.onComplete) {
@@ -5472,11 +5168,7 @@ PersistentConnection.nextConnectionId_ = 0;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class NamedNode {
     constructor(name, node) {
@@ -5498,11 +5190,7 @@ class NamedNode {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class Index {
     /**
@@ -5544,11 +5232,7 @@ class Index {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 let __EMPTY_NODE;
 class KeyIndex extends Index {
@@ -5602,11 +5286,7 @@ const KEY_INDEX = new KeyIndex();
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An iterator over an LLRBNode.
@@ -5640,11 +5320,7 @@ class SortedMapIterator {
             else if (cmp === 0) {
                 // This node is exactly equal to our start key. Push it on the stack, but stop iterating;
                 this.nodeStack_.push(node);
-                break;
-            }
-            else {
-                // This node is greater than our start key, add it to the stack and move to the next one
-                this.nodeStack_.push(node);
+ush(node);
                 if (this.isReverse_) {
                     node = node.right;
                 }
@@ -5666,11 +5342,7 @@ class SortedMapIterator {
         else {
             result = { key: node.key, value: node.value };
         }
-        if (this.isReverse_) {
-            node = node.left;
-            while (!node.isEmpty()) {
-                this.nodeStack_.push(node);
-                node = node.right;
+;
             }
         }
         else {
@@ -5712,11 +5384,7 @@ class LLRBNode {
     constructor(key, value, color, left, right) {
         this.key = key;
         this.value = value;
-        this.color = color != null ? color : LLRBNode.RED;
-        this.left =
-            left != null ? left : SortedMap.EMPTY_NODE;
-        this.right =
-            right != null ? right : SortedMap.EMPTY_NODE;
+ : SortedMap.EMPTY_NODE;
     }
     /**
      * Returns a copy of the current node, optionally replacing pieces of it.
@@ -5770,11 +5438,7 @@ class LLRBNode {
             action(this.key, this.value) ||
             this.left.reverseTraversal(action));
     }
-    /**
-     * @returns The minimum node in the tree.
-     */
-    min_() {
-        if (this.left.isEmpty()) {
+{
             return this;
         }
         else {
@@ -6217,11 +5881,7 @@ SortedMap.EMPTY_NODE = new LLRBEmptyNode();
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function NAME_ONLY_COMPARATOR(left, right) {
     return nameCompare(left.name, right.name);
@@ -6240,11 +5900,7 @@ function NAME_COMPARATOR(left, right) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 let MAX_NODE$2;
 function setMaxNode$1(val) {
@@ -6285,11 +5941,7 @@ const validatePriorityNode = function (priorityNode) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 let __childrenNodeConstructor;
 /**
@@ -6397,11 +6049,7 @@ class LeafNode {
     }
     val(exportFormat) {
         if (exportFormat && !this.getPriority().isEmpty()) {
-            return {
-                '.value': this.getValue(),
-                '.priority': this.getPriority().val()
-            };
-        }
+
         else {
             return this.getValue();
         }
@@ -6420,11 +6068,7 @@ class LeafNode {
             toHash += type + ':';
             if (type === 'number') {
                 toHash += doubleToIEEE754String(this.value_);
-            }
-            else {
-                toHash += this.value_;
-            }
-            this.lazyHash_ = sha1(toHash);
+(toHash);
         }
         return this.lazyHash_;
     }
@@ -6465,11 +6109,7 @@ class LeafNode {
             }
             else {
                 // Note that this works because true > false, all others are number or string comparisons
-                if (this.value_ < otherLeaf.value_) {
-                    return -1;
-                }
-                else if (this.value_ === otherLeaf.value_) {
-                    return 0;
+
                 }
                 else {
                     return 1;
@@ -6516,11 +6156,7 @@ LeafNode.VALUE_TYPE_ORDER = ['object', 'boolean', 'number', 'string'];
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 let nodeFromJSON$1;
 let MAX_NODE$1;
@@ -6578,11 +6214,7 @@ const PRIORITY_INDEX = new PriorityIndex();
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const LOG_2 = Math.log(2);
 class Base12Num {
@@ -6694,11 +6326,7 @@ const buildChildSet = function (childList, cmp, keyFn, mapSortFn) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 let _defaultIndexMap;
 const fallbackObject = {};
@@ -6708,11 +6336,7 @@ class IndexMap {
         this.indexSet_ = indexSet_;
     }
     /**
-     * The default IndexMap for nodes without a priority
-     */
-    static get Default() {
-        assert(fallbackObject && PRIORITY_INDEX, 'ChildrenNode.ts has not been loaded');
-        _defaultIndexMap =
+
             _defaultIndexMap ||
                 new IndexMap({ '.priority': fallbackObject }, { '.priority': PRIORITY_INDEX });
         return _defaultIndexMap;
@@ -6770,11 +6394,7 @@ class IndexMap {
             if (indexedChildren === fallbackObject) {
                 // Check to see if we need to index everything
                 if (index.isDefinedOn(namedNode.node)) {
-                    // We need to build this index
-                    const childList = [];
-                    const iter = existingChildren.getIterator(NamedNode.Wrap);
-                    let next = iter.getNext();
-                    while (next) {
+{
                         if (next.name !== namedNode.name) {
                             childList.push(next);
                         }
@@ -6833,11 +6453,7 @@ class IndexMap {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // TODO: For memory savings, don't store priorityNode_ if it's empty.
 let EMPTY_NODE;
@@ -6890,11 +6506,7 @@ class ChildrenNode {
             return new ChildrenNode(this.children_, newPriorityNode, this.indexMap_);
         }
     }
-    /** @inheritDoc */
-    getImmediateChild(childName) {
-        // Hack to treat priority as a regular child
-        if (childName === '.priority') {
-            return this.getPriority();
+ty();
         }
         else {
             const child = this.children_.get(childName);
@@ -7029,11 +6641,7 @@ class ChildrenNode {
         else {
             return this.children_.minKey();
         }
-    }
-    getFirstChild(indexDefinition) {
-        const minKey = this.getFirstChildName(indexDefinition);
-        if (minKey) {
-            return new NamedNode(minKey, this.children_.get(minKey));
+minKey, this.children_.get(minKey));
         }
         else {
             return null;
@@ -7246,11 +6854,7 @@ setMaxNode(MAX_NODE);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const USE_HINZE = true;
 /**
@@ -7333,11 +6937,7 @@ setNodeFromJSON(nodeFromJSON);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class PathIndex extends Index {
     constructor(indexPath_) {
@@ -7386,11 +6986,7 @@ class PathIndex extends Index {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class ValueIndex extends Index {
     compare(a, b) {
@@ -7439,11 +7035,7 @@ const VALUE_INDEX = new ValueIndex();
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // Modeled after base64 web-safe chars, but ordered by ASCII.
 const PUSH_CHARS = '-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
@@ -7458,11 +7050,7 @@ const MAX_KEY_LEN = 786;
  * 2. They contain 72-bits of random data after the timestamp so that IDs won't
  *    collide with other clients' IDs.
  * 3. They sort *lexicographically* (so the timestamp is converted to characters
- *    that will sort properly).
- * 4. They're monotonically increasing. Even if you generate more than one in
- *    the same timestamp, the latter ones will sort after the former ones. We do
- *    this by using the previous random bits but "incrementing" them by 1 (only
- *    in the case of a timestamp collision).
+collision).
  */
 const nextPushId = (function () {
     // Timestamp of last push, used to prevent local collisions if you push twice
@@ -7545,11 +7133,7 @@ const predecessor = function (key) {
     const keyAsInt = tryParseInt(key);
     if (keyAsInt != null) {
         return '' + (keyAsInt - 1);
-    }
-    const next = new Array(key.length);
-    for (let i = 0; i < next.length; i++) {
-        next[i] = key.charAt(i);
-    }
+
     // If `key` ends in `MIN_PUSH_CHAR`, the largest key lexicographically
     // smaller than `key`, is `key[0:key.length - 1]`. The next key smaller
     // than that, `predecessor(predecessor(key))`, is
@@ -7586,11 +7170,7 @@ const predecessor = function (key) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function changeValue(snapshotNode) {
     return { type: "value" /* VALUE */, snapshotNode };
@@ -7602,11 +7182,7 @@ function changeChildRemoved(childName, snapshotNode) {
     return { type: "child_removed" /* CHILD_REMOVED */, snapshotNode, childName };
 }
 function changeChildChanged(childName, snapshotNode, oldSnap) {
-    return {
-        type: "child_changed" /* CHILD_CHANGED */,
-        snapshotNode,
-        childName,
-        oldSnap
+
     };
 }
 function changeChildMoved(childName, snapshotNode) {
@@ -7623,11 +7199,7 @@ function changeChildMoved(childName, snapshotNode) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Doesn't really filter nodes but applies an index to the node and keeps track of any changes
@@ -7659,11 +7231,7 @@ class IndexedFilter {
                 else {
                     assert(snap.isLeafNode(), 'A child remove without an old child only makes sense on a leaf node');
                 }
-            }
-            else if (oldChild.isEmpty()) {
-                optChangeAccumulator.trackChildChange(changeChildAdded(key, newChild));
-            }
-            else {
+
                 optChangeAccumulator.trackChildChange(changeChildChanged(key, newChild, oldChild));
             }
         }
@@ -7729,11 +7297,7 @@ class IndexedFilter {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Filters nodes by range and uses an IndexFilter to track any changes after filtering the node
@@ -7810,21 +7374,13 @@ class RangedFilter {
     }
 }
 
-/**
- * @license
- * Copyright 2017 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
+nse, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Applies a limit and a range to a node and uses RangedFilter to do the heavy lifting where possible
@@ -7851,11 +7407,7 @@ class LimitedFilter {
         }
         else {
             return this.fullLimitUpdateChild_(snap, key, newChild, source, optChangeAccumulator);
-        }
-    }
-    updateFullNode(oldSnap, newSnap, optChangeAccumulator) {
-        let filtered;
-        if (newSnap.isLeafNode() || newSnap.isEmpty()) {
+|| newSnap.isEmpty()) {
             // Make sure we have a children node with the correct index, not a leaf node;
             filtered = ChildrenNode.EMPTY_NODE.withIndex(this.index_);
         }
@@ -7957,11 +7509,7 @@ class LimitedFilter {
         if (this.reverse_) {
             const indexCmp = this.index_.getCompare();
             cmp = (a, b) => indexCmp(b, a);
-        }
-        else {
-            cmp = this.index_.getCompare();
-        }
-        const oldEventCache = snap;
+p;
         assert(oldEventCache.numChildren() === this.limit_, '');
         const newChildNamedNode = new NamedNode(childKey, childSnap);
         const windowBoundary = this.reverse_
@@ -8037,11 +7585,7 @@ class LimitedFilter {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * This class is an immutable-from-the-public-api struct containing a set of query parameters defining a
@@ -8052,11 +7596,7 @@ class LimitedFilter {
  */
 class QueryParams {
     constructor() {
-        this.limitSet_ = false;
-        this.startSet_ = false;
-        this.startNameSet_ = false;
-        this.startAfterSet_ = false;
-        this.endSet_ = false;
+
         this.endNameSet_ = false;
         this.endBeforeSet_ = false;
         this.limit_ = 0;
@@ -8269,11 +7809,7 @@ function queryParamsEndBefore(queryParams, indexValue, key) {
         if (key == null) {
             childKey = MIN_NAME;
         }
-        else {
-            childKey = predecessor(key);
-        }
-        params = queryParamsEndAt(queryParams, indexValue, childKey);
-    }
+
     params.endBeforeSet_ = true;
     return params;
 }
@@ -8377,11 +7913,7 @@ function queryParamsGetQueryObject(queryParams) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An implementation of ServerActions that communicates with the server via REST requests.
@@ -8553,11 +8085,7 @@ class ReadonlyRestClient extends ServerActions {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Mutable object which basically just stores a reference to the "latest" immutable snapshot.
@@ -8584,11 +8112,7 @@ class SnapshotHolder {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function newSparseSnapshotTree() {
     return {
@@ -8621,11 +8145,7 @@ function sparseSnapshotTreeRemember(sparseSnapshotTree, path, data) {
         sparseSnapshotTreeRemember(child, path, data);
     }
 }
-/**
- * Purge the data at path from the cache.
- *
- * @param path - Path to look up snapshot for.
- * @returns True if this node should now be removed.
+uld now be removed.
  */
 function sparseSnapshotTreeForget(sparseSnapshotTree, path) {
     if (pathIsEmpty(path)) {
@@ -8704,11 +8224,7 @@ function sparseSnapshotTreeForEachChild(sparseSnapshotTree, func) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns the delta from the previous call to get stats.
@@ -8743,11 +8259,7 @@ class StatsListener {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // Assuming some apps may have a short amount of time on page, and a bulk of firebase operations probably
 // happen on page load, we try to report our first set of stats pretty quickly, but we wait at least 10
@@ -8793,11 +8305,7 @@ class StatsReporter {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  *
@@ -8809,11 +8317,7 @@ var OperationType;
     OperationType[OperationType["MERGE"] = 1] = "MERGE";
     OperationType[OperationType["ACK_USER_WRITE"] = 2] = "ACK_USER_WRITE";
     OperationType[OperationType["LISTEN_COMPLETE"] = 3] = "LISTEN_COMPLETE";
-})(OperationType || (OperationType = {}));
-function newOperationSourceUser() {
-    return {
-        fromUser: true,
-        fromServer: false,
+
         queryId: null,
         tagged: false
     };
@@ -8840,16 +8344,8 @@ function newOperationSourceServerTaggedQuery(queryId) {
  * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
+
  */
 class AckUserWrite {
     /**
@@ -8894,11 +8390,7 @@ class AckUserWrite {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class ListenComplete {
     constructor(source, path) {
@@ -8927,11 +8419,7 @@ class ListenComplete {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class Overwrite {
     constructor(source, path, snap) {
@@ -8961,11 +8449,7 @@ class Overwrite {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class Merge {
     constructor(
@@ -8976,11 +8460,7 @@ class Merge {
         this.path = path;
         this.children = children;
         /** @inheritDoc */
-        this.type = OperationType.MERGE;
-    }
-    operationForChild(childName) {
-        if (pathIsEmpty(this.path)) {
-            const childTree = this.children.subtree(new Path(childName));
+s.children.subtree(new Path(childName));
             if (childTree.isEmpty()) {
                 // This child is unaffected
                 return null;
@@ -9015,16 +8495,8 @@ class Merge {
  * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
+
  */
 /**
  * A cache node only stores complete children. Additionally it holds a flag whether the node can be considered fully
@@ -9069,17 +8541,9 @@ class CacheNode {
  * @license
  * Copyright 2017 Google LLC
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+es/LICENSE-2.0
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An EventGenerator is used to convert "raw" changes (Change) as computed by the
@@ -9125,11 +8589,7 @@ function eventGeneratorGenerateEventsForType(eventGenerator, events, eventType, 
     const filteredChanges = changes.filter(change => change.type === eventType);
     filteredChanges.sort((a, b) => eventGeneratorCompareChanges(eventGenerator, a, b));
     filteredChanges.forEach(change => {
-        const materializedChange = eventGeneratorMaterializeSingleChange(eventGenerator, change, eventCache);
-        registrations.forEach(registration => {
-            if (registration.respondsTo(change.type)) {
-                events.push(registration.createEvent(materializedChange, eventGenerator.query_));
-            }
+
         });
     });
 }
@@ -9161,11 +8621,7 @@ function eventGeneratorCompareChanges(eventGenerator, a, b) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function newViewCache(eventCache, serverCache) {
     return { eventCache, serverCache };
@@ -9178,11 +8634,7 @@ function viewCacheUpdateServerSnap(viewCache, serverSnap, complete, filtered) {
 }
 function viewCacheGetCompleteEventSnap(viewCache) {
     return viewCache.eventCache.isFullyInitialized()
-        ? viewCache.eventCache.getNode()
-        : null;
-}
-function viewCacheGetCompleteServerSnap(viewCache) {
-    return viewCache.serverCache.isFullyInitialized()
+isFullyInitialized()
         ? viewCache.serverCache.getNode()
         : null;
 }
@@ -9197,11 +8649,7 @@ function viewCacheGetCompleteServerSnap(viewCache) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 let emptyChildrenSingleton;
 /**
@@ -9215,11 +8663,7 @@ const EmptyChildren = () => {
     return emptyChildrenSingleton;
 };
 /**
- * A tree with immutable elements.
- */
-class ImmutableTree {
-    constructor(value, children = EmptyChildren()) {
-        this.value = value;
+
         this.children = children;
     }
     static fromObject(obj) {
@@ -9249,11 +8693,7 @@ class ImmutableTree {
         if (this.value != null && predicate(this.value)) {
             return { path: newEmptyPath(), value: this.value };
         }
-        else {
-            if (pathIsEmpty(relativePath)) {
-                return null;
-            }
-            else {
+
                 const front = pathGetFront(relativePath);
                 const child = this.children.get(front);
                 if (child !== null) {
@@ -9308,11 +8748,7 @@ class ImmutableTree {
         if (pathIsEmpty(relativePath)) {
             return new ImmutableTree(toSet, this.children);
         }
-        else {
-            const front = pathGetFront(relativePath);
-            const child = this.children.get(front) || new ImmutableTree(null);
-            const newChild = child.set(pathPopFront(relativePath), toSet);
-            const newChildren = this.children.insert(front, newChild);
+his.children.insert(front, newChild);
             return new ImmutableTree(this.value, newChildren);
         }
     }
@@ -9363,11 +8799,7 @@ class ImmutableTree {
      */
     get(relativePath) {
         if (pathIsEmpty(relativePath)) {
-            return this.value;
-        }
-        else {
-            const front = pathGetFront(relativePath);
-            const child = this.children.get(front);
+ildren.get(front);
             if (child) {
                 return child.get(pathPopFront(relativePath));
             }
@@ -9449,11 +8881,7 @@ class ImmutableTree {
     foreachOnPath(path, f) {
         return this.foreachOnPath_(path, newEmptyPath(), f);
     }
-    foreachOnPath_(pathToFollow, currentRelativePath, f) {
-        if (pathIsEmpty(pathToFollow)) {
-            return this;
-        }
-        else {
+
             if (this.value) {
                 f(currentRelativePath, this.value);
             }
@@ -9485,11 +8913,7 @@ class ImmutableTree {
         }
     }
     foreachChild(f) {
-        this.children.inorderTraversal((childName, childTree) => {
-            if (childTree.value) {
-                f(childName, childTree.value);
-            }
-        });
+
     }
 }
 
@@ -9503,11 +8927,7 @@ class ImmutableTree {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * This class holds a collection of writes that can be applied to nodes in unison. It abstracts away the logic with
@@ -9689,11 +9109,7 @@ function applySubtreeWrite(relativePath, writeTree, node) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Create a new WriteTreeRef for the given path. For use with a new sync point at the given path.
@@ -9799,11 +9215,7 @@ function writeTreeRemoveWrite(writeTree, writeId) {
             const children = writeToRemove.children;
             each(children, (childName) => {
                 writeTree.visibleWrites = compoundWriteRemoveWrite(writeTree.visibleWrites, pathChild(writeToRemove.path, childName));
-            });
-        }
-        return true;
-    }
-}
+
 function writeTreeRecordContainsPath_(writeRecord, path) {
     if (writeRecord.snap) {
         return pathContains(writeRecord.path, path);
@@ -9985,11 +9397,7 @@ function writeTreeCalcCompleteEventChildren(writeTree, treePath, completeServerC
         });
         return completeChildren;
     }
-}
-/**
- * Given that the underlying server data has updated, determine what, if anything, needs to be
- * applied to the event cache.
- *
+
  * Possibilities:
  *
  * 1. No writes are shadowing. Events should be raised, the snap to be applied comes from the server data
@@ -10183,11 +9591,7 @@ function newWriteTreeRef(path, writeTree) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class ChildChangeAccumulator {
     constructor() {
@@ -10249,11 +9653,7 @@ class ChildChangeAccumulator {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An implementation of CompleteChildSource that never returns any additional children
@@ -10317,11 +9717,7 @@ class WriteTreeCompleteChildSource {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function newViewProcessor(filter) {
     return { filter };
@@ -10491,11 +9887,7 @@ function viewProcessorApplyServerOverwrite(viewProcessor, oldViewCache, changePa
         if (!oldServerSnap.isCompleteForPath(changePath) &&
             pathGetLength(changePath) > 1) {
             // We don't update incomplete nodes with updates intended for other listeners
-            return oldViewCache;
-        }
-        const childChangePath = pathPopFront(changePath);
-        const childNode = oldServerSnap.getNode().getImmediateChild(childKey);
-        const newChildNode = childNode.updateChild(childChangePath, changedSnap);
+dNode.updateChild(childChangePath, changedSnap);
         if (childKey === '.priority') {
             newServerCache = serverFilter.updatePriority(oldServerSnap.getNode(), newChildNode);
         }
@@ -10557,11 +9949,7 @@ function viewProcessorApplyUserOverwrite(viewProcessor, oldViewCache, changePath
         }
     }
     return newViewCache;
-}
-function viewProcessorCacheHasChild(viewCache, childKey) {
-    return viewCache.eventCache.isCompleteForChild(childKey);
-}
-function viewProcessorApplyUserMerge(viewProcessor, viewCache, path, changedChildren, writesCache, serverCache, accumulator) {
+rge(viewProcessor, viewCache, path, changedChildren, writesCache, serverCache, accumulator) {
     // HACK: In the case of a limit query, there may be some changes that bump things out of the
     // window leaving room for new items.  It's important we process these changes first, so we
     // iterate the changes twice, first processing any that affect items currently in view.
@@ -10625,11 +10013,7 @@ function viewProcessorApplyServerMerge(viewProcessor, viewCache, path, changedCh
             childMergeTree.value === undefined;
         if (!serverNode.hasChild(childKey) && !isUnknownDeepMerge) {
             const serverChild = viewCache.serverCache
-                .getNode()
-                .getImmediateChild(childKey);
-            const newChild = viewProcessorApplyMerge(viewProcessor, serverChild, childMergeTree);
-            curViewCache = viewProcessorApplyServerOverwrite(viewProcessor, curViewCache, new Path(childKey), newChild, writesCache, serverCache, filterServerNode, accumulator);
-        }
+
     });
     return curViewCache;
 }
@@ -10743,11 +10127,7 @@ function viewProcessorRevertUserWrite(viewProcessor, viewCache, path, writesCach
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A view represents a specific location and query that has 1 or more event registrations.
@@ -10890,11 +10270,7 @@ function viewGenerateEventsForChanges_(view, changes, eventCache, eventRegistrat
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 let referenceConstructor$1;
 /**
@@ -11059,11 +10435,7 @@ function syncPointGetQueryViews(syncPoint) {
 function syncPointGetCompleteServerCache(syncPoint, path) {
     let serverCache = null;
     for (const view of syncPoint.views.values()) {
-        serverCache = serverCache || viewGetCompleteServerCache(view, path);
-    }
-    return serverCache;
-}
-function syncPointViewForQuery(syncPoint, query) {
+ncPoint, query) {
     const params = query._queryParams;
     if (params.loadsAllData()) {
         return syncPointGetCompleteView(syncPoint);
@@ -11098,11 +10470,7 @@ function syncPointGetCompleteView(syncPoint) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 let referenceConstructor;
 function syncTreeSetReferenceConstructor(val) {
@@ -11210,11 +10578,7 @@ function syncTreeAckUserWrite(syncTree, writeId, revert = false) {
     }
 }
 /**
- * Apply new server data for the specified path..
- *
- * @returns Events to raise.
- */
-function syncTreeApplyServerOverwrite(syncTree, path, newData) {
+rite(syncTree, path, newData) {
     return syncTreeApplyOperationToSyncPoints_(syncTree, new Overwrite(newOperationSourceServer(), path, newData));
 }
 /**
@@ -11418,11 +10782,7 @@ function syncTreeAddEventRegistration(syncTree, query, eventRegistration) {
         const queryKey = syncTreeMakeQueryKey_(query);
         assert(!syncTree.queryToTagMap.has(queryKey), 'View does not exist, but we have a tag');
         const tag = syncTreeGetNextQueryTag_();
-        syncTree.queryToTagMap.set(queryKey, tag);
-        syncTree.tagToQueryMap.set(tag, queryKey);
-    }
-    const writesCache = writeTreeChildWrites(syncTree.pendingWriteTree_, path);
-    let events = syncPointAddEventRegistration(syncPoint, query, eventRegistration, writesCache, serverCache, serverCacheComplete);
+tRegistration(syncPoint, query, eventRegistration, writesCache, serverCache, serverCacheComplete);
     if (!viewAlreadyExists && !foundAncestorDefaultView) {
         const view = syncPointViewForQuery(syncPoint, query);
         events = events.concat(syncTreeSetupListener_(syncTree, query, view));
@@ -11728,11 +11088,7 @@ function syncTreeSetupListener_(syncTree, query, view) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class ExistingValueProvider {
     constructor(node_) {
@@ -11875,11 +11231,7 @@ function resolveDeferredValue(node, existingVal, serverValues) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A light-weight tree, traversable by path.  Nodes can have both values and children.
@@ -12043,11 +11395,7 @@ function treeUpdateChild(tree, childName, child) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * True for invalid Firebase keys
@@ -12060,11 +11408,7 @@ const INVALID_KEY_REGEX_ = /[\[\].#$\/\u0000-\u001F\u007F]/;
 const INVALID_PATH_REGEX_ = /[\[\].#$\u0000-\u001F\u007F]/;
 /**
  * Maximum number of characters to allow in leaf value
- */
-const MAX_LEAF_SIZE_ = 10 * 1024 * 1024;
-const isValidKey = function (key) {
-    return (typeof key === 'string' && key.length !== 0 && !INVALID_KEY_REGEX_.test(key));
-};
+
 const isValidPathString = function (pathString) {
     return (typeof pathString === 'string' &&
         pathString.length !== 0 &&
@@ -12207,11 +11551,7 @@ const validateFirebaseMergePaths = function (errorPrefix, mergePaths) {
  */
 const validateFirebaseMergeDataArg = function (fnName, data, path, optional) {
     if (optional && data === undefined) {
-        return;
-    }
-    const errorPrefix$1 = errorPrefix(fnName, 'values');
-    if (!(data && typeof data === 'object') || Array.isArray(data)) {
-        throw new Error(errorPrefix$1 + ' must be an object containing the children to replace.');
+ix$1 + ' must be an object containing the children to replace.');
     }
     const mergePaths = [];
     each(data, (key, value) => {
@@ -12314,11 +11654,7 @@ const validateUrl = function (fnName, parsedUrl) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The event queue serves a few purposes:
@@ -12379,11 +11715,7 @@ function eventQueueRaiseEventsAtPath(eventQueue, path, eventDataList) {
 }
 /**
  * Queues the specified events and synchronously raises all events (including previously queued ones) for
- * locations related to the specified change path (i.e. all ancestors and descendants).
- *
- * It is assumed that the new events are all related (ancestor or descendant) to the specified path.
- *
- * @param changedPath - The path to raise events for.
+to raise events for.
  * @param eventDataList - The events to raise
  */
 function eventQueueRaiseEventsForChangedPath(eventQueue, changedPath, eventDataList) {
@@ -12439,11 +11771,7 @@ function eventListRaise(eventList) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const INTERRUPT_REASON = 'repo_interrupt';
 /**
@@ -12654,11 +11982,7 @@ function repoGetValue(repo, query) {
         const node = nodeFromJSON(payload).withIndex(query._queryParams.getIndex());
         const events = syncTreeApplyServerOverwrite(repo.serverSyncTree_, query._path, node);
         eventQueueRaiseEventsAtPath(repo.eventQueue_, query._path, events);
-        return Promise.resolve(node);
-    }, err => {
-        repoLog(repo, 'get for query ' + stringify(query) + ' failed: ' + err);
-        return Promise.reject(new Error(err));
-    });
+
 }
 function repoSetWithPriority(repo, path, newVal, newPriority, onComplete) {
     repoLog(repo, 'set', {
@@ -12779,11 +12103,7 @@ function repoOnDisconnectUpdate(repo, path, childrenToMerge, onComplete) {
     }
     repo.server_.onDisconnectMerge(path.toString(), childrenToMerge, (status, errorReason) => {
         if (status === 'ok') {
-            each(childrenToMerge, (childName, childNode) => {
-                const newChildNode = nodeFromJSON(childNode);
-                sparseSnapshotTreeRemember(repo.onDisconnect_, pathChild(path, childName), newChildNode);
-            });
-        }
+
         repoCallOnCompleteCallback(repo, onComplete, status, errorReason);
     });
 }
@@ -13316,11 +12636,7 @@ function repoAbortTransactionsOnNode(repo, node) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function decodePath(pathString) {
     let pathStringDecoded = '';
@@ -13461,11 +12777,7 @@ const parseDatabaseURL = function (dataURL) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Encapsulates the data needed to raise an event
@@ -13536,11 +12848,7 @@ class CancelEvent {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A wrapper class that converts events from the database@exp SDK to the legacy
@@ -13582,11 +12890,7 @@ class CallbackContext {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The `onDisconnect` class allows you to write or clear data when your client
@@ -13672,11 +12976,7 @@ class OnDisconnect {
      * when the client is disconnected (due to closing the browser, navigating to a
      * new page, or network issues).
      *
-     * @param value - The value to be written to this location on disconnect (can
-     * be an object, array, string, number, boolean, or null).
-     * @param priority - The priority to be written (string, number, or null).
-     * @returns Resolves when synchronization to the Database is complete.
-     */
+
     setWithPriority(value, priority) {
         validateWritablePath('OnDisconnect.setWithPriority', this._path);
         validateFirebaseDataArg('OnDisconnect.setWithPriority', value, this._path, false);
@@ -13720,11 +13020,7 @@ class OnDisconnect {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * @internal
@@ -13821,11 +13117,7 @@ function validateQueryEndpoints(params) {
                 throw new Error(wrongArgTypeError);
             }
         }
-    }
-    else if (params.getIndex() === PRIORITY_INDEX) {
-        if ((startNode != null && !isValidPriority(startNode)) ||
-            (endNode != null && !isValidPriority(endNode))) {
-            throw new Error('Query: When ordering by priority, the first argument passed to startAt(), ' +
+y: When ordering by priority, the first argument passed to startAt(), ' +
                 'startAfter() endAt(), endBefore(), or equalTo() must be a valid priority value ' +
                 '(null, a number, or a string).');
         }
@@ -13896,11 +13188,7 @@ class DataSnapshot {
      * @hideconstructor
      */
     constructor(_node, 
-    /**
-     * The location of this DataSnapshot.
-     */
-    ref, _index) {
-        this._node = _node;
+
         this.ref = ref;
         this._index = _index;
     }
@@ -13942,11 +13230,7 @@ class DataSnapshot {
      * location has no data, an empty `DataSnapshot` (that is, a `DataSnapshot`
      * whose value is `null`) is returned.
      *
-     * @param path - A relative path to the location of child data.
-     */
-    child(path) {
-        const childPath = new Path(path);
-        const childRef = child(this.ref, path);
+is.ref, path);
         return new DataSnapshot(this._node.getChild(childPath), childRef, PRIORITY_INDEX);
     }
     /**
@@ -14080,11 +13364,7 @@ function ref(db, path) {
  * and are not applied to the returned `Reference`.
  *
  * @param db - The database instance to obtain a reference for.
- * @param url - The Firebase URL at which the returned `Reference` will
- *   point.
- * @returns A `Reference` pointing to the provided
- *   Firebase URL.
- */
+
 function refFromURL(db, url) {
     db = getModularInstance(db);
     db._checkNotDeleted('refFromURL');
@@ -14957,11 +14237,7 @@ syncTreeSetReferenceConstructor(ReferenceImpl);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * This variable is also defined in the firebase Node.js Admin SDK. Before
@@ -15220,11 +14496,7 @@ function enableLogging(logger, persistent) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function registerDatabase(variant) {
     setSDKVersion(SDK_VERSION$1);
@@ -15247,11 +14519,7 @@ function registerDatabase(variant) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const SERVER_TIMESTAMP = {
     '.sv': 'timestamp'
@@ -15289,11 +14557,7 @@ function increment(delta) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A type for the resolve value of {@link runTransaction}.
@@ -15333,11 +14597,7 @@ class TransactionResult {
  * that location, so extreme care should be taken if mixing `set()` and
  * `runTransaction()` to update the same data.
  *
- * Note: When using transactions with Security and Firebase Rules in place, be
- * aware that a client needs `.read` access in addition to `.write` access in
- * order to perform a transaction. This is because the client-side nature of
- * transactions requires the client to read the data in order to transactionally
- * update it.
+
  *
  * @param ref - The location to atomically modify.
  * @param transactionUpdate - A developer-supplied function which will be passed
@@ -15387,11 +14647,7 @@ transactionUpdate, options) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 PersistentConnection.prototype.simpleListen = function (pathString, onComplete) {

@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/**
- * Check to make sure the appropriate number of arguments are provided for a public function.
+iate number of arguments are provided for a public function.
  * Throws an error if it fails.
  *
  * @param fnName The function name

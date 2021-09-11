@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-#ifndef FIREBASE_ADMOB_SRC_IOS_REWARDED_VIDEO_INTERNAL_IOS_H_
-#define FIREBASE_ADMOB_SRC_IOS_REWARDED_VIDEO_INTERNAL_IOS_H_
+WARDED_VIDEO_INTERNAL_IOS_H_
 
 #ifdef __OBJC__
 #import "admob/src/ios/FADRewardBasedVideoAdDelegate.h"

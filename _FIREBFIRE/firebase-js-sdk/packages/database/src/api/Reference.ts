@@ -12,15 +12,7 @@ import { QueryContext } from '../core/view/EventRegistration';
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/**
- * A `Query` sorts and filters the data at a Database location so only a subset
+e data at a Database location so only a subset
  * of the child data is included. This can be used to order a collection of
  * data by some attribute (for example, height of dinosaurs) as well as to
  * restrict a large list of items (for example, chat messages) down to a number

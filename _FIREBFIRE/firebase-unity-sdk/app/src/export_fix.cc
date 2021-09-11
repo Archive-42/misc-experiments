@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-// Since most linkers wont pull in symbols from a static library if
-// nothing is used from said library and we are trying to link in all
+ary and we are trying to link in all
 // the generated swig libraries into this one shared library with no
 // source code, we have added a empty function "ExportFix" to swig and
 // refere to it here to persuade the linker to do what we want and pull

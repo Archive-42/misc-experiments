@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-// This is needed to properly theme active list items that are also anchors.
-// Likely an issue in @material/list caused by this line overriding active:
+ist caused by this line overriding active:
 // https://github.com/material-components/material-components-web/blob/3657f886327182c26f1d1555b2ac67c2128140b5/packages/mdc-list/_mixins.scss#L243
 // TODO: File this issue against upstream and get it fixed?
 a.mdc-list-item.mdc-list-item--activated {

@@ -58,15 +58,7 @@ function __spreadArray(to, from) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-var stringToByteArray$1 = function (str) {
-    // TODO(user): Use native implementations if/when available
-    var out = [];
+
     var p = 0;
     for (var i = 0; i < str.length; i++) {
         var c = str.charCodeAt(i);
@@ -349,19 +341,11 @@ var base64urlEncodeWithoutPadding = function (str) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function createMockUserToken(token, projectId) {
     if (token.uid) {
-        throw new Error('The "uid" field is no longer supported by mockUserToken. Please use "sub" instead for Firebase Auth User ID.');
-    }
-    // Unsecured JWTs use "none" as the algorithm.
-    var header = {
-        alg: 'none',
+
         type: 'JWT'
     };
     var project = projectId || 'demo-project';
@@ -395,11 +379,7 @@ function createMockUserToken(token, projectId) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns navigator.userAgent string or '' if it's not defined.
@@ -407,11 +387,7 @@ function createMockUserToken(token, projectId) {
  */
 function getUA() {
     if (typeof navigator !== 'undefined' &&
-        typeof navigator['userAgent'] === 'string') {
-        return navigator['userAgent'];
-    }
-    else {
-        return '';
+
     }
 }
 /**
@@ -488,11 +464,7 @@ function isSafari() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var ERROR_NAME = 'FirebaseError';
 // Based on code from:
@@ -504,11 +476,7 @@ var FirebaseError = /** @class */ (function (_super) {
         _this.code = code;
         _this.customData = customData;
         _this.name = ERROR_NAME;
-        // Fix For ES5
-        // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-        Object.setPrototypeOf(_this, FirebaseError.prototype);
-        // Maintains proper stack trace for where our error was thrown.
-        // Only available on V8.
+
         if (Error.captureStackTrace) {
             Error.captureStackTrace(_this, ErrorFactory.prototype.create);
         }
@@ -592,11 +560,7 @@ function isObject(thing) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getModularInstance(service) {
     if (service && service._delegate) {
@@ -612,11 +576,7 @@ function getModularInstance(service) {
  */
 var Component = /** @class */ (function () {
     /**
-     *
-     * @param name The public service name, e.g. app, auth, firestore, database
-     * @param instanceFactory Service factory responsible for creating the public interface
-     * @param type whether the service provided by the component is public or private
-     */
+
     function Component(name, instanceFactory, type) {
         this.name = name;
         this.instanceFactory = instanceFactory;
@@ -658,11 +618,7 @@ var Component = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var _a$1;
 /**
@@ -682,11 +638,7 @@ var LogLevel;
     LogLevel[LogLevel["VERBOSE"] = 1] = "VERBOSE";
     LogLevel[LogLevel["INFO"] = 2] = "INFO";
     LogLevel[LogLevel["WARN"] = 3] = "WARN";
-    LogLevel[LogLevel["ERROR"] = 4] = "ERROR";
-    LogLevel[LogLevel["SILENT"] = 5] = "SILENT";
-})(LogLevel || (LogLevel = {}));
-var levelStringToEnum = {
-    'debug': LogLevel.DEBUG,
+
     'verbose': LogLevel.VERBOSE,
     'info': LogLevel.INFO,
     'warn': LogLevel.WARN,
@@ -2339,11 +2291,7 @@ var XhrIo = X$1;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Simple wrapper around a nullable UID. Mostly exists to make code more
@@ -2367,11 +2315,7 @@ class V {
     }
 }
 
-/** A user with a null UID. */ V.UNAUTHENTICATED = new V(null), 
-// TODO(mikelehen): Look into getting a proper uid-equivalent for
-// non-FirebaseAuth providers.
-V.GOOGLE_CREDENTIALS = new V("google-credentials-uid"), V.FIRST_PARTY = new V("first-party-uid"), 
-V.MOCK_USER = new V("mock-user");
+
 
 /**
  * @license
@@ -2383,11 +2327,7 @@ V.MOCK_USER = new V("mock-user");
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 let S = "9.0.2";
 
@@ -2401,11 +2341,7 @@ let S = "9.0.2";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const D = new Logger("@firebase/firestore");
 
@@ -2419,11 +2355,7 @@ function C() {
  *
  * @param logLevel - The verbosity you set for activity and error logging. Can
  *   be any of the following values:
- *
- *   <ul>
- *     <li>`debug` for the most verbose logging level, primarily for
- *     debugging.</li>
- *     <li>`error` to log errors only.</li>
+only.</li>
  *     <li><code>`silent` to turn off logging.</li>
  *   </ul>
  */ function N(t) {
@@ -2437,11 +2369,7 @@ function x(t, ...e) {
     }
 }
 
-function k(t, ...e) {
-    if (D.logLevel <= LogLevel.ERROR) {
-        const n = e.map(O);
-        D.error(`Firestore (${S}): ${t}`, ...n);
-    }
+
 }
 
 /**
@@ -2473,11 +2401,7 @@ function k(t, ...e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
     /** Formats an object as a JSON string, suitable for logging. */
     var e;
@@ -2493,11 +2417,7 @@ function k(t, ...e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Unconditionally fails, throwing an Error with the given message.
@@ -2517,11 +2437,7 @@ function k(t, ...e) {
 }
 
 /**
- * Fails if the given assertion condition is false, throwing an Error with the
- * given message if it did.
- *
- * Messages are stripped in production builds.
- */ function M(t, e) {
+
     t || F();
 }
 
@@ -2538,10 +2454,6 @@ function k(t, ...e) {
     t || F();
 }
 
-/**
- * Casts `obj` to `T`. In non-production builds, verifies that `obj` is an
- * instance of `T` before casting.
- */ function B(t, 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 e) {
     return t;
@@ -2557,11 +2469,7 @@ e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ const U = {
     // Causes are copied from:
     // https://github.com/grpc/grpc/blob/bceec94ea4fc5f0085d81235d8e1c06798dc341a/include/grpc%2B%2B/impl/codegen/status_code_enum.h
@@ -2605,11 +2513,7 @@ e) {
      * The request does not have valid authentication credentials for the
      * operation.
      */
-    UNAUTHENTICATED: "unauthenticated",
-    /**
-     * Some resource has been exhausted, perhaps a per-user quota, or perhaps the
-     * entire file system is out of space.
-     */
+
     RESOURCE_EXHAUSTED: "resource-exhausted",
     /**
      * Operation was rejected because the system is not in a state required for
@@ -2706,11 +2610,7 @@ e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class K {
     constructor() {
         this.promise = new Promise(((t, e) => {
@@ -2729,11 +2629,7 @@ e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class j {
     constructor(t, e) {
         this.user = e, this.type = "OAuth", this.authHeaders = {}, 
@@ -2762,11 +2658,7 @@ e) {
  * emulator token mocking.
  */ class W {
     constructor(t) {
-        this.token = t, 
-        /**
-         * Stores the listener registered with setChangeListener()
-         * This isn't actually necessary since the UID never changes, but we use this
-         * to verify the listen contract is adhered to in tests.
+ontract is adhered to in tests.
          */
         this.changeListener = null;
     }
@@ -2785,11 +2677,7 @@ e) {
 }
 
 class G {
-    constructor(t) {
-        this.t = t, 
-        /** Tracks the current User. */
-        this.currentUser = V.UNAUTHENTICATED, 
-        /**
+
          * Counter used to detect if the token changed while a getToken request was
          * outstanding.
          */
@@ -2910,11 +2798,7 @@ class G {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * `ListenSequence` is a monotonic sequence. It is initialized with a minimum value to
@@ -2945,11 +2829,7 @@ class J {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Generates `nBytes` of random bytes.
@@ -2974,15 +2854,7 @@ function Y(t) {
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ J.T = -1;
+
 
 class X {
     static I() {
@@ -3013,11 +2885,7 @@ function Z(t, e) {
  * Returns the immediate lexicographically-following string. This is useful to
  * construct an inclusive range for indexeddb iterators.
  */ function et(t) {
-    // Return the input string, with an additional NUL byte appended.
-    return t + "\0";
-}
 
-/**
  * @license
  * Copyright 2017 Google LLC
  *
@@ -3027,11 +2895,7 @@ function Z(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // The earliest date supported by Firestore timestamps (0001-01-01T00:00:00Z).
 /**
@@ -3049,11 +2913,7 @@ function Z(t, e) {
  * {@link https://github.com/google/protobuf/blob/master/src/google/protobuf/timestamp.proto | Timestamp definition}.
  */
 class nt {
-    /**
-     * Creates a new timestamp.
-     *
-     * @param seconds - The number of seconds of UTC time since Unix epoch
-     *     1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
+Must be from 0001-01-01T00:00:00Z to
      *     9999-12-31T23:59:59Z inclusive.
      * @param nanoseconds - The non-negative fractions of a second at nanosecond
      *     resolution. Negative second values with fractions must still have
@@ -3099,11 +2959,7 @@ class nt {
      * @returns A new `Timestamp` representing the same point in time as the given
      *     number of milliseconds.
      */    static fromMillis(t) {
-        const e = Math.floor(t / 1e3), n = Math.floor(1e6 * (t - 1e3 * e));
-        return new nt(e, n);
-    }
-    /**
-     * Converts a `Timestamp` to a JavaScript `Date` object. This conversion
+a JavaScript `Date` object. This conversion
      * causes a loss of precision since `Date` objects only support millisecond
      * precision.
      *
@@ -3169,11 +3025,7 @@ class nt {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A version of a document in Firestore. This corresponds to the version
@@ -3216,11 +3068,7 @@ class nt {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ function it(t) {
     let e = 0;
     for (const n in t) Object.prototype.hasOwnProperty.call(t, n) && e++;
@@ -3246,18 +3094,10 @@ function ot(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
- * Path represents an ordered sequence of string segments.
- */
-class at {
-    constructor(t, e, n) {
-        void 0 === e ? e = 0 : e > t.length && F(), void 0 === n ? n = t.length - e : n > t.length - e && F(), 
+> t.length && F(), void 0 === n ? n = t.length - e : n > t.length - e && F(), 
         this.segments = t, this.offset = e, this.len = n;
     }
     get length() {
@@ -3300,11 +3140,7 @@ class at {
     }
     isImmediateParentOf(t) {
         if (this.length + 1 !== t.length) return !1;
-        for (let e = 0; e < this.length; e++) if (this.get(e) !== t.get(e)) return !1;
-        return !0;
-    }
-    forEach(t) {
-        for (let e = this.offset, n = this.limit(); e < n; e++) t(this.segments[e]);
+ n = this.limit(); e < n; e++) t(this.segments[e]);
     }
     toArray() {
         return this.segments.slice(this.offset, this.limit());
@@ -3330,11 +3166,7 @@ class at {
         return new ct(t, e, n);
     }
     canonicalString() {
-        // NOTE: The client is ignorant of any path segments containing escape
-        // sequences (e.g. __id123__) and just passes them through raw (they exist
-        // for legacy reasons and should not be used frequently).
-        return this.toArray().join("/");
-    }
+
     toString() {
         return this.canonicalString();
     }
@@ -3435,11 +3267,7 @@ const ut = /^[_a-zA-Z][_a-zA-Z0-9]*$/;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provides a set of fields that can be used to partially patch a document.
@@ -3481,11 +3309,7 @@ const ut = /^[_a-zA-Z][_a-zA-Z0-9]*$/;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Converts a Base64 encoded string to a binary string. */
 /** True if and only if the Base64 conversion functions are available. */
@@ -3503,11 +3327,7 @@ function ft() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Immutable class that represents a "proto" byte string.
@@ -3531,11 +3351,7 @@ function ft() {
  * Helper function to convert an Uint8array to a binary string.
  */
         function(t) {
-            let e = "";
-            for (let n = 0; n < t.length; ++n) e += String.fromCharCode(t[n]);
-            return e;
-        }
-        /**
+
  * Helper function to convert a binary string to an Uint8Array.
  */ (t);
         return new dt(e);
@@ -3561,11 +3377,7 @@ function ft() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
         // A RegExp matching ISO 8601 UTC timestamps with optional fraction.
         (this.binaryString);
@@ -3581,11 +3393,7 @@ function ft() {
     }
 }
 
-dt.EMPTY_BYTE_STRING = new dt("");
 
-const wt = new RegExp(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.(\d+))?Z$/);
-
-/**
  * Converts the possible Proto values for a timestamp value into a "seconds and
  * nanos" representation.
  */ function _t(t) {
@@ -3603,11 +3411,7 @@ const wt = new RegExp(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.(\d+))?Z$/);
             let t = n[1];
             t = (t + "000000000").substr(0, 9), e = Number(t);
         }
-        // Parse the date to get the seconds.
-                const s = new Date(t);
-        return {
-            seconds: Math.floor(s.getTime() / 1e3),
-            nanos: e
+
         };
     }
     return {
@@ -3638,11 +3442,7 @@ const wt = new RegExp(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.(\d+))?Z$/);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Represents a locally-applied ServerTimestamp.
@@ -3666,10 +3466,6 @@ const wt = new RegExp(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.(\d+))?Z$/);
     return "server_timestamp" === (null === (n = ((null === (e = null == t ? void 0 : t.mapValue) || void 0 === e ? void 0 : e.fields) || {}).__type__) || void 0 === n ? void 0 : n.stringValue);
 }
 
-/**
- * Creates a new ServerTimestamp proto value (using the internal format).
- */
-/**
  * Returns the value of the field before this ServerTimestamp was set.
  *
  * Preserving the previous values allows the user to display the last resoled
@@ -3697,11 +3493,7 @@ function pt(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Sentinel value that sorts before any Mutation Batch ID. */
 /**
@@ -3734,11 +3526,7 @@ function Tt(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * @internal
@@ -3750,11 +3538,7 @@ function Tt(t) {
         return new Rt(ct.fromString(t));
     }
     static fromName(t) {
-        return new Rt(ct.fromString(t).popFirst(5));
-    }
-    /** Returns true if the document is in the specified collectionId. */    hasCollectionId(t) {
-        return this.path.length >= 2 && this.path.get(this.path.length - 2) === t;
-    }
+
     isEqual(t) {
         return null !== t && 0 === ct.comparator(this.path, t.path);
     }
@@ -3787,11 +3571,7 @@ function Tt(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Extracts the backend's type order for the provided value. */ function bt(t) {
     return "nullValue" in t ? 0 /* NullValue */ : "booleanValue" in t ? 1 /* BooleanValue */ : "integerValue" in t || "doubleValue" in t ? 2 /* NumberValue */ : "timestampValue" in t ? 3 /* TimestampValue */ : "stringValue" in t ? 5 /* StringValue */ : "bytesValue" in t ? 6 /* BlobValue */ : "referenceValue" in t ? 7 /* RefValue */ : "geoPointValue" in t ? 8 /* GeoPointValue */ : "arrayValue" in t ? 9 /* ArrayValue */ : "mapValue" in t ? yt(t) ? 4 /* ServerTimestampValue */ : 10 /* ObjectValue */ : F();
@@ -3813,11 +3593,7 @@ function Tt(t) {
       case 3 /* TimestampValue */ :
         return function(t, e) {
             if ("string" == typeof t.timestampValue && "string" == typeof e.timestampValue && t.timestampValue.length === e.timestampValue.length) 
-            // Use string equality for ISO 8601 timestamps
-            return t.timestampValue === e.timestampValue;
-            const n = _t(t.timestampValue), s = _t(e.timestampValue);
-            return n.seconds === s.seconds && n.nanos === s.nanos;
-        }(t, e);
+
 
       case 5 /* StringValue */ :
         return t.stringValue === e.stringValue;
@@ -3850,11 +3626,7 @@ function Tt(t) {
 
       case 10 /* ObjectValue */ :
         return function(t, e) {
-            const n = t.mapValue.fields || {}, s = e.mapValue.fields || {};
-            if (it(n) !== it(s)) return !1;
-            for (const t in n) if (n.hasOwnProperty(t) && (void 0 === s[t] || !Pt(n[t], s[t]))) return !1;
-            return !0;
-        }
+
         /** Returns true if the ArrayValue contains the specified element. */ (t, e);
 
       default:
@@ -3903,11 +3675,7 @@ function Vt(t, e) {
         return function(t, e) {
             const n = t.split("/"), s = e.split("/");
             for (let t = 0; t < n.length && t < s.length; t++) {
-                const e = Z(n[t], s[t]);
-                if (0 !== e) return e;
-            }
-            return Z(n.length, s.length);
-        }(t.referenceValue, e.referenceValue);
+erenceValue);
 
       case 8 /* GeoPointValue */ :
         return function(t, e) {
@@ -4048,11 +3816,7 @@ function kt(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An ObjectValue represents a MapValue in the Firestore Proto and offers the
@@ -4168,21 +3932,13 @@ function kt(t) {
     })), new lt(e);
 }
 
-/**
- * @license
- * Copyright 2017 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
+nse, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Represents a document in Firestore with a key, version, data and whether it
@@ -4293,11 +4049,7 @@ function kt(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // Visible for testing
 class qt {
@@ -4307,10 +4059,6 @@ class qt {
     }
 }
 
-/**
- * Initializes a Target with a path and optional additional query constraints.
- * Path must currently be empty if this is a collection group query.
- *
  * NOTE: you should always construct `Target` from `Query.toTarget` instead of
  * using this factory method, because `Query` provides an implicit `orderBy`
  * property.
@@ -4421,11 +4169,7 @@ class Jt extends zt {
     }
     matches(t) {
         const e = Rt.comparator(t.key, this.key);
-        return this.P(e);
-    }
-}
-
-/** Filter that matches on key fields within an array. */ class Yt extends zt {
+elds within an array. */ class Yt extends zt {
     constructor(t, e) {
         super(t, "in" /* IN */ , e), this.keys = Zt("in" /* IN */ , e);
     }
@@ -4562,11 +4306,7 @@ function ue(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Query encapsulates all the query attributes we support in the SDK. It can
@@ -4694,11 +4434,7 @@ function Ae(t) {
     return `Query(target=${Qt(pe(t))}; limitType=${t.limitType})`;
 }
 
-/** Returns whether `doc` matches the constraints of `query`. */ function Re(t, e) {
-    return e.isFoundDocument() && function(t, e) {
-        const n = e.key.path;
-        return null !== t.collectionGroup ? e.key.hasCollectionId(t.collectionGroup) && t.path.isPrefixOf(n) : Rt.isDocumentKey(t.path) ? t.path.isEqual(n) : t.path.isImmediateParentOf(n);
-    }
+
     /**
  * A document must have a value for every ordering clause in order to show up
  * in the results.
@@ -4761,11 +4497,7 @@ function Pe(t, e, n) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns an DoubleValue for `value` that is encoded based the serializer's
@@ -4813,11 +4545,7 @@ function Pe(t, e, n) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Used to represent a field transform on a mutation. */ class De {
     constructor() {
@@ -4901,11 +4629,7 @@ class ke extends De {}
 }
 
 function Oe(t, e) {
-    const n = Ue(e);
-    for (const e of t.elements) n.some((t => Pt(t, e))) || n.push(e);
-    return {
-        arrayValue: {
-            values: n
+
         }
     };
 }
@@ -4953,15 +4677,7 @@ function Ue(t) {
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/** A field path and the TransformOperation to perform upon it. */ class qe {
+mOperation to perform upon it. */ class qe {
     constructor(t, e) {
         this.field = t, this.transform = e;
     }
@@ -5099,11 +4815,7 @@ class je {
         // known updateTime.
         return void e.convertToUnknownDocument(n.version);
         const s = nn(t.fieldTransforms, e, n.transformResults), i = e.data;
-        i.setAll(en(t)), i.setAll(s), e.convertToFoundDocument(n.version, i).setHasCommittedMutations();
-    }(t, e, n) : function(t, e, n) {
-        // Unlike applyToLocalView, if we're applying a mutation to a remote
-        // document the server has accepted the mutation so the precondition must
-        // have held.
+
         e.convertToNoDocument(n.version).setHasCommittedMutations();
     }(0, e, n);
 }
@@ -5290,11 +5002,7 @@ class on extends Ge {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class an {
     // TODO(b/33078163): just use simplest form of existence filter for now
     constructor(t) {
@@ -5312,11 +5020,7 @@ class on extends Ge {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Error Codes describing the different ways GRPC can fail. These are copied
@@ -5443,10 +5147,6 @@ function ln(t) {
       case cn.UNIMPLEMENTED:
         return U.UNIMPLEMENTED;
 
-      case cn.DATA_LOSS:
-        return U.DATA_LOSS;
-
-      default:
         return F();
     }
 }
@@ -5464,11 +5164,7 @@ un[un.DEADLINE_EXCEEDED = 4] = "DEADLINE_EXCEEDED", un[un.NOT_FOUND = 5] = "NOT_
 un[un.ALREADY_EXISTS = 6] = "ALREADY_EXISTS", un[un.PERMISSION_DENIED = 7] = "PERMISSION_DENIED", 
 un[un.UNAUTHENTICATED = 16] = "UNAUTHENTICATED", un[un.RESOURCE_EXHAUSTED = 8] = "RESOURCE_EXHAUSTED", 
 un[un.FAILED_PRECONDITION = 9] = "FAILED_PRECONDITION", un[un.ABORTED = 10] = "ABORTED", 
-un[un.OUT_OF_RANGE = 11] = "OUT_OF_RANGE", un[un.UNIMPLEMENTED = 12] = "UNIMPLEMENTED", 
-un[un.INTERNAL = 13] = "INTERNAL", un[un.UNAVAILABLE = 14] = "UNAVAILABLE", un[un.DATA_LOSS = 15] = "DATA_LOSS";
 
-/**
- * @license
  * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -5477,11 +5173,7 @@ un[un.INTERNAL = 13] = "INTERNAL", un[un.UNAVAILABLE = 14] = "UNAVAILABLE", un[u
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // An immutable sorted map implementation, based on a Left-leaning Red-Black
 // tree.
@@ -5633,11 +5325,7 @@ class wn {
     isEmpty() {
         return !1;
     }
-    // Traverses the tree in key order and calls the specified action function
-    // for each node. If action returns true, traversal is aborted.
-    // Returns the first truthy value returned by action, or the last falsey
-    // value returned by action.
-    inorderTraversal(t) {
+
         return this.left.inorderTraversal(t) || t(this.key, this.value) || this.right.inorderTraversal(t);
     }
     // Traverses the tree in reverse key order and calls the specified action
@@ -5808,11 +5496,7 @@ class {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * SortedSet is an immutable (copy-on-write) collection that holds elements
@@ -5933,11 +5617,7 @@ class mn {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ const gn = new fn(Rt.comparator);
 
 function yn() {
@@ -5972,19 +5652,11 @@ function Pn() {
 
 /**
  * @license
- * Copyright 2017 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+icense at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An event from the RemoteStore. It is split into targetChanges (changes to the
@@ -6089,11 +5761,7 @@ function Pn() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Represents a changed document and a list of target ids to which this change
@@ -6105,11 +5773,7 @@ function Pn() {
     /** The new document applies to all of these targets. */
     t, 
     /** The new document is removed from all of these targets. */
-    e, 
-    /** The key of the document for this change. */
-    n, 
-    /**
-     * The new document or NoDocument if it was deleted. Is null if the
+ment if it was deleted. Is null if the
      * document went out of view without the server sending a new document.
      */
     s) {
@@ -6152,11 +5816,7 @@ class Cn {
          * Keeps track of the document changes since the last raised snapshot.
          *
          * These changes are continuously updated as we receive document updates and
-         * always reflect the current set of changes against the last issued snapshot.
-         */
-        this.M = $n(), 
-        /** See public getters for explanations of these fields. */
-        this.L = dt.EMPTY_BYTE_STRING, this.B = !1, 
+RING, this.B = !1, 
         /**
          * Whether this target state should be included in the next snapshot. We
          * initialize to true so that newly-added targets are included in the next
@@ -6261,11 +5921,7 @@ class xn {
      */    rt(t) {
         for (const e of t.k) t.$ && t.$.isFoundDocument() ? this.ot(e, t.$) : this.at(e, t.key, t.$);
         for (const e of t.removedTargetIds) this.at(e, t.key, t.$);
-    }
-    /** Processes and adds the WatchTargetChange to the current set of changes. */    ct(t) {
-        this.forEachTarget(t, (e => {
-            const n = this.ut(e);
-            switch (t.state) {
+
               case 0 /* NoChange */ :
                 this.ht(e) && n.j(t.resumeToken);
                 break;
@@ -6480,11 +6136,7 @@ function $n() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ const On = (() => {
     const t = {
         asc: "ASCENDING",
@@ -6656,11 +6308,7 @@ function ts(t, e) {
  * Returns a value for a number (or null) that's appropriate to put into
  * a google.protobuf.Int32Value proto.
  * DO NOT USE THIS FOR ANYTHING ELSE.
- * This method cheats. It's typed as returning "number" because that's what
- * our generated proto interfaces say Int32Value must be. But GRPC actually
- * expects a { value: <number> } struct.
- */ (o);
-        n = new Cn(s, i, r, a || null);
+null);
     } else if ("documentChange" in e) {
         e.documentChange;
         const s = e.documentChange;
@@ -7080,11 +6728,7 @@ function ys(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Encodes a resource path into a IndexedDb-compatible string form.
@@ -7176,11 +6820,7 @@ function ps(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Schema Version for the Web client:
@@ -7264,11 +6904,7 @@ class bs {
      * A stream token that was previously sent by the server.
      *
      * See StreamingWriteRequest in datastore.proto for more details about
-     * usage.
-     *
-     * After sending this token, earlier tokens may not be used anymore so
-     * only a single stream token is retained.
-     *
+
      * NOTE: this is deprecated and no longer used by the code.
      */
     n) {
@@ -7360,11 +6996,7 @@ class vs {
      * and deleting into the DbDocumentMutations index.
      */    static key(t, e, n) {
         return [ t, ps(e), n ];
-    }
-}
 
-vs.store = "documentMutations", 
-/**
  * Because we store all the useful information for this store in the key,
  * there is no useful information to store as the value. The raw (unencoded)
  * path cannot be stored because IndexedDb doesn't store prototype
@@ -7775,11 +7407,7 @@ class Us {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * PersistencePromise is essentially a re-implementation of Promise except
@@ -7893,11 +7521,7 @@ class Us {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // References to `window` are guarded by SimpleDb.isAvailable()
 /* eslint-disable no-restricted-globals */
@@ -7967,11 +7591,7 @@ class Ks {
     constructor(t, e, n) {
         this.name = t, this.version = e, this.At = n;
         // NOTE: According to https://bugs.webkit.org/show_bug.cgi?id=197050, the
-        // bug we're checking for should exist in iOS >= 12.2 and < 13, but for
-        // whatever reason it's much harder to hit after 12.2 so we only proactively
-        // log on 12.2.
-        12.2 === js.Rt(getUA()) && k("Firestore persistence suffers from a bug in iOS 12.2 Safari that may cause your app to stop working. See https://stackoverflow.com/q/56496296/110915 for details and a potential workaround.");
-    }
+
     /** Deletes the specified database. */    static delete(t) {
         return x("SimpleDb", "Removing database:", t), Hs(window.indexedDB.deleteDatabase(t)).toPromise();
     }
@@ -8085,11 +7705,7 @@ class Ks {
 /**
  * A controller for iterating over a key range or index. It allows an iterate
  * callback to delete the currently-referenced object, or jump to a new key
- * within the key range or index.
- */ class Qs {
-    constructor(t) {
-        this.kt = t, this.$t = !1, this.Ot = null;
-    }
+
     get isDone() {
         return this.$t;
     }
@@ -8305,11 +7921,7 @@ function Ys(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class Xs extends Us {
     constructor(t, e) {
         super(), this.Qt = t, this.currentSequenceNumber = e;
@@ -8331,11 +7943,7 @@ function Zs(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A batch of mutations that will be sent as one unit to the backend.
@@ -8436,11 +8044,7 @@ function Zs(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An immutable set of metadata that the local store tracks for each target.
@@ -8502,22 +8106,14 @@ function Zs(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Serializer for values stored in the LocalStore. */ class si {
     constructor(t) {
         this.Wt = t;
     }
 }
-
-/** Decodes a remote document from storage locally to a Document. */ function ii(t, e) {
-    if (e.document) return Xn(t.Wt, e.document, !!e.hasCommittedMutations);
-    if (e.noDocument) {
-        const t = Rt.fromSegments(e.noDocument.path), n = ui(e.noDocument.readTime), s = Ut.newNoDocument(t, n);
+(e.noDocument.path), n = ui(e.noDocument.readTime), s = Ut.newNoDocument(t, n);
         return e.hasCommittedMutations ? s.setHasCommittedMutations() : s;
     }
     if (e.unknownDocument) {
@@ -8539,11 +8135,7 @@ function Zs(t, e) {
         }(t.Wt, e), r = e.hasCommittedMutations;
         return new Ds(
         /* unknownDocument= */ null, 
-        /* noDocument= */ null, n, r, s, i);
-    }
-    if (e.isNoDocument()) {
-        const t = e.key.path.toArray(), n = ci(e.version), r = e.hasCommittedMutations;
-        return new Ds(
+
         /* unknownDocument= */ null, new Vs(t, n), 
         /* document= */ null, r, s, i);
     }
@@ -8644,15 +8236,7 @@ function di(t) {
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 class wi {
     getBundleMetadata(t, e) {
         return _i(t).get(e).next((t => {
@@ -8714,15 +8298,7 @@ class wi {
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
+
  * An in-memory implementation of IndexManager.
  */ class gi {
     constructor() {
@@ -8768,11 +8344,7 @@ class wi {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A persisted implementation of IndexManager.
@@ -8844,11 +8416,7 @@ class wi {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ const Ti = {
     didRun: !1,
     sequenceNumbersCollected: 0,
@@ -8871,11 +8439,7 @@ class Ii {
     static withCacheSize(t) {
         return new Ii(t, Ii.DEFAULT_COLLECTION_PERCENTILE, Ii.DEFAULT_MAX_SEQUENCE_NUMBERS_TO_COLLECT);
     }
-}
 
-/**
- * @license
- * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -8883,11 +8447,7 @@ class Ii {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Delete a mutation batch and the associated document mutations.
@@ -8932,11 +8492,7 @@ function Ai(t, e, n) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** A mutation queue for a specific user, backed by IndexedDB. */ Ii.DEFAULT_COLLECTION_PERCENTILE = 10, 
 Ii.DEFAULT_MAX_SEQUENCE_NUMBERS_TO_COLLECT = 1e3, Ii.DEFAULT = new Ii(41943040, Ii.DEFAULT_COLLECTION_PERCENTILE, Ii.DEFAULT_MAX_SEQUENCE_NUMBERS_TO_COLLECT), 
@@ -8948,11 +8504,7 @@ class bi {
      * The normalized userId (e.g. null UID => "" userId) used to store /
      * retrieve mutations.
      */
-    t, e, n, s) {
-        this.userId = t, this.N = e, this.Ht = n, this.referenceDelegate = s, 
-        /**
-         * Caches the document keys for pending mutation batches. If the mutation
-         * has been removed from IndexedDb, the cached value may continue to
+IndexedDb, the cached value may continue to
          * be used to retrieve the batch's document keys. To remove a cached value
          * locally, `removeCachedMutationKeys()` should be invoked either directly
          * or through `removeMutationBatches()`.
@@ -9000,11 +8552,7 @@ class bi {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return r.add({}).next((o => {
             M("number" == typeof o);
-            const a = new ti(o, e, n, s), c = function(t, e, n) {
-                const s = n.baseMutations.map((e => es(t.Wt, e))), i = n.mutations.map((e => es(t.Wt, e)));
-                return new Ps(e, n.batchId, n.localWriteTime.toMillis(), s, i);
-            }(this.N, this.userId, a), u = [];
-            let h = new _n(((t, e) => Z(t.canonicalString(), e.canonicalString())));
+) => Z(t.canonicalString(), e.canonicalString())));
             for (const t of s) {
                 const e = vs.key(this.userId, t.key.path, o);
                 h = h.add(t.key.path.popLast()), u.push(r.put(c)), u.push(i.put(e, vs.PLACEHOLDER));
@@ -9076,11 +8624,7 @@ class bi {
             // documents nested in a subcollection beneath documentKey so we
             // can stop as soon as we hit any such row.
                         if (o === this.userId && e.path.isEqual(u)) 
-            // Look up the mutation batch in the store.
-            return vi(t).get(c).next((t => {
-                if (!t) throw F();
-                M(t.userId === this.userId), i.push(hi(this.N, t));
-            }));
+
             r.done();
         })).next((() => i));
     }
@@ -9115,11 +8659,7 @@ class bi {
         }, ((t, e, i) => {
             const [r, a, c] = t, u = Is(a);
             r === this.userId && n.isPrefixOf(u) ? 
-            // Rows with document keys more than one segment longer than the
-            // query path can't be matches. For example, a query on 'rooms'
-            // can't match the document /rooms/abc/messages/xyx.
-            // TODO(mcg): we'll need a different scanner when we implement
-            // ancestor queries.
+
             u.length === s && (o = o.add(c)) : i.done();
         })).next((() => this.Zt(t, o)));
     }
@@ -9164,11 +8704,7 @@ class bi {
                     s.push(e);
                 } else n.done();
             })).next((() => {
-                M(0 === s.length);
-            }));
-        }));
-    }
-    containsKey(t, e) {
+
         return Pi(t, this.userId, e);
     }
     // PORTING NOTE: Multi-tab only (state is held in memory in other clients).
@@ -9224,11 +8760,7 @@ function vi(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Offset to ensure non-overlapping target ids. */
 /**
@@ -9275,11 +8807,7 @@ class Di {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class Ci {
     constructor(t, e) {
         this.referenceDelegate = t, this.N = e;
@@ -9464,16 +8992,8 @@ class Di {
  * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
+
  */
 /**
  * Verifies the error thrown by a LocalStore operation. If a LocalStore
@@ -9499,11 +9019,7 @@ class Di {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ function Oi([t, e], [n, s]) {
     const i = Z(t, n);
     return 0 === i ? Z(e, s) : i;
@@ -9523,11 +9039,7 @@ class Di {
     fe(t) {
         const e = [ t, this.le() ];
         if (this.buffer.size < this.ue) this.buffer = this.buffer.add(e); else {
-            const t = this.buffer.last();
-            Oi(e, t) < 0 && (this.buffer = this.buffer.delete(t).add(e));
-        }
-    }
-    get maxValue() {
+
         // Guaranteed to be non-empty. If we decide we are not collecting any
         // sequence numbers, nthSequenceNumber below short-circuits. If we have
         // decided that we are collecting n sequence numbers, it's because n is some
@@ -9626,11 +9138,7 @@ class Di {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Provides LRU functionality for IndexedDB persistence. */
 class Bi {
@@ -9721,11 +9229,7 @@ class Bi {
             // is 0.
             i = o, s = r) : 
             // set nextToReport to be invalid, we know we don't need to report
-            // this one since we found a target for it.
-            i = J.T;
-        })).next((() => {
-            // Since we report sequence numbers after getting to the next key, we
-            // need to check if the last key we iterated over was an orphaned
+he last key we iterated over was an orphaned
             // document and report it.
             i !== J.T && e(new Rt(Is(s)), i);
         }));
@@ -9751,16 +9255,8 @@ function Ui(t, e) {
  * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
+
  */
 /**
  * A map implementation that uses objects as keys. Objects must have an
@@ -9821,11 +9317,7 @@ function Ui(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An in-memory buffer of entries to be written to a RemoteDocumentCache.
@@ -9886,11 +9378,7 @@ function Ui(t, e) {
         this.assertNotApplied();
         const n = this.changes.get(e);
         return void 0 !== n ? qs.resolve(n.document) : this.getFromCache(t, e);
-    }
-    /**
-     * Looks up several entries in the cache, forwarding to
-     * `RemoteDocumentCache.getEntry()`.
-     *
+
      * @param transaction - The transaction in which to perform any persistence
      *     operations.
      * @param documentKeys - The keys of the entries to look up.
@@ -9918,11 +9406,7 @@ function Ui(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The RemoteDocumentCache for IndexedDb. To construct, invoke
@@ -10020,11 +9504,7 @@ function Ui(t, e) {
     }
     getDocumentsMatchingQuery(t, e, n) {
         let s = yn();
-        const i = e.path.length + 1, r = {};
-        if (n.isEqual(st.min())) {
-            // Documents are ordered by key, so we can use a prefix scan to narrow
-            // down the documents we need to match the query against.
-            const t = e.path.toArray();
+ray();
             r.range = IDBKeyRange.lowerBound(t);
         } else {
             // Execute an index-free query and filter by read time. This is safe
@@ -10085,11 +9565,7 @@ function Ui(t, e) {
  * when we apply the changes.
  */
 class Qi extends Ki {
-    /**
-     * @param documentCache - The IndexedDbRemoteDocumentCache to apply the changes to.
-     * @param trackRemovals - Whether to create sentinel deletes that can be tracked by
-     * `getNewDocumentChanges()`.
-     */
+
     constructor(t, e) {
         super(), this.Se = t, this.trackRemovals = e, 
         // A map of document sizes prior to applying the changes in this buffer.
@@ -10158,11 +9634,7 @@ function zi(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Performs database creation and schema upgrades. */ class Hi {
     constructor(t) {
@@ -10186,11 +9658,7 @@ function zi(t) {
             t.createObjectStore(Ps.store, {
                 keyPath: Ps.keyPath,
                 autoIncrement: !0
-            }).createIndex(Ps.userMutationsIndex, Ps.userMutationsKeyPath, {
-                unique: !0
-            }), t.createObjectStore(vs.store);
-        }
-        /**
+
  * Upgrade function to migrate the 'mutations' store from V1 to V3. Loads
  * and rewrites all data.
  */ (t), Ji(t), function(t) {
@@ -10282,11 +9750,7 @@ function zi(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ (t);
         }))), r;
     }
@@ -10430,11 +9894,7 @@ const Yi = "Failed to obtain exclusive access to the persistence layer. To allow
  */
 class Xi {
     constructor(
-    /**
-     * Whether to synchronize the in-memory state of multiple tabs and share
-     * access to local persistence.
-     */
-    t, e, n, s, i, r, o, a, c, 
+
     /**
      * If set to true, forcefully obtains database access. Existing tabs will
      * no longer be able to access IndexedDB.
@@ -10554,11 +10014,7 @@ class Xi {
      * RemoteDocumentChanges and the ClientMetadata store based on the last update
      * time of all clients.
      */    async hn() {
-        if (this.isPrimary && !this.ln(this.je, 18e5)) {
-            this.je = Date.now();
-            const t = await this.runTransaction("maybeGarbageCollectMultiClientState", "readwrite-primary", (t => {
-                const e = Zs(t, Os.store);
-                return e.Lt().next((t => {
+t((t => {
                     const n = this.fn(t, 18e5), s = t.filter((t => -1 === n.indexOf(t)));
                     // Delete metadata for clients that are no longer considered active.
                     return qs.forEach(s, (t => e.delete(t.clientId))).next((() => s));
@@ -10829,11 +10285,7 @@ class Xi {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class nr {
     constructor(t, e) {
@@ -10851,11 +10303,7 @@ class nr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A readonly view of the local state of all documents we're tracking (i.e. we
@@ -10983,11 +10431,7 @@ class nr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A set of changes to what documents are currently in view and out of view for
@@ -11022,11 +10466,7 @@ class nr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A query engine that takes advantage of the target document mapping in the
@@ -11117,15 +10557,7 @@ class nr {
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
+
  * Implements `LocalStore` interface.
  *
  * Note: some field defined in this class might have public access level, but
@@ -11143,11 +10575,7 @@ class or {
          *
          * PORTING NOTE: We are using an immutable data structure on Web to make re-runs
          * of `applyRemoteEvent()` idempotent.
-         */
-        this.Un = new fn(Z), 
-        /** Maps a target to its targetID. */
-        // TODO(wuandy): Evaluate if TargetId can be part of Target.
-        this.qn = new qi((t => jt(t)), Wt), 
+(t)), Wt), 
         /**
          * The read time of the last entry processed by `getNewDocumentChanges()`.
          *
@@ -11275,11 +10703,7 @@ function hr(t) {
  * queue.
  */ function lr(t, e) {
     const n = B(t), s = e.snapshotVersion;
-    let i = n.Un;
-    return n.persistence.runTransaction("Apply remote event", "readwrite-primary", (t => {
-        const r = n.jn.newChangeBuffer({
-            trackRemovals: !0
-        });
+
         // Reset newTargetDataByTargetMap in case this transaction gets re-run.
                 i = n.Un;
         const o = [];
@@ -11314,11 +10738,7 @@ function hr(t) {
                     // Don't allow resume token changes to be buffered indefinitely. This
                     // allows us to be reasonably up-to-date after a crash and avoids needing
                     // to loop over all active queries on shutdown. Especially in the browser
-                    // we may not get time to do anything interesting while the current tab is
-                    // closing.
-                                        if (e.snapshotVersion.toMicroseconds() - t.snapshotVersion.toMicroseconds() >= 3e8) return !0;
-                    // Otherwise if the only thing that has changed about a target is its resume
-                    // token it's not worth persisting. Note that the RemoteStore keeps an
+ not worth persisting. Note that the RemoteStore keeps an
                     // in-memory view of the currently active targets which includes the current
                     // resume token, so stream failure or user changes will still use an
                     // up-to-date resume token regardless of what we do here.
@@ -11411,11 +10831,7 @@ function dr(t, e) {
  * Allocating an already allocated `Target` will return the existing `TargetData`
  * for that `Target`.
  */
-function wr(t, e) {
-    const n = B(t);
-    return n.persistence.runTransaction("Allocate target", "readwrite", (t => {
-        let s;
-        return n.ze.getTargetData(t, e).next((i => i ? (
+(t, e).next((i => i ? (
         // This target has been listened to previously, so reuse the
         // previous targetID.
         // TODO(mcg): freshen last accessed date?
@@ -11613,11 +11029,7 @@ async function Tr(t, e, n = Rn()) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class Ir {
     constructor(t) {
         this.N = t, this.Yn = new Map, this.Xn = new Map;
@@ -11658,11 +11070,7 @@ async function Tr(t, e, n = Rn()) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A collection of references to a document from some kind of numbered entity
@@ -11754,11 +11162,7 @@ class Rr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class br {
     constructor(t, e) {
         this.Ht = t, this.referenceDelegate = e, 
@@ -11917,15 +11321,7 @@ class Rr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * The memory-only RemoteDocumentCache for IndexedDb. To construct, invoke
- * `newMemoryRemoteDocumentCache()`.
+)`.
  */
 class Pr {
     /**
@@ -11966,11 +11362,7 @@ class Pr {
         const n = this.docs.get(e);
         return qs.resolve(n ? n.document.clone() : Ut.newInvalidDocument(e));
     }
-    getEntries(t, e) {
-        let n = yn();
-        return e.forEach((t => {
-            const e = this.docs.get(t);
-            n = n.insert(t, e ? e.document.clone() : Ut.newInvalidDocument(t));
+.document.clone() : Ut.newInvalidDocument(t));
         })), qs.resolve(n);
     }
     getDocumentsMatchingQuery(t, e, n) {
@@ -12037,11 +11429,7 @@ class vr extends Ki {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class Vr {
     constructor(t) {
         this.persistence = t, 
@@ -12066,11 +11454,7 @@ class vr extends Ki {
     }
     getLastRemoteSnapshotVersion(t) {
         return qs.resolve(this.lastRemoteSnapshotVersion);
-    }
-    getHighestSequenceNumber(t) {
-        return qs.resolve(this.Is);
-    }
-    allocateTargetId(t) {
+
         return this.highestTargetId = this.Rs.next(), qs.resolve(this.highestTargetId);
     }
     setTargetsMetadata(t, e, n) {
@@ -12139,11 +11523,7 @@ class vr extends Ki {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A memory-backed instance of Persistence. Data is stored only in RAM and
@@ -12233,11 +11613,7 @@ class Cr {
     }
     addReference(t, e, n) {
         return this.Ds.addReference(n, e), this.xs.delete(n.toString()), qs.resolve();
-    }
-    removeReference(t, e, n) {
-        return this.Ds.removeReference(n, e), this.xs.add(n.toString()), qs.resolve();
-    }
-    markPotentiallyOrphaned(t, e) {
+ {
         return this.xs.add(e.toString()), qs.resolve();
     }
     removeTarget(t, e) {
@@ -12284,11 +11660,7 @@ class Cr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // The format of the LocalStorage key that stores the client state is:
 //     firestore_clients_<persistence_prefix>_<instance_key>
@@ -12357,11 +11729,7 @@ class $r {
  */
 // Visible for testing
 class Or {
-    constructor(t, e, n) {
-        this.targetId = t, this.state = e, this.error = n;
-    }
-    /**
-     * Parses a QueryTargetMetadata from its JSON representation in WebStorage.
+ta from its JSON representation in WebStorage.
      * Logs a warning and returns null if the format of the data is not valid.
      */    static $s(t, e) {
         const n = JSON.parse(e);
@@ -12459,11 +11827,7 @@ class Lr {
  * clients and supports modifications of the local client's data.
  */ class Br {
     constructor(t, e, n, s, i) {
-        this.window = t, this.Oe = e, this.persistenceKey = n, this.Ls = s, this.syncEngine = null, 
-        this.onlineStateHandler = null, this.sequenceNumberHandler = null, this.Bs = this.Us.bind(this), 
-        this.qs = new fn(Z), this.started = !1, 
-        /**
-         * Captures WebStorage events that occur before `start()` is called. These
+ents that occur before `start()` is called. These
          * events are replayed once `WebStorageSharedClientState` is started.
          */
         this.Ks = [];
@@ -12486,11 +11850,7 @@ class Lr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ (this.persistenceKey), this.qs = this.qs.insert(this.Ls, new Lr), this.Ws = new RegExp(`^firestore_clients_${r}_([^_]*)$`), 
         this.Gs = new RegExp(`^firestore_mutations_${r}_(\\d+)(?:_(.*))?$`), this.zs = new RegExp(`^firestore_targets_${r}_(\\d+)$`), 
         this.Hs = 
@@ -12608,11 +11968,7 @@ class Lr {
     shutdown() {
         this.started && (this.window.removeEventListener("storage", this.Bs), this.removeItem(this.js), 
         this.started = !1);
-    }
-    getItem(t) {
-        const e = this.storage.getItem(t);
-        return x("SharedClientState", "READ", t, e), e;
-    }
+
     setItem(t, e) {
         x("SharedClientState", "SET", t, e), this.storage.setItem(t, e);
     }
@@ -12810,10 +12166,6 @@ class Ur {
     }
     shutdown() {}
     writeSequenceNumber(t) {}
-    notifyBundleLoaded() {
-        // No op.
-    }
-}
 
 /**
  * @license
@@ -12825,11 +12177,7 @@ class Ur {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class qr {
     Ei(t) {
         // No-op.
@@ -12849,11 +12197,7 @@ class Ur {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // References to `window` are guarded by BrowserConnectivityMonitor.isAvailable()
 /* eslint-disable no-restricted-globals */
@@ -12899,11 +12243,7 @@ class Kr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ const jr = {
     BatchGetDocuments: "batchGet",
     Commit: "commit",
@@ -12925,11 +12265,7 @@ class Kr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provides a simple helper class that implements the Stream interface to
@@ -12976,11 +12312,7 @@ class Qr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class Wr extends 
 /**
  * Base class for all Rest-based connections to the backend (WebChannel and
@@ -13169,11 +12501,7 @@ class {
                 if (i) {
                     x("Connection", "WebChannel received error:", i);
                     // error.status will be a string like 'OK' or 'NOT_FOUND'.
-                    const t = i.status;
-                    let e = 
-                    /**
- * Maps an error Code from a GRPC status identifier like 'NOT_FOUND'.
- *
+
  * @returns The Code equivalent to the given status string or undefined if
  *     there is no match.
  */
@@ -13193,11 +12521,7 @@ class {
         })), setTimeout((() => {
             // Technically we could/should wait for the WebChannel opened event,
             // but because we want to send the first message with the WebChannel
-            // handshake we pretend the channel opened here (asynchronously), and
-            // then delay the actual open until the first message is sent.
-            m.ki();
-        }), 0), m;
-    }
+
 }
 
 /**
@@ -13210,11 +12534,7 @@ class {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Initializes the WebChannelConnection for the browser. */
 /**
@@ -13227,11 +12547,7 @@ class {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** The Platform's 'window' implementation or null if not available. */
 function Gr() {
@@ -13251,16 +12567,8 @@ function Gr() {
  * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
+
  */ function Hr(t) {
     return new Mn(t, /* useProto3Json= */ !0);
 }
@@ -13281,11 +12589,7 @@ class Jr {
     constructor(
     /**
      * The AsyncQueue to run backoff operations on.
-     */
-    t, 
-    /**
-     * The ID to use when scheduling backoff operations on the AsyncQueue.
-     */
+
     e, 
     /**
      * The initial delay (used as the base delay on the first retry attempt).
@@ -13332,11 +12636,7 @@ class Jr {
         // First schedule using the current base (which may be 0 and should be
         // honored as such).
         const e = Math.floor(this.zi + this.Zi()), n = Math.max(0, Date.now() - this.Ji), s = Math.max(0, e - n);
-        // Guard against lastAttemptTime being in the future due to a clock change.
-                s > 0 && x("ExponentialBackoff", `Backing off for ${s} ms (base delay: ${this.zi} ms, delay with jitter: ${e} ms, last attempt: ${n} ms ago)`), 
-        this.Hi = this.Oe.enqueueAfterDelay(this.timerId, s, (() => (this.Ji = Date.now(), 
-        t()))), 
-        // Apply backoff factor to determine next delay and ensure it is within
+o determine next delay and ensure it is within
         // bounds.
         this.zi *= this.Wi, this.zi < this.Qi && (this.zi = this.Qi), this.zi > this.Gi && (this.zi = this.Gi);
     }
@@ -13361,11 +12661,7 @@ class Jr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A PersistentStream is an abstract base class that represents a streaming RPC
@@ -13570,11 +12866,7 @@ class Yr {
             this.Oe.enqueueAndForget((() => this.sr === t ? e() : (x("PersistentStream", "stream callback skipped by getCloseGuardedDispatcher."), 
             Promise.resolve())));
         };
-    }
-}
-
-/**
- * A PersistentStream that implements the Listen RPC.
+ents the Listen RPC.
  *
  * Once the Listen stream has called the onOpen() listener, any number of
  * listen() and unlisten() calls can be made to control what changes will be
@@ -13587,11 +12879,7 @@ class Yr {
     Er(t) {
         return this.nr.ji("Listen", t);
     }
-    onMessage(t) {
-        // A successful response means the stream is healthy
-        this.rr.reset();
-        const e = ts(this.N, t), n = function(t) {
-            // We have only reached a consistent snapshot for the entire stream if there
+ed a consistent snapshot for the entire stream if there
             // is a read_time set and it applies to all targets (i.e. the list of
             // targets is empty). The backend is guaranteed to send such responses.
             if (!("targetChange" in t)) return st.min();
@@ -13616,11 +12904,7 @@ class Yr {
                 query: rs(t, s)
             }, n.targetId = e.targetId, e.resumeToken.approximateByteSize() > 0 ? n.resumeToken = Bn(t, e.resumeToken) : e.snapshotVersion.compareTo(st.min()) > 0 && (
             // TODO(wuandy): Consider removing above check because it is most likely true.
-            // Right now, many tests depend on this behaviour though (leaving min() out
-            // of serialization).
-            n.readTime = Ln(t, e.snapshotVersion.toTimestamp())), n;
-        }(this.N, t);
-        const n = as(this.N, t);
+
         n && (e.labels = n), this.wr(e);
     }
     /**
@@ -13712,11 +12996,7 @@ class Yr {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Datastore and its related methods are a wrapper around the external Google
@@ -13725,11 +13005,7 @@ class Yr {
  */
 /**
  * An implementation of Datastore that exposes additional state for internal
- * consumption.
- */
-class to extends class {} {
-    constructor(t, e, n) {
-        super(), this.credentials = t, this.nr = e, this.N = n, this.Dr = !1;
+ = t, this.nr = e, this.N = n, this.Dr = !1;
     }
     Cr() {
         if (this.Dr) throw new q(U.FAILED_PRECONDITION, "The client has already been terminated.");
@@ -13843,11 +13119,7 @@ class eo {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class no {
     constructor(
     /**
@@ -14080,11 +13352,7 @@ async function mo(t, e, n) {
 /**
  * Recovery logic for IndexedDB errors that takes the network offline until
  * `op` succeeds. Retries are scheduled with backoff using
- * `enqueueRetryable()`. If `op()` is not provided, IndexedDB access is
- * validated via a generic operation.
- *
- * The returned Promise is resolved once the network is disabled and before
- * any retry attempt.
+
  */ async function go(t, e, n) {
     if (!Gs(e)) throw e;
     t.Kr.add(1 /* IndexedDbFailed */), 
@@ -14211,11 +13479,7 @@ async function Vo(t, e) {
  * This is not done on Web to allow it to be tree-shaken.
  */ function So(t) {
     return t.zr || (
-    // Create stream (but note that it is not started yet).
-    t.zr = function(t, e, n) {
-        const s = B(t);
-        return s.Cr(), new Xr(e, s.nr, s.credentials, s.N, n);
-    }
+
     /**
  * @license
  * Copyright 2018 Google LLC
@@ -14226,11 +13490,7 @@ async function Vo(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ (t.datastore, t.asyncQueue, {
         Si: wo.bind(null, t),
         Ci: _o.bind(null, t),
@@ -14277,11 +13537,7 @@ async function Vo(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Represents an operation scheduled to be run in the future on an AsyncQueue.
@@ -14369,11 +13625,7 @@ class Co {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * DocumentSet is an immutable (copy-on-write) collection that holds documents
@@ -14463,11 +13715,7 @@ class Co {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * DocumentChangeSet keeps track of a set of changes to docs in a query, merging
@@ -14551,11 +13799,7 @@ class $o {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Holds the listeners and the last received ViewSnapshot for a query being
@@ -14614,11 +13858,7 @@ function Bo(t, e) {
 }
 
 function Uo(t, e, n) {
-    const s = B(t), i = s.queries.get(e);
-    if (i) for (const t of i.listeners) t.onError(n);
-    // Remove all listeners. NOTE: We don't need to call syncEngine.unlisten()
-    // after an error.
-        s.queries.delete(e);
+
 }
 
 // Call all global snapshot listeners that have been set.
@@ -14665,11 +13905,7 @@ function qo(t) {
     /** Returns whether a snapshot was raised. */    eo(t) {
         this.onlineState = t;
         let e = !1;
-        return this.ro && !this.io && this.ao(this.ro, t) && (this.co(this.ro), e = !0), 
-        e;
-    }
-    ao(t, e) {
-        // Always raise the first event when we're synced
+ event when we're synced
         if (!t.fromCache) return !0;
         // NOTE: We consider OnlineState.Unknown as online (it should become Offline
         // or Online if we wait long enough).
@@ -14707,11 +13943,7 @@ function qo(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A complete element in the bundle stream, together with the byte length it
@@ -14737,11 +13969,7 @@ function qo(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Helper to convert objects from bundles to model objects in the SDK.
@@ -14765,11 +13993,7 @@ function qo(t) {
 /**
  * A class to process the elements from a bundle, load them into local
  * storage and provide progress update while loading.
- */ class Wo {
-    constructor(t, e, n) {
-        this.lo = t, this.localStore = e, this.N = n, 
-        /** Batched queries to be saved into storage */
-        this.queries = [], 
+
         /** Batched documents to be saved into storage */
         this.documents = [], this.progress = Go(t);
     }
@@ -14834,11 +14058,7 @@ function qo(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class zo {
     constructor(t) {
@@ -14863,11 +14083,7 @@ class Ho {
         this.query = t, this._o = e, this.mo = null, 
         /**
          * A flag whether the view is current with the backend. A view is considered
-         * current after it has seen the current flag from the backend and did not
-         * lose consistency within the watch stream (e.g. because of an existence
-         * filter mismatch).
-         */
-        this.current = !1, 
+
         /** Documents in the view but not in the remote target */
         this.yo = Rn(), 
         /** Document Keys that have local changes */
@@ -14951,11 +14167,7 @@ class Ho {
         // part of a write acknowledgment (e.g. when the value of a server transform
         // is applied) as Watch will send us the same document again.
         // By suppressing the event, we only raise two user visible events (one with
-        // `hasPendingWrites` and the final state of the document) instead of three
-        // (one with `hasPendingWrites`, the modified document with
-        // `hasPendingWrites` and the final state of the document).
-        return t.hasLocalMutations && e.hasCommittedMutations && !e.hasLocalMutations;
-    }
+
     /**
      * Updates the view with the given ViewDocumentChanges and optionally updates
      * limbo docs and sync state from the provided target change.
@@ -15004,11 +14216,7 @@ class Ho {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ (t.type, e.type) || this.po(t.doc, e.doc))), this.bo(n);
         const r = e ? this.Po() : [], o = 0 === this.yo.size && this.current ? 1 /* Synced */ : 0 /* Local */ , a = o !== this.mo;
         if (this.mo = o, 0 !== i.length || a) {
@@ -15111,11 +14319,7 @@ class Ho {
 }
 
 /**
- * QueryView contains all of the data that SyncEngine needs to keep track of for
- * a particular query.
- */
-class Yo {
-    constructor(
+
     /**
      * The query itself.
      */
@@ -15141,11 +14345,7 @@ class Yo {
         this.key = t, 
         /**
          * Set to true once we've received a document. This is used in
-         * getRemoteKeysForTarget() and ultimately used by WatchChangeAggregator to
-         * decide whether it needs to manufacture a delete event for the target once
-         * the target is CURRENT.
-         */
-        this.Co = !1;
+
     }
 }
 
@@ -15238,11 +14438,7 @@ async function ta(t, e) {
         // The query has a limit and some docs were removed, so we need
         // to re-run the query against the local store to make sure we
         // didn't lose any good docs that had been past the limit.
-        i = await mr(t.localStore, e.query, 
-        /* usePreviousResults= */ !1).then((({documents: t}) => e.view.Io(t, i))));
-        const r = s && s.targetChanges.get(e.targetId), o = e.view.applyChanges(i, 
-        /* updateLimboDocuments= */ t.isPrimaryClient, r);
-        return wa(t, e.targetId, o.vo), o.snapshot;
+o.vo), o.snapshot;
     }(t, e, n, s);
     const i = await mr(t.localStore, e, 
     /* usePreviousResults= */ !0), r = new Jo(e, i.Gn), o = r.Io(i.documents), a = Vn.createSynthesizedTargetChangeForCurrentChange(n, s && "Offline" /* Offline */ !== t.onlineState), c = r.applyChanges(o, 
@@ -15408,11 +14604,7 @@ async function ta(t, e) {
         // re-trigger the target failure.
         s.Oo = s.Oo.remove(r), s.Fo.delete(e), ma(s);
     } else await _r(s.localStore, e, 
-    /* keepPersistedTargetData */ !1).then((() => fa(s, e, n))).catch($i);
-}
-
-async function aa(t, e) {
-    const n = B(t), s = e.batch.batchId;
+atchId;
     try {
         const t = await ur(n.localStore, e);
         // The local store may or may not be able to apply the write result and
@@ -15885,11 +15077,7 @@ function Da(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
     /**
  * Provides all components needed for Firestore with in-memory persistence.
@@ -16048,11 +15236,7 @@ class Na {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * How many bytes to read each time when `ReadableStreamReader.read()` is
@@ -16101,11 +15285,7 @@ function Oa(t, e = 10240) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * On web, a `ReadableStream` is wrapped around by a `ByteStreamReader`.
@@ -16120,11 +15300,7 @@ function Oa(t, e = 10240) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /*
  * A wrapper implementation of Observer<T> that will dispatch events
@@ -16166,11 +15342,7 @@ class Fa {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A class representing a bundle.
@@ -16284,11 +15456,7 @@ class Fa {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Internal transaction object responsible for accumulating the mutations to
@@ -16313,11 +15481,7 @@ class La {
         this.writtenDocs = new Set;
     }
     async lookup(t) {
-        if (this.ensureCommitNotCalled(), this.mutations.length > 0) throw new q(U.INVALID_ARGUMENT, "Firestore transactions require all reads to be executed before all writes.");
-        const e = await async function(t, e) {
-            const n = B(t), s = Hn(n.N) + "/documents", i = {
-                documents: e.map((t => Qn(n.N, t)))
-            }, r = await n.Ki("BatchGetDocuments", s, i), o = new Map;
+tchGetDocuments", s, i), o = new Map;
             r.forEach((t => {
                 const e = Zn(n.N, t);
                 o.set(e.key.toString(), e);
@@ -16425,11 +15589,7 @@ class La {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * TransactionRunner encapsulates the logic needed to run and retry transactions
@@ -16480,11 +15640,7 @@ class Ba {
         }
         return !1;
     }
-}
 
-/**
- * @license
- * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16492,11 +15648,7 @@ class Ba {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * FirestoreClient is a top-level class that constructs and owns all of the
@@ -16537,11 +15689,7 @@ class Ua {
      * Checks that the client has not been terminated. Ensures that other methods on
      * this class cannot be called after the client is terminated.
      */    verifyNotTerminated() {
-        if (this.asyncQueue.isShuttingDown) throw new q(U.FAILED_PRECONDITION, "The client has already been terminated.");
-    }
-    terminate() {
-        this.asyncQueue.enterRestrictedMode();
-        const t = new K;
+
         return this.asyncQueue.enqueueAndForgetEvenWhileRestricted((async () => {
             try {
                 this.onlineComponents && await this.onlineComponents.terminate(), this.offlineComponents && await this.offlineComponents.terminate(), 
@@ -16557,10 +15705,6 @@ class Ua {
     }
 }
 
-async function qa(t, e) {
-    t.asyncQueue.verifyOperationInProgress(), x("FirestoreClient", "Initializing OfflineComponentProvider");
-    const n = await t.getConfiguration();
-    await e.initialize(n);
     let s = n.initialUser;
     t.setCredentialChangeListener((async t => {
         s.isEqual(t) || (await cr(e.localStore, t), s = t);
@@ -16602,11 +15746,7 @@ async function Qa(t) {
     await Ka(t, new $a)), t.onlineComponents;
 }
 
-function Wa(t) {
-    return ja(t).then((t => t.persistence));
-}
 
-function Ga(t) {
     return ja(t).then((t => t.localStore));
 }
 
@@ -16720,11 +15860,7 @@ function ec(t, e) {
 function nc(t, e, n = {}) {
     const s = new K;
     return t.asyncQueue.enqueueAndForget((async () => function(t, e, n, s, i) {
-        const r = new Fa({
-            next: n => {
-                // Remove query first before passing event to user to avoid
-                // user actions affecting the now stale query.
-                e.enqueueAndForget((() => Lo(t, o))), n.fromCache && "server" === s.source ? i.reject(new q(U.UNAVAILABLE, 'Failed to get documents from server. (However, these documents may exist in the local cache. Run again without setting source to "server" to retrieve the cached documents.)')) : i.resolve(n);
+t((() => Lo(t, o))), n.fromCache && "server" === s.source ? i.reject(new q(U.UNAVAILABLE, 'Failed to get documents from server. (However, these documents may exist in the local cache. Run again without setting source to "server" to retrieve the cached documents.)')) : i.resolve(n);
             },
             error: t => i.reject(t)
         }), o = new Ko(n, r, {
@@ -16796,11 +15932,7 @@ function rc(t, e, n, s) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ (n, Hr(e));
     t.asyncQueue.enqueueAndForget((async () => {
         Ca(await Ha(t), i, s);
@@ -16865,15 +15997,7 @@ class cc {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ const uc = new Map;
-
-/**
- * An instance map that ensures only one Datastore exists per Firestore
+nly one Datastore exists per Firestore
  * instance.
  */
 /**
@@ -16886,11 +16010,7 @@ class cc {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function hc(t, e, n) {
     if (!n) throw new q(U.INVALID_ARGUMENT, `Function ${t}() cannot be called with an empty ${e}.`);
@@ -16940,11 +16060,7 @@ function wc(t) {
                 }
                 return null;
             }
-            /**
- * Casts `obj` to `T`, optionally unwrapping Compat types to expose the
- * underlying instance. Throws if  `obj` is not an instance of `T`.
- *
- * This cast is used in the Lite and Full SDK to verify instance types for
+and Full SDK to verify instance types for
  * arguments passed to the public API.
  * @internal
  */ (t);
@@ -16984,11 +16100,7 @@ function mc(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // settings() defaults:
 /**
@@ -17026,11 +16138,7 @@ class gc {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The Cloud Firestore service interface.
@@ -17160,11 +16268,7 @@ function pc(t, e, n, s = {}) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A `DocumentReference` refers to a document location in a Firestore database
@@ -17256,11 +16360,7 @@ function pc(t, e, n, s = {}) {
         return new Ic(this.firestore, t, this._path);
     }
 }
-
-function Ac(t, e, ...n) {
-    if (t = getModularInstance(t), hc("collection", "path", e), t instanceof yc) {
-        const s = ct.fromString(e, ...n);
-        return dc(s), new Ic(t, /* converter= */ null, s);
+* converter= */ null, s);
     }
     {
         if (!(t instanceof Ec || t instanceof Ic)) throw new q(U.INVALID_ARGUMENT, "Expected first argument to collection() to be a CollectionReference, a DocumentReference or FirebaseFirestore");
@@ -17325,11 +16425,7 @@ function bc(t, e, ...n) {
 /**
  * Returns true if the provided queries point to the same collection and apply
  * the same constraints.
- *
- * @param left - A `Query` to compare.
- * @param right - A `Query` to compare.
- * @returns true if the references point to the same location in the same
- * Firestore database.
+
  */ function vc(t, e) {
     return t = getModularInstance(t), e = getModularInstance(e), t instanceof Tc && e instanceof Tc && (t.firestore === e.firestore && Te(t._query, e._query) && t.converter === e.converter);
 }
@@ -17344,17 +16440,9 @@ function bc(t, e, ...n) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ class Vc {
-    constructor() {
-        // The last promise in the queue.
-        this.fa = Promise.resolve(), 
-        // A list of retryable operations. Retryable operations are run in order and
-        // retried with backoff.
+
         this.da = [], 
         // Is this AsyncQueue being shut down? Once it is set to true, it will not
         // be changed again.
@@ -17448,11 +16536,7 @@ function bc(t, e, ...n) {
     Ia(t) {
         const e = this.fa.then((() => (this.ga = !0, t().catch((t => {
             this.ma = t, this.ga = !1;
-            // Re-throw the error so that this.tail becomes a rejected Promise and
-            // all further attempts to chain (via .then) will just short-circuit
-            // and return the rejected Promise.
-            throw k("INTERNAL UNHANDLED ERROR: ", 
-            /**
+
  * Chrome includes Error.message in Error.stack. Other browsers do not.
  * This returns expected output of message + stack when available.
  * @param error - Error or FirestoreError
@@ -17472,11 +16556,7 @@ function bc(t, e, ...n) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ (t)), t;
         })).then((t => (this.ga = !1, t))))));
         return this.fa = e, e;
@@ -17494,11 +16574,7 @@ function bc(t, e, ...n) {
     verifyOperationInProgress() {}
     /**
      * Waits until all currently queued tasks are finished executing. Delayed
-     * operations are not run.
-     */    async ba() {
-        // Operations in the queue prior to draining may have enqueued additional
-        // operations. Keep draining the queue until the tail is no longer advanced,
-        // which indicates that no more new operations were enqueued and that all
+o more new operations were enqueued and that all
         // operations were executed.
         let t;
         do {
@@ -17560,11 +16636,7 @@ function Sc(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
     /**
  * Represents the task of loading a Firestore bundle. It provides progress of bundle
@@ -17632,11 +16704,7 @@ class Dc {
         this._lastProgress.taskState = "Error", this._progressObserver.next && this._progressObserver.next(this._lastProgress), 
         this._progressObserver.error && this._progressObserver.error(t), this._taskCompletionResolver.reject(t);
     }
-    /**
-     * Notifies a progress update of loading a bundle.
-     * @param progress - The new progress.
-     *
-     * @private
+
      */    _updateProgress(t) {
         this._lastProgress = t, this._progressObserver.next && this._progressObserver.next(t);
     }
@@ -17652,11 +16720,7 @@ class Dc {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** DOMException error code constants. */ const Cc = -1;
 
@@ -17820,11 +16884,7 @@ function Oc(t) {
                 // INVALID_STATE for any usage.
                 11 === t.code;
                 return !0;
-            }
-            /**
- * Clears the persistent storage. This includes pending writes and cached
- * documents.
- *
+
  * Must be called while the {@link Firestore} instance is not started (after the app is
  * terminated or when the app is first initialized). On startup, this function
  * must be called before other functions (other than {@link
@@ -17948,11 +17008,7 @@ function Bc(t) {
 }
 
 /**
- * Reads a Firestore {@link Query} from local cache, identified by the given name.
- *
- * The named queries are packaged  into bundles on the server side (along
- * with resulting documents), and loaded to local cache using `loadBundle`. Once in local
- * cache, use this method to extract a {@link Query} by name.
+act a {@link Query} by name.
  */ function Wc(t, e) {
     return oc($c(t = _c(t, Nc)), e).then((e => e ? new Tc(t, null, e.query) : null));
 }
@@ -17971,11 +17027,7 @@ function Gc(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * @license
@@ -17987,11 +17039,7 @@ function Gc(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A `FieldPath` refers to a field in a document. The path may consist of a
@@ -18039,20 +17087,12 @@ class zc {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An immutable object representing an array of bytes.
  */ class Jc {
-    /** @hideconstructor */
-    constructor(t) {
-        this._byteString = t;
-    }
-    /**
+
      * Creates a new `Bytes` object from the given Base64 string, converting it to
      * bytes.
      *
@@ -18112,11 +17152,7 @@ class zc {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Sentinel values that can be used when writing document fields with `set()`
@@ -18141,18 +17177,10 @@ class zc {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
- * An immutable object representing a geographic location in Firestore. The
- * location is represented as latitude/longitude pair.
- *
- * Latitude values are in the range of [-90, 90].
- * Longitude values are in the range of [-180, 180].
+nge of [-180, 180].
  */ class Xc {
     /**
      * Creates a new immutable `GeoPoint` object with the provided latitude and
@@ -18207,11 +17235,7 @@ class zc {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ const Zc = /^__.*__$/;
 
 /** The result of parsing document data (e.g. for a setData call). */ class tu {
@@ -18471,11 +17495,7 @@ class fu extends Yc {
         // Add it to the field mask, but don't add anything to updateData.
         r.push(a); else {
             const t = mu(s, c);
-            null != t && (r.push(a), o.set(a, t));
-        }
-    }));
-    const a = new lt(r);
-    return new eu(o, a, i.fieldTransforms);
+ansforms);
 }
 
 /** Parse update data from a list of field/value arguments. */ function wu(t, e, n, s, i, r) {
@@ -18487,11 +17507,7 @@ class fu extends Yc {
     // user specified the field multiple times.
     for (let t = a.length - 1; t >= 0; --t) if (!Ru(u, a[t])) {
         const e = a[t];
-        let n = c[t];
-        // For Compat types, we have to "extract" the underlying types before
-        // performing validation.
-                n = getModularInstance(n);
-        const s = o.$a(e);
+
         if (n instanceof au) 
         // Add it to the field mask, but don't add anything to updateData.
         u.push(e); else {
@@ -18539,11 +17555,7 @@ class fu extends Yc {
     return function(t, e) {
         // Sentinels are only supported with writes, and not within arrays.
         if (!nu(e.Da)) throw e.Fa(`${t._methodName}() can only be used with update() and set()`);
-        if (!e.path) throw e.Fa(`${t._methodName}() is not currently supported inside arrays`);
-        const n = t._toFieldTransform(e);
-        n && e.fieldTransforms.push(n);
-    }
-    /**
+
  * Helper to parse a scalar value (i.e. not an Object, Array, or FieldValue)
  *
  * @returns The parsed value
@@ -18612,11 +17624,7 @@ class fu extends Yc {
         if (t instanceof Xc) return {
             geoPointValue: {
                 latitude: t.latitude,
-                longitude: t.longitude
-            }
-        };
-        if (t instanceof Jc) return {
-            bytesValue: Bn(e.N, t._byteString)
+._byteString)
         };
         if (t instanceof Ec) {
             const n = e.databaseId, s = t.firestore._databaseId;
@@ -18641,11 +17649,7 @@ function gu(t, e) {
     return ot(t) ? 
     // If we encounter an empty object, we explicitly add it to the update
     // mask to ensure that the server creates a map entry.
-    e.path && e.path.length > 0 && e.fieldMask.push(e.path) : rt(t, ((t, s) => {
-        const i = mu(s, e.Na(t));
-        null != i && (n[t] = i);
-    })), {
-        mapValue: {
+
             fields: n
         }
     };
@@ -18707,11 +17711,7 @@ function Au(t, e, n, s, i) {
     let a = `Function ${e}() called with invalid data`;
     n && (a += " (via `toFirestore()`)"), a += ". ";
     let c = "";
-    return (r || o) && (c += " (found", r && (c += ` in field ${s}`), o && (c += ` in document ${i}`), 
-    c += ")"), new q(U.INVALID_ARGUMENT, a + t + c);
-}
-
-/** Checks `haystack` if FieldPath `needle` is present. Runs in O(n). */ function Ru(t, e) {
+h `needle` is present. Runs in O(n). */ function Ru(t, e) {
     return t.some((t => t.isEqual(e)));
 }
 
@@ -18725,11 +17725,7 @@ function Au(t, e, n, s, i) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A `DocumentSnapshot` contains data read from a document in your Firestore
@@ -18839,11 +17835,7 @@ function Au(t, e, n, s, i) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Metadata about a snapshot, describing the state of the snapshot.
@@ -19076,11 +18068,7 @@ function Nu(t) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */ function ku(t) {
     if (we(t) && 0 === t.explicitOrderBy.length) throw new q(U.UNIMPLEMENTED, "limitToLast() queries require specifying at least one orderBy() clause");
 }
@@ -19237,11 +18225,7 @@ class Lu extends $u {
     }
 }
 
-/**
- * Creates a {@link QueryConstraint} that sorts the query result by the
- * specified field, optionally in descending order instead of ascending.
- *
- * @param fieldPath - The field to sort by.
+o sort by.
  * @param directionStr - Optional direction to sort by ('asc' or 'desc'). If
  * not specified, order will be ascending.
  * @returns The created {@link Query}.
@@ -19351,11 +18335,7 @@ function Hu(...t) {
         return function(t, e, n, s, i, r) {
             // Use explicit order by's because it has to match the query the user made
             const o = t.explicitOrderBy;
-            if (i.length > o.length) throw new q(U.INVALID_ARGUMENT, `Too many arguments provided to ${s}(). The number of arguments must be less than or equal to the number of orderBy() clauses`);
-            const a = [];
-            for (let r = 0; r < i.length; r++) {
-                const c = i[r];
-                if (o[r].field.isKeyField()) {
+KeyField()) {
                     if ("string" != typeof c) throw new q(U.INVALID_ARGUMENT, `Invalid query. Expected a string for document ID in ${s}(), but got a ${typeof c}`);
                     if (!ge(t) && -1 !== c.indexOf("/")) throw new q(U.INVALID_ARGUMENT, `Invalid query. When querying a collection and ordering by FieldPath.documentId(), the value passed to ${s}() must be a plain document ID, but '${c}' contains a slash.`);
                     const n = t.path.child(ct.fromString(c));
@@ -19411,11 +18391,7 @@ function Zu(t, e, n) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Converts Firestore's internal types to the JavaScript types that we expose
@@ -19512,11 +18488,7 @@ function Zu(t, e, n) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Converts custom model object of type T into `DocumentData` by applying the
@@ -19558,11 +18530,7 @@ class nh extends th {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A write batch, used to perform multiple writes as a single atomic unit.
@@ -19600,11 +18568,7 @@ class nh extends th {
         this._verifyNotCommitted();
         const e = ih(t, this._firestore);
         return this._mutations = this._mutations.concat(new rn(e._key, Qe.none())), this;
-    }
-    /**
-     * Commits all of the writes in this write batch as a single atomic unit.
-     *
-     * The result of these writes will only be reflected in document reads that
+ will only be reflected in document reads that
      * occur after the returned promise resolves. If the client is offline, the
      * write fails. If you would like to see local modifications or buffer writes
      * until the client is online, use the full Firestore SDK.
@@ -19635,11 +18599,7 @@ function ih(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // TODO(mrschmidt) Consider using `BaseTransaction` as the base class in the
 // legacy SDK.
@@ -19660,11 +18620,7 @@ function ih(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Reads the document referred to by this `DocumentReference`.
@@ -19880,11 +18836,7 @@ function gh(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A reference to a transaction.
@@ -19947,11 +18899,7 @@ function gh(t, e) {
      * @returns A `DocumentSnapshot` with the read data.
      */    get(t) {
         const e = ih(t, this._firestore), n = new oh(this._firestore);
-        return super.get(t).then((t => new Su(this._firestore, n, e._key, t._document, new Vu(
-        /* hasPendingWrites= */ !1, 
-        /* fromCache= */ !1), e.converter)));
-    }
-}
+
 
 /**
  * Executes the given `updateFunction` and then attempts to commit the changes
@@ -19983,11 +18931,7 @@ function gh(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a sentinel for use with {@link @firebase/firestore/lite#(updateDoc:1)} or
@@ -20052,11 +18996,7 @@ function gh(t, e) {
  * yet exist, the transformation sets the field to the given value.
  *
  * @param n - The value to increment by.
- * @returns The `FieldValue` sentinel for use in a call to `setDoc()` or
- * `updateDoc()`
- */ function Ph(t) {
-    return new fu("increment", t);
-}
+
 
 /**
  * @license
@@ -20068,11 +19008,7 @@ function gh(t, e) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Creates a write batch, used for performing multiple writes as a single
@@ -20102,7 +19038,3 @@ function gh(t, e) {
         useFetchStreams: !0
     }, e), s._setSettings(e), s;
 }), "PUBLIC" /* PUBLIC */)), registerVersion("@firebase/firestore", "3.0.2", Vh);
-
-export { th as AbstractUserDataWriter, Jc as Bytes, Cc as CACHE_SIZE_UNLIMITED, Ic as CollectionReference, Ec as DocumentReference, Su as DocumentSnapshot, zc as FieldPath, Yc as FieldValue, Nc as Firestore, q as FirestoreError, Xc as GeoPoint, Dc as LoadBundleTask, Tc as Query, $u as QueryConstraint, Du as QueryDocumentSnapshot, Cu as QuerySnapshot, Vu as SnapshotMetadata, nt as Timestamp, Eh as Transaction, sh as WriteBatch, cc as _DatabaseId, Rt as _DocumentKey, Q as _EmptyCredentialsProvider, ht as _FieldPath, _c as _cast, L as _debugAssert, ft as _isBase64Available, $ as _logWarn, lc as _validateIsNotUsedTogether, _h as addDoc, bh as arrayRemove, Rh as arrayUnion, Bc as clearIndexedDbPersistence, Ac as collection, Rc as collectionGroup, pc as connectFirestoreEmulator, wh as deleteDoc, Ih as deleteField, Kc as disableNetwork, bc as doc, Hc as documentId, Fc as enableIndexedDbPersistence, Mc as enableMultiTabIndexedDbPersistence, qc as enableNetwork, Hu as endAt, zu as endBefore, $c as ensureFirestoreConfigured, yh as executeWrite, rh as getDoc, ah as getDocFromCache, ch as getDocFromServer, uh as getDocs, hh as getDocsFromCache, lh as getDocsFromServer, kc as getFirestore, Ph as increment, xc as initializeFirestore, qu as limit, Ku as limitToLast, Qc as loadBundle, Wc as namedQuery, mh as onSnapshot, gh as onSnapshotsInSync, Bu as orderBy, Ou as query, vc as queryEqual, Pc as refEqual, Th as runTransaction, Ah as serverTimestamp, fh as setDoc, N as setLogLevel, xu as snapshotEqual, Wu as startAfter, Qu as startAt, jc as terminate, dh as updateDoc, Uc as waitForPendingWrites, Mu as where, vh as writeBatch };
-
-//# sourceMappingURL=firebase-firestore.js.map

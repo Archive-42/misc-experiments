@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-// This is a sanity test using gtest. The goal of this test is to make sure the
-// way we setup Android C++ test harness actually works. We write test in a
+harness actually works. We write test in a
 // cross-platform way with gtest and run test with Android JUnit4 test runner
 // for Android. We want this sanity test be as simple as possible while using
 // the most critical mechanism of gtest. We also print information to stdout

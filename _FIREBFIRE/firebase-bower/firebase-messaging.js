@@ -76,15 +76,7 @@ function validateIndexedDBOpenable() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-var ERROR_NAME = 'FirebaseError';
-// Based on code from:
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
+en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
 var FirebaseError = /** @class */ (function (_super) {
     __extends(FirebaseError, _super);
     function FirebaseError(code, message, customData) {
@@ -144,19 +136,11 @@ var PATTERN = /\{\$([^}]+)}/g;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getModularInstance(service) {
     if (service && service._delegate) {
-        return service._delegate;
-    }
-    else {
-        return service;
-    }
+
 }
 
 /**
@@ -517,11 +501,7 @@ const version = "0.5.0";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const PENDING_TIMEOUT_MS = 10000;
 const PACKAGE_VERSION = `w:${version}`;
@@ -529,11 +509,7 @@ const INTERNAL_AUTH_VERSION = 'FIS_v2';
 const INSTALLATIONS_API_URL = 'https://firebaseinstallations.googleapis.com/v1';
 const TOKEN_EXPIRATION_BUFFER = 60 * 60 * 1000; // One hour
 const SERVICE = 'installations';
-const SERVICE_NAME = 'Installations';
 
-/**
- * @license
- * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -541,11 +517,7 @@ const SERVICE_NAME = 'Installations';
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const ERROR_DESCRIPTION_MAP = {
     ["missing-app-config-values" /* MISSING_APP_CONFIG_VALUES */]: 'Missing App configuration value: "{$valueName}"',
@@ -557,10 +529,6 @@ const ERROR_DESCRIPTION_MAP = {
 };
 const ERROR_FACTORY$1 = new ErrorFactory(SERVICE, SERVICE_NAME, ERROR_DESCRIPTION_MAP);
 /** Returns true if error is a FirebaseError that is based on an error from the server. */
-function isServerError(error) {
-    return (error instanceof FirebaseError &&
-        error.code.includes("request-failed" /* REQUEST_FAILED */));
-}
 
 /**
  * @license
@@ -572,11 +540,7 @@ function isServerError(error) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getInstallationsEndpoint({ projectId }) {
     return `${INSTALLATIONS_API_URL}/projects/${projectId}/installations`;
@@ -592,11 +556,7 @@ function extractAuthTokenInfoFromResponse(response) {
 async function getErrorFromResponse(requestName, response) {
     const responseJson = await response.json();
     const errorData = responseJson.error;
-    return ERROR_FACTORY$1.create("request-failed" /* REQUEST_FAILED */, {
-        requestName,
-        serverCode: errorData.code,
-        serverMessage: errorData.message,
-        serverStatus: errorData.status
+tatus
     });
 }
 function getHeaders$1({ apiKey }) {
@@ -642,11 +602,7 @@ function getAuthorizationHeader(refreshToken) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function createInstallationRequest(appConfig, { fid }) {
     const endpoint = getInstallationsEndpoint(appConfig);
@@ -666,11 +622,7 @@ async function createInstallationRequest(appConfig, { fid }) {
     if (response.ok) {
         const responseValue = await response.json();
         const registeredInstallationEntry = {
-            fid: responseValue.fid || fid,
-            registrationStatus: 2 /* COMPLETED */,
-            refreshToken: responseValue.refreshToken,
-            authToken: extractAuthTokenInfoFromResponse(responseValue.authToken)
-        };
+
         return registeredInstallationEntry;
     }
     else {
@@ -688,11 +640,7 @@ async function createInstallationRequest(appConfig, { fid }) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Returns a promise that resolves after given time passes. */
 function sleep(ms) {
@@ -711,20 +659,12 @@ function sleep(ms) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function bufferToBase64UrlSafe(array) {
     const b64 = btoa(String.fromCharCode(...array));
     return b64.replace(/\+/g, '-').replace(/\//g, '_');
-}
 
-/**
- * @license
- * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -732,11 +672,7 @@ function bufferToBase64UrlSafe(array) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const VALID_FID_PATTERN = /^[cdef][\w-]{21}$/;
 const INVALID_FID = '';
@@ -747,11 +683,7 @@ const INVALID_FID = '';
 function generateFid() {
     try {
         // A valid FID has exactly 22 base64 characters, which is 132 bits, or 16.5
-        // bytes. our implementation generates a 17 byte array instead.
-        const fidByteArray = new Uint8Array(17);
-        const crypto = self.crypto || self.msCrypto;
-        crypto.getRandomValues(fidByteArray);
-        // Replace the first 4 random bits with the constant FID header of 0b0111.
+ndom bits with the constant FID header of 0b0111.
         fidByteArray[0] = 0b01110000 + (fidByteArray[0] % 0b00010000);
         const fid = encode(fidByteArray);
         return VALID_FID_PATTERN.test(fid) ? fid : INVALID_FID;
@@ -769,21 +701,13 @@ function encode(fidByteArray) {
     return b64String.substr(0, 22);
 }
 
-/**
- * @license
- * Copyright 2019 Google LLC
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Returns a string key that can be used to identify the app. */
 function getKey$1(appConfig) {
@@ -800,11 +724,7 @@ function getKey$1(appConfig) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const fidChangeCallbacks = new Map();
 /**
@@ -823,11 +743,7 @@ function callFidChangeCallbacks(key, fid) {
     }
     for (const callback of callbacks) {
         callback(fid);
-    }
-}
-function broadcastFidChange(key, fid) {
-    const channel = getBroadcastChannel();
-    if (channel) {
+
         channel.postMessage({ key, fid });
     }
     closeBroadcastChannel();
@@ -844,11 +760,7 @@ function getBroadcastChannel() {
     return broadcastChannel;
 }
 function closeBroadcastChannel() {
-    if (fidChangeCallbacks.size === 0 && broadcastChannel) {
-        broadcastChannel.close();
-        broadcastChannel = null;
-    }
-}
+
 
 /**
  * @license
@@ -860,11 +772,7 @@ function closeBroadcastChannel() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const DATABASE_NAME$1 = 'firebase-installations-database';
 const DATABASE_VERSION$1 = 1;
@@ -908,11 +816,7 @@ async function remove(appConfig) {
     await tx.objectStore(OBJECT_STORE_NAME$1).delete(key);
     await tx.complete;
 }
-/**
- * Atomically updates a record with the result of updateFn, which gets
- * called with the current value. If newValue is undefined, the record is
- * deleted instead.
- * @return Updated value
+
  */
 async function update(appConfig, updateFn) {
     const key = getKey$1(appConfig);
@@ -944,11 +848,7 @@ async function update(appConfig, updateFn) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Updates and returns the InstallationEntry from the database.
@@ -996,11 +896,7 @@ function triggerRegistrationIfNecessary(appConfig, installationEntry) {
             const registrationPromiseWithError = Promise.reject(ERROR_FACTORY$1.create("app-offline" /* APP_OFFLINE */));
             return {
                 installationEntry,
-                registrationPromise: registrationPromiseWithError
-            };
-        }
-        // Try registering. Change status to IN_PROGRESS.
-        const inProgressEntry = {
+
             fid: installationEntry.fid,
             registrationStatus: 1 /* IN_PROGRESS */,
             registrationTime: Date.now()
@@ -1104,11 +1000,7 @@ function hasInstallationRequestTimedOut(installationEntry) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function generateAuthTokenRequest({ appConfig, platformLoggerProvider }, installationEntry) {
     const endpoint = getGenerateAuthTokenEndpoint(appConfig, installationEntry);
@@ -1154,21 +1046,13 @@ function getGenerateAuthTokenEndpoint(appConfig, { fid }) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a valid authentication token for the installation. Generates a new
  * token if one doesn't exist, is expired or about to expire.
  *
- * Should only be called if the Firebase Installation is registered.
- */
-async function refreshAuthToken(installations, forceRefresh = false) {
-    let tokenPromise;
-    const entry = await update(installations.appConfig, oldEntry => {
+stallations.appConfig, oldEntry => {
         if (!isEntryRegistered(oldEntry)) {
             throw ERROR_FACTORY$1.create("not-registered" /* NOT_REGISTERED */);
         }
@@ -1214,11 +1098,7 @@ async function waitUntilAuthTokenRequest(installations, forceRefresh) {
         entry = await updateAuthTokenRequest(installations.appConfig);
     }
     const authToken = entry.authToken;
-    if (authToken.requestStatus === 0 /* NOT_STARTED */) {
-        // The request timed out or failed in a different call. Try again.
-        return refreshAuthToken(installations, forceRefresh);
-    }
-    else {
+
         return authToken;
     }
 }
@@ -1299,11 +1179,7 @@ function hasAuthTokenRequestTimedOut(authToken) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Creates a Firebase Installation if there isn't one for the app and
@@ -1336,11 +1212,7 @@ async function getId(installations) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a Firebase Installations auth token, identifying the current
@@ -1367,20 +1239,12 @@ async function completeInstallationRegistration(appConfig) {
 }
 
 /**
- * @license
- * Copyright 2019 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+pt in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function extractAppConfig$1(app) {
     if (!app || !app.options) {
@@ -1408,10 +1272,6 @@ function extractAppConfig$1(app) {
     };
 }
 function getMissingValueError$1(valueName) {
-    return ERROR_FACTORY$1.create("missing-app-config-values" /* MISSING_APP_CONFIG_VALUES */, {
-        valueName
-    });
-}
 
 /**
  * @license
@@ -1423,11 +1283,7 @@ function getMissingValueError$1(valueName) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const INSTALLATIONS_NAME = 'installations';
 const INSTALLATIONS_NAME_INTERNAL = 'installations-internal';
@@ -1452,11 +1308,7 @@ const internalFactory = (container) => {
         getId: () => getId(installations),
         getToken: (forceRefresh) => getToken$2(installations, forceRefresh)
     };
-    return installationsInternal;
-};
-function registerInstallations() {
-    _registerComponent(new Component(INSTALLATIONS_NAME, publicFactory, "PUBLIC" /* PUBLIC */));
-    _registerComponent(new Component(INSTALLATIONS_NAME_INTERNAL, internalFactory, "PRIVATE" /* PRIVATE */));
+ent(INSTALLATIONS_NAME_INTERNAL, internalFactory, "PRIVATE" /* PRIVATE */));
 }
 
 /**
@@ -1477,11 +1329,7 @@ registerVersion(name, version);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const DEFAULT_SW_PATH = '/firebase-messaging-sw.js';
 const DEFAULT_SW_SCOPE = '/firebase-cloud-messaging-push-scope';
@@ -1503,11 +1351,7 @@ var MessageType$1;
  * Copyright 2018 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
+law or agreed to in writing, software distributed under the License
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
@@ -1528,11 +1372,7 @@ var MessageType;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function arrayToBase64(array) {
     const uint8Array = new Uint8Array(array);
@@ -1561,15 +1401,7 @@ function base64ToArray(base64String) {
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-const OLD_DB_NAME = 'fcm_token_details_db';
-/**
+
  * The last DB version of 'fcm_token_details_db' was 4. This is one higher, so that the upgrade
  * callback is called for all versions of the old DB.
  */
@@ -1616,11 +1448,7 @@ async function migrateOldDatabase(senderId) {
                     auth: oldDetails.auth,
                     p256dh: oldDetails.p256dh,
                     endpoint: oldDetails.endpoint,
-                    swScope: oldDetails.swScope,
-                    vapidKey: typeof oldDetails.vapidKey === 'string'
-                        ? oldDetails.vapidKey
-                        : arrayToBase64(oldDetails.vapidKey)
-                }
+
             };
         }
         else if (db.oldVersion === 3) {
@@ -1650,11 +1478,7 @@ async function migrateOldDatabase(senderId) {
                     vapidKey: arrayToBase64(oldDetails.vapidKey)
                 }
             };
-        }
-    });
-    db.close();
-    // Delete all old databases.
-    await deleteDb(OLD_DB_NAME);
+
     await deleteDb('fcm_vapid_details_db');
     await deleteDb('undefined');
     return checkTokenDetails(tokenDetails) ? tokenDetails : null;
@@ -1690,11 +1514,7 @@ function checkTokenDetails(tokenDetails) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // Exported for tests.
 const DATABASE_NAME = 'firebase-messaging-database';
@@ -1767,11 +1587,7 @@ function getKey({ appConfig }) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const ERROR_MAP = {
     ["missing-app-config-values" /* MISSING_APP_CONFIG_VALUES */]: 'Missing App configuration value: "{$valueName}"',
@@ -1786,11 +1602,7 @@ const ERROR_MAP = {
     ["token-subscribe-no-token" /* TOKEN_SUBSCRIBE_NO_TOKEN */]: 'FCM returned no token when subscribing the user to push.',
     ["token-unsubscribe-failed" /* TOKEN_UNSUBSCRIBE_FAILED */]: 'A problem occurred while unsubscribing the ' +
         'user from FCM: {$errorInfo}',
-    ["token-update-failed" /* TOKEN_UPDATE_FAILED */]: 'A problem occurred while updating the user from FCM: {$errorInfo}',
-    ["token-update-no-token" /* TOKEN_UPDATE_NO_TOKEN */]: 'FCM returned no token when updating the user to push.',
-    ["use-sw-after-get-token" /* USE_SW_AFTER_GET_TOKEN */]: 'The useServiceWorker() method may only be called once and must be ' +
-        'called before calling getToken() to ensure your service worker is used.',
-    ["invalid-sw-registration" /* INVALID_SW_REGISTRATION */]: 'The input to useServiceWorker() must be a ServiceWorkerRegistration.',
+ INVALID_SW_REGISTRATION */]: 'The input to useServiceWorker() must be a ServiceWorkerRegistration.',
     ["invalid-bg-handler" /* INVALID_BG_HANDLER */]: 'The input to setBackgroundMessageHandler() must be a function.',
     ["invalid-vapid-key" /* INVALID_VAPID_KEY */]: 'The public VAPID key must be a string.',
     ["use-vapid-key-after-get-token" /* USE_VAPID_KEY_AFTER_GET_TOKEN */]: 'The usePublicVapidKey() method may only be called once and must be ' +
@@ -1808,11 +1620,7 @@ const ERROR_FACTORY = new ErrorFactory('messaging', 'Messaging', ERROR_MAP);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function requestGetToken(firebaseDependencies, subscriptionOptions) {
     const headers = await getHeaders(firebaseDependencies);
@@ -1867,11 +1675,7 @@ async function requestUpdateToken(firebaseDependencies, tokenDetails) {
             errorInfo: message
         });
     }
-    if (!responseData.token) {
-        throw ERROR_FACTORY.create("token-update-no-token" /* TOKEN_UPDATE_NO_TOKEN */);
-    }
-    return responseData.token;
-}
+
 async function requestDeleteToken(firebaseDependencies, token) {
     const headers = await getHeaders(firebaseDependencies);
     const unsubscribeOptions = {
@@ -1908,11 +1712,7 @@ async function getHeaders({ appConfig, installations }) {
 }
 function getBody({ p256dh, auth, endpoint, vapidKey }) {
     const body = {
-        web: {
-            endpoint,
-            auth,
-            p256dh
-        }
+
     };
     if (vapidKey !== DEFAULT_VAPID_KEY) {
         body.web.applicationPubKey = vapidKey;
@@ -1930,11 +1730,7 @@ function getBody({ p256dh, auth, endpoint, vapidKey }) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // UpdateRegistration will be called once every week.
 const TOKEN_EXPIRATION_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
@@ -2034,11 +1830,7 @@ async function getPushSubscription(swRegistration, vapidKey) {
 /**
  * Checks if the saved tokenDetails object matches the configuration provided.
  */
-function isTokenValid(dbOptions, currentOptions) {
-    const isVapidKeyEqual = currentOptions.vapidKey === dbOptions.vapidKey;
-    const isEndpointEqual = currentOptions.endpoint === dbOptions.endpoint;
-    const isAuthEqual = currentOptions.auth === dbOptions.auth;
-    const isP256dhEqual = currentOptions.p256dh === dbOptions.p256dh;
+Options.p256dh === dbOptions.p256dh;
     return isVapidKeyEqual && isEndpointEqual && isAuthEqual && isP256dhEqual;
 }
 
@@ -2052,11 +1844,7 @@ function isTokenValid(dbOptions, currentOptions) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function externalizePayload(internalPayload) {
     const payload = {
@@ -2121,11 +1909,7 @@ function propagateFcmOptions(payload, messagePayloadInternal) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function isConsoleMessage(data) {
     // This message has a campaign ID, meaning it was sent using the Firebase Console.
@@ -2142,11 +1926,7 @@ function isConsoleMessage(data) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 _mergeStrings('hts/frbslgigp.ogepscmv/ieo/eaylg', 'tp:/ieaeogn-agolai.o/1frlglgc/o');
 _mergeStrings('AzSCbw63g1R0nCw85jG8', 'Iaya3yLKwmgvh7cF0q4');
@@ -2168,15 +1948,7 @@ function _mergeStrings(s1, s2) {
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 function extractAppConfig(app) {
     if (!app || !app.options) {
         throw getMissingValueError('App Configuration Object');
@@ -2221,11 +1993,7 @@ function getMissingValueError(valueName) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class MessagingService {
     constructor(app, installations, analyticsProvider) {
@@ -2245,11 +2013,7 @@ class MessagingService {
     }
     _delete() {
         return Promise.resolve();
-    }
-}
 
-/**
- * @license
  * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2258,11 +2022,7 @@ class MessagingService {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function registerDefaultSw(messaging) {
     try {
@@ -2270,11 +2030,7 @@ async function registerDefaultSw(messaging) {
             scope: DEFAULT_SW_SCOPE
         });
         // The timing when browser updates sw when sw has an update is unreliable from experiment. It
-        // leads to version conflict when the SDK upgrades to a newer version in the main page, but sw
-        // is stuck with the old version. For example,
-        // https://github.com/firebase/firebase-js-sdk/issues/2590 The following line reliably updates
-        // sw if there was an update.
-        messaging.swRegistration.update().catch(() => {
+update().catch(() => {
             /* it is non blocking and we don't care if it failed */
         });
     }
@@ -2295,19 +2051,11 @@ async function registerDefaultSw(messaging) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function updateSwReg(messaging, swRegistration) {
     if (!swRegistration && !messaging.swRegistration) {
-        await registerDefaultSw(messaging);
-    }
-    if (!swRegistration && !!messaging.swRegistration) {
-        return;
-    }
+
     if (!(swRegistration instanceof ServiceWorkerRegistration)) {
         throw ERROR_FACTORY.create("invalid-sw-registration" /* INVALID_SW_REGISTRATION */);
     }
@@ -2324,11 +2072,7 @@ async function updateSwReg(messaging, swRegistration) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function updateVapidKey(messaging, vapidKey) {
     if (!!vapidKey) {
@@ -2349,11 +2093,7 @@ async function updateVapidKey(messaging, vapidKey) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function getToken$1(messaging, options) {
     if (!navigator) {
@@ -2361,11 +2101,7 @@ async function getToken$1(messaging, options) {
     }
     if (Notification.permission === 'default') {
         await Notification.requestPermission();
-    }
-    if (Notification.permission !== 'granted') {
-        throw ERROR_FACTORY.create("permission-blocked" /* PERMISSION_BLOCKED */);
-    }
-    await updateVapidKey(messaging, options === null || options === void 0 ? void 0 : options.vapidKey);
+g, options === null || options === void 0 ? void 0 : options.vapidKey);
     await updateSwReg(messaging, options === null || options === void 0 ? void 0 : options.serviceWorkerRegistration);
     return getTokenInternal(messaging);
 }
@@ -2380,11 +2116,7 @@ async function getToken$1(messaging, options) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function logToScion(messaging, messageType, data) {
     const eventType = getEventType(messageType);
@@ -2402,11 +2134,7 @@ function getEventType(messageType) {
     switch (messageType) {
         case MessageType.NOTIFICATION_CLICKED:
             return 'notification_open';
-        case MessageType.PUSH_RECEIVED:
-            return 'notification_foreground';
-        default:
-            throw new Error();
-    }
+
 }
 
 /**
@@ -2419,11 +2147,7 @@ function getEventType(messageType) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function messageEventListener(messaging, event) {
     const internalPayload = event.data;
@@ -2443,11 +2167,7 @@ async function messageEventListener(messaging, event) {
     const dataPayload = internalPayload.data;
     if (isConsoleMessage(dataPayload) &&
         dataPayload[CONSOLE_CAMPAIGN_ANALYTICS_ENABLED] === '1') {
-        await logToScion(messaging, internalPayload.messageType, dataPayload);
-    }
-}
 
-/**
  * @license
  * Copyright 2020 Google LLC
  *
@@ -2457,11 +2177,7 @@ async function messageEventListener(messaging, event) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const WindowMessagingFactory = (container) => {
     const messaging = new MessagingService(container.getProvider('app').getImmediate(), container.getProvider('installations-internal').getImmediate(), container.getProvider('analytics-internal'));
@@ -2476,11 +2192,7 @@ const WindowMessagingInternalFactory = (container) => {
         getToken: (options) => getToken$1(messaging, options)
     };
     return messagingInternal;
-};
-function registerMessagingInWindow() {
-    _registerComponent(new Component('messaging', WindowMessagingFactory, "PUBLIC" /* PUBLIC */));
-    _registerComponent(new Component('messaging-internal', WindowMessagingInternalFactory, "PRIVATE" /* PRIVATE */));
-}
+
 
 /**
  * @license
@@ -2492,11 +2204,7 @@ function registerMessagingInWindow() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Checks if all required APIs exist in the browser.
@@ -2505,11 +2213,7 @@ function registerMessagingInWindow() {
  * @public
  */
 async function isWindowSupported() {
-    // firebase-js-sdk/issues/2393 reveals that idb#open in Safari iframe and Firefox private browsing
-    // might be prohibited to run. In these contexts, an error would be thrown during the messaging
-    // instantiating phase, informing the developers to import/call isSupported for special handling.
-    return ((await validateIndexedDBOpenable()) &&
-        'indexedDB' in window &&
+
         indexedDB !== null &&
         navigator.cookieEnabled &&
         'serviceWorker' in navigator &&
@@ -2530,21 +2234,13 @@ async function isWindowSupported() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function deleteToken$1(messaging) {
     if (!navigator) {
         throw ERROR_FACTORY.create("only-available-in-window" /* AVAILABLE_IN_WINDOW */);
     }
-    if (!messaging.swRegistration) {
-        await registerDefaultSw(messaging);
-    }
-    return deleteTokenInternal(messaging);
-}
+
 
 /**
  * @license
@@ -2556,11 +2252,7 @@ async function deleteToken$1(messaging) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function onMessage$1(messaging, nextOrObserver) {
     if (!navigator) {
@@ -2582,16 +2274,8 @@ function onMessage$1(messaging, nextOrObserver) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Retrieves a Firebase Cloud Messaging instance.
- *
- * @returns The Firebase Cloud Messaging instance associated with the provided firebase app.
+
+ssaging instance associated with the provided firebase app.
  *
  * @public
  */
@@ -2625,11 +2309,7 @@ function getMessagingInWindow(app = getApp()) {
  * @returns The promise resolves with an FCM registration token.
  *
  * @public
- */
-async function getToken(messaging, options) {
-    messaging = getModularInstance(messaging);
-    return getToken$1(messaging, options);
-}
+
 /**
  * Deletes the registration token associated with this {@link Messaging} instance and unsubscribes
  * the {@link Messaging} instance from the push subscription.
@@ -2660,11 +2340,7 @@ function deleteToken(messaging) {
 function onMessage(messaging, nextOrObserver) {
     messaging = getModularInstance(messaging);
     return onMessage$1(messaging, nextOrObserver);
-}
 
-/**
- * Firebase Cloud Messaging
- *
  * @packageDocumentation
  */
 registerMessagingInWindow();

@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-#ifndef FIREBASE_APP_TESTS_INCLUDE_FIREBASE_APP_FOR_TESTING_H_
-#define FIREBASE_APP_TESTS_INCLUDE_FIREBASE_APP_FOR_TESTING_H_
+E_FIREBASE_APP_FOR_TESTING_H_
 
 #include "app/src/include/firebase/app.h"
 #include "app/src/include/firebase/internal/platform.h"

@@ -8,15 +8,7 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
-#ifndef GRPC_CORE_LIB_TRANSPORT_HTTP2_ERRORS_H
+TTP2_ERRORS_H
 #define GRPC_CORE_LIB_TRANSPORT_HTTP2_ERRORS_H
 
 /* error codes for RST_STREAM from http2 draft 14 section 7 */

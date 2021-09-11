@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/**
- * Subset of Web Worker types from lib.webworker.d.ts
+m lib.webworker.d.ts
  * https://github.com/Microsoft/TypeScript/blob/master/lib/lib.webworker.d.ts
  *
  * Since it's not possible to have both "dom" and "webworker" libs in a single project, we have to

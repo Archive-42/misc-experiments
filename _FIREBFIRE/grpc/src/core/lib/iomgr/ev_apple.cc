@@ -8,15 +8,7 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
-/// Event engine based on Apple's CFRunLoop API family. If the CFRunLoop engine
+ CFRunLoop API family. If the CFRunLoop engine
 /// is enabled (see iomgr_posix_cfstream.cc), a global thread is started to
 /// handle and trigger all the CFStream events. The CFStream streams register
 /// themselves with the run loop with functions grpc_apple_register_read_stream

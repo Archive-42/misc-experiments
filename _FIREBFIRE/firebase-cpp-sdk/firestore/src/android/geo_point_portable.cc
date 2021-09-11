@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/**
- * Note: this file has a self-contained implementation of `GeoPoint` that can
+tained implementation of `GeoPoint` that can
  * be used by the Android library. The resulting Android binary doesn't include
  * symbols from Firestore in third_party, so this implementation has to fill in.
  */

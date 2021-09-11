@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { SnapshotVersion } from '../core/snapshot_version';
-import { Target } from '../core/target';
+arget';
 import { ListenSequenceNumber, TargetId } from '../core/types';
 import { ByteString } from '../util/byte_string';
 

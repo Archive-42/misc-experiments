@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-#include "app/src/assert.h"
-#include "auth/src/desktop/auth_providers/playgames_auth_credential.h"
+roviders/playgames_auth_credential.h"
 #include "auth/src/desktop/credential_impl.h"
 #include "auth/src/include/firebase/auth/credential.h"
 

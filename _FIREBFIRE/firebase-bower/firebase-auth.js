@@ -59,15 +59,7 @@ function __spreadArray(to, from) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-var stringToByteArray$1 = function (str) {
-    // TODO(user): Use native implementations if/when available
-    var out = [];
+
     var p = 0;
     for (var i = 0; i < str.length; i++) {
         var c = str.charCodeAt(i);
@@ -353,19 +345,11 @@ var base64Decode = function (str) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns navigator.userAgent string or '' if it's not defined.
- * @return user agent string
- */
-function getUA() {
-    if (typeof navigator !== 'undefined' &&
-        typeof navigator['userAgent'] === 'string') {
+nt'] === 'string') {
         return navigator['userAgent'];
     }
     else {
@@ -418,11 +402,7 @@ function isIE() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var ERROR_NAME = 'FirebaseError';
 // Based on code from:
@@ -430,11 +410,7 @@ var ERROR_NAME = 'FirebaseError';
 var FirebaseError = /** @class */ (function (_super) {
     __extends(FirebaseError, _super);
     function FirebaseError(code, message, customData) {
-        var _this = _super.call(this, message) || this;
-        _this.code = code;
-        _this.customData = customData;
-        _this.name = ERROR_NAME;
-        // Fix For ES5
+
         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
         Object.setPrototypeOf(_this, FirebaseError.prototype);
         // Maintains proper stack trace for where our error was thrown.
@@ -530,11 +506,7 @@ function isObject(thing) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a querystring-formatted string (e.g. &arg=val&arg2=val2) from a
@@ -546,11 +518,7 @@ function querystring(querystringParams) {
     var _loop_1 = function (key, value) {
         if (Array.isArray(value)) {
             value.forEach(function (arrayVal) {
-                params.push(encodeURIComponent(key) + '=' + encodeURIComponent(arrayVal));
-            });
-        }
-        else {
-            params.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+Component(key) + '=' + encodeURIComponent(value));
         }
     };
     for (var _i = 0, _a = Object.entries(querystringParams); _i < _a.length; _i++) {
@@ -800,11 +768,7 @@ function noop() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getModularInstance(service) {
     if (service && service._delegate) {
@@ -820,16 +784,8 @@ function getModularInstance(service) {
  * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
+
  */
 var _a;
 /**
@@ -849,11 +805,7 @@ var LogLevel;
     LogLevel[LogLevel["VERBOSE"] = 1] = "VERBOSE";
     LogLevel[LogLevel["INFO"] = 2] = "INFO";
     LogLevel[LogLevel["WARN"] = 3] = "WARN";
-    LogLevel[LogLevel["ERROR"] = 4] = "ERROR";
-    LogLevel[LogLevel["SILENT"] = 5] = "SILENT";
-})(LogLevel || (LogLevel = {}));
-var levelStringToEnum = {
-    'debug': LogLevel.DEBUG,
+
     'verbose': LogLevel.VERBOSE,
     'info': LogLevel.INFO,
     'warn': LogLevel.WARN,
@@ -1059,11 +1011,7 @@ var Component = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An enum of factors that may be used for multifactor authentication.
@@ -1087,11 +1035,7 @@ const ProviderId = {
     /** Google provider ID */
     GOOGLE: 'google.com',
     /** Password provider */
-    PASSWORD: 'password',
-    /** Phone provider */
-    PHONE: 'phone',
-    /** Twitter provider ID */
-    TWITTER: 'twitter.com'
+
 };
 /**
  * Enumeration of supported sign-in methods.
@@ -1157,11 +1101,7 @@ const ActionCodeOperation = {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function _debugErrorMap() {
     return {
@@ -1189,11 +1129,7 @@ function _debugErrorMap() {
             'starting any other Firebase SDK.',
         ["dynamic-link-not-activated" /* DYNAMIC_LINK_NOT_ACTIVATED */]: 'Please activate Dynamic Links in the Firebase Console and agree to the terms and ' +
             'conditions.',
-        ["email-change-needs-verification" /* EMAIL_CHANGE_NEEDS_VERIFICATION */]: 'Multi-factor users must always have a verified email.',
-        ["email-already-in-use" /* EMAIL_EXISTS */]: 'The email address is already in use by another account.',
-        ["emulator-config-failed" /* EMULATOR_CONFIG_FAILED */]: 'Auth instance has already been used to make a network call. Auth can ' +
-            'no longer be configured to use the emulator. Try calling ' +
-            '"connectAuthEmulator()" sooner.',
+()" sooner.',
         ["expired-action-code" /* EXPIRED_OOB_CODE */]: 'The action code has expired.',
         ["cancelled-popup-request" /* EXPIRED_POPUP_REQUEST */]: 'This operation has been cancelled due to another conflicting popup being opened.',
         ["internal-error" /* INTERNAL_ERROR */]: 'An internal AuthError has occurred.',
@@ -1456,11 +1392,7 @@ const AUTH_ERROR_CODES_MAP_DO_NOT_USE_INTERNALLY = {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const logClient = new Logger('@firebase/auth');
 function _logError(msg, ...args) {
@@ -1479,11 +1411,7 @@ function _logError(msg, ...args) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function _fail(authOrCode, ...rest) {
     throw createErrorInternal(authOrCode, ...rest);
@@ -1496,11 +1424,7 @@ function _errorWithCustomMessage(auth, code, message) {
     const factory = new ErrorFactory('auth', 'Firebase', errorMap);
     return factory.create(code, {
         appName: auth.name,
-    });
-}
-function _assertInstanceOf(auth, object, instance) {
-    const constructorInstance = instance;
-    if (!(object instanceof constructorInstance)) {
+ructorInstance)) {
         if (constructorInstance.name !== object.constructor.name) {
             _fail(auth, "argument-error" /* ARGUMENT_ERROR */);
         }
@@ -1519,11 +1443,7 @@ function createErrorInternal(authOrCode, ...rest) {
     }
     return _DEFAULT_AUTH_ERROR_FACTORY.create(authOrCode, ...rest);
 }
-function _assert(assertion, authOrCode, ...rest) {
-    if (!assertion) {
-        throw createErrorInternal(authOrCode, ...rest);
-    }
-}
+
 /**
  * Unconditionally fails, throwing an internal error with the given message.
  *
@@ -1563,11 +1483,7 @@ function debugAssert(assertion, message) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const instanceCache = new Map();
 function _getInstance(cls) {
@@ -1592,11 +1508,7 @@ function _getInstance(cls) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Initializes an {@link Auth} instance with fine-grained control over
@@ -1611,11 +1523,7 @@ function _getInstance(cls) {
  * need control over which persistence layer is used, or to minimize bundle
  * size if you're not using either `signInWithPopup` or `signInWithRedirect`.
  *
- * For example, if your app only uses anonymous accounts and you only want
- * accounts saved for the current session, initialize `Auth` with:
- *
- * ```js
- * const auth = initializeAuth(app, {
+p, {
  *   persistence: browserSessionPersistence,
  *   popupRedirectResolver: undefined,
  * });
@@ -1640,11 +1548,7 @@ function initializeAuth(app, deps) {
 }
 function _initializeAuthInstance(auth, deps) {
     const persistence = (deps === null || deps === void 0 ? void 0 : deps.persistence) || [];
-    const hierarchy = (Array.isArray(persistence) ? persistence : [persistence]).map(_getInstance);
-    if (deps === null || deps === void 0 ? void 0 : deps.errorMap) {
-        auth._updateErrorMap(deps.errorMap);
-    }
-    // This promise is intended to float; auth initialization happens in the
+o float; auth initialization happens in the
     // background, meanwhile the auth object may be used by the app.
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     auth._initializeWithPersistence(hierarchy, deps === null || deps === void 0 ? void 0 : deps.popupRedirectResolver);
@@ -1660,11 +1564,7 @@ function _initializeAuthInstance(auth, deps) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function _getCurrentUrl() {
     var _a;
@@ -1688,11 +1588,7 @@ function _getCurrentScheme() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Determine whether the browser is working online
@@ -1716,11 +1612,7 @@ function _isOnline() {
 function _getUserLanguage() {
     if (typeof navigator === 'undefined') {
         return null;
-    }
-    const navigatorLanguage = navigator;
-    return (
-    // Most reliable, but only supported in Chrome/Firefox.
-    (navigatorLanguage.languages && navigatorLanguage.languages[0]) ||
+&& navigatorLanguage.languages[0]) ||
         // Supported in most browsers, but returns the language of the browser
         // UI, not the language set in browser settings.
         navigatorLanguage.language ||
@@ -1738,21 +1630,13 @@ function _getUserLanguage() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A structure to help pick between a range of long and short delay durations
  * depending on the current environment. In general, the long delay is used for
  * mobile environments whereas short delays are used for desktop environments.
- */
-class Delay {
-    constructor(shortDelay, longDelay) {
-        this.shortDelay = shortDelay;
-        this.longDelay = longDelay;
+y;
         // Internal error when improperly initialized.
         debugAssert(longDelay > shortDelay, 'Short delay should be less than long delay!');
         this.isMobile = isMobileCordova() || isReactNative();
@@ -1780,11 +1664,7 @@ class Delay {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function _emulatorUrl(config, path) {
     debugAssert(config.emulator, 'Emulator should always be set here');
@@ -1802,15 +1682,7 @@ function _emulatorUrl(config, path) {
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 class FetchProvider {
     static initialize(fetchImpl, headersImpl, responseImpl) {
         this.fetchImpl = fetchImpl;
@@ -1848,11 +1720,7 @@ class FetchProvider {
         }
         debugFail('Could not find Response implementation, make sure you call FetchProvider.initialize() with an appropriate polyfill');
     }
-}
 
-/**
- * @license
- * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1860,11 +1728,7 @@ class FetchProvider {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Map from errors returned by the server to errors to developer visible errors
@@ -1877,11 +1741,7 @@ const SERVER_ERROR_MAP = {
     // Create Auth URI errors.
     ["INVALID_IDENTIFIER" /* INVALID_IDENTIFIER */]: "invalid-email" /* INVALID_EMAIL */,
     // This can only happen if the SDK sends a bad request.
-    ["MISSING_CONTINUE_URI" /* MISSING_CONTINUE_URI */]: "internal-error" /* INTERNAL_ERROR */,
-    // Sign in with email and password errors (some apply to sign up too).
-    ["INVALID_PASSWORD" /* INVALID_PASSWORD */]: "wrong-password" /* INVALID_PASSWORD */,
-    // This can only happen if the SDK sends a bad request.
-    ["MISSING_PASSWORD" /* MISSING_PASSWORD */]: "internal-error" /* INTERNAL_ERROR */,
+G_PASSWORD */]: "internal-error" /* INTERNAL_ERROR */,
     // Sign up with email and password errors.
     ["EMAIL_EXISTS" /* EMAIL_EXISTS */]: "email-already-in-use" /* EMAIL_EXISTS */,
     ["PASSWORD_LOGIN_DISABLED" /* PASSWORD_LOGIN_DISABLED */]: "operation-not-allowed" /* OPERATION_NOT_ALLOWED */,
@@ -1932,20 +1792,12 @@ const SERVER_ERROR_MAP = {
 };
 
 /**
- * @license
- * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+pt in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const DEFAULT_API_TIMEOUT_MS = new Delay(30000, 60000);
 function _addTidIfNecessary(auth, request) {
@@ -2017,11 +1869,7 @@ async function _performFetchWithErrorHandling(auth, customErrorMap, fetchFn) {
             else {
                 _fail(auth, authError);
             }
-        }
-    }
-    catch (e) {
-        if (e instanceof FirebaseError) {
-            throw e;
+
         }
         _fail(auth, "network-request-failed" /* NETWORK_REQUEST_FAILED */);
     }
@@ -2085,11 +1933,7 @@ function _makeTaggedError(auth, code, response) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function deleteAccount(auth, request) {
     return _performApiRequest(auth, "POST" /* POST */, "/v1/accounts:delete" /* DELETE_ACCOUNT */, request);
@@ -2111,11 +1955,7 @@ async function getAccountInfo(auth, request) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function utcTimestampToDateString(utcTimestamp) {
     if (!utcTimestamp) {
@@ -2146,11 +1986,7 @@ function utcTimestampToDateString(utcTimestamp) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a JSON Web Token (JWT) used to identify the user to a Firebase service.
@@ -2173,11 +2009,7 @@ function getIdToken(user, forceRefresh = false) {
  * @remarks
  * Returns the current token if it has not expired or if it will not expire in the next five
  * minutes. Otherwise, this will refresh the token and return a new one.
- *
- * @param user - The user.
- * @param forceRefresh - Force refresh regardless of token expiration.
- *
- * @public
+
  */
 async function getIdTokenResult(user, forceRefresh = false) {
     const userInternal = getModularInstance(user);
@@ -2199,11 +2031,7 @@ async function getIdTokenResult(user, forceRefresh = false) {
 function secondsStringToMilliseconds(seconds) {
     return Number(seconds) * 1000;
 }
-function _parseToken(token) {
-    const [algorithm, payload, signature] = token.split('.');
-    if (algorithm === undefined ||
-        payload === undefined ||
-        signature === undefined) {
+{
         _logError('JWT malformed, contained fewer than 3 sections');
         return null;
     }
@@ -2234,18 +2062,10 @@ function _tokenExpiresIn(token) {
 /**
  * @license
  * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
+
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function _logoutIfInvalidated(user, promise, bypassAuthState = false) {
     if (bypassAuthState) {
@@ -2278,11 +2098,7 @@ function isUserInvalidated({ code }) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class ProactiveRefresh {
     constructor(user) {
@@ -2337,11 +2153,7 @@ class ProactiveRefresh {
         }, interval);
     }
     async iteration() {
-        try {
-            await this.user.getIdToken(true);
-        }
-        catch (e) {
-            // Only retry on network errors
+ork errors
             if (e.code === `auth/${"network-request-failed" /* NETWORK_REQUEST_FAILED */}`) {
                 this.schedule(/* wasError */ true);
             }
@@ -2361,11 +2173,7 @@ class ProactiveRefresh {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class UserMetadata {
     constructor(createdAt, lastLoginAt) {
@@ -2378,11 +2186,7 @@ class UserMetadata {
         this.creationTime = utcTimestampToDateString(this.createdAt);
     }
     _copy(metadata) {
-        this.createdAt = metadata.createdAt;
-        this.lastLoginAt = metadata.lastLoginAt;
-        this._initializeTime();
-    }
-    toJSON() {
+
         return {
             createdAt: this.createdAt,
             lastLoginAt: this.lastLoginAt
@@ -2400,11 +2204,7 @@ class UserMetadata {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function _reloadWithoutSaving(user) {
     var _a;
@@ -2465,11 +2265,7 @@ function extractProviderData(providers) {
         var { providerId } = _a, provider = __rest(_a, ["providerId"]);
         return {
             providerId,
-            uid: provider.rawId || '',
-            displayName: provider.displayName || null,
-            email: provider.email || null,
-            phoneNumber: provider.phoneNumber || null,
-            photoURL: provider.photoUrl || null
+otoUrl || null
         };
     });
 }
@@ -2484,11 +2280,7 @@ function extractProviderData(providers) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function requestStsToken(auth, refreshToken) {
     const response = await _performFetchWithErrorHandling(auth, {}, () => {
@@ -2508,11 +2300,7 @@ async function requestStsToken(auth, refreshToken) {
         });
     });
     // The response comes back in snake_case. Convert to camel:
-    return {
-        accessToken: response.access_token,
-        expiresIn: response.expires_in,
-        refreshToken: response.refresh_token
-    };
+
 }
 
 /**
@@ -2525,11 +2313,7 @@ async function requestStsToken(auth, refreshToken) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * We need to mark this class as internal explicitly to exclude it in the public typings, because
@@ -2596,11 +2380,7 @@ class StsTokenManager {
         }
         if (expirationTime) {
             _assert(typeof expirationTime === 'number', "internal-error" /* INTERNAL_ERROR */, {
-                appName
-            });
-            manager.expirationTime = expirationTime;
-        }
-        return manager;
+
     }
     toJSON() {
         return {
@@ -2632,20 +2412,12 @@ class StsTokenManager {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function assertStringOrUndefined(assertion, appName) {
     _assert(typeof assertion === 'string' || typeof assertion === 'undefined', "internal-error" /* INTERNAL_ERROR */, { appName });
 }
-class UserImpl {
-    constructor(_a) {
-        var { uid, auth, stsTokenManager } = _a, opt = __rest(_a, ["uid", "auth", "stsTokenManager"]);
-        // For the user object, provider is always Firebase.
-        this.providerId = "firebase" /* FIREBASE */;
+se" /* FIREBASE */;
         this.emailVerified = false;
         this.isAnonymous = false;
         this.tenantId = null;
@@ -2748,11 +2520,7 @@ class UserImpl {
     }
     toJSON() {
         return Object.assign(Object.assign({ uid: this.uid, email: this.email || undefined, emailVerified: this.emailVerified, displayName: this.displayName || undefined, isAnonymous: this.isAnonymous, photoURL: this.photoURL || undefined, phoneNumber: this.phoneNumber || undefined, tenantId: this.tenantId || undefined, providerData: this.providerData.map(userInfo => (Object.assign({}, userInfo))), stsTokenManager: this.stsTokenManager.toJSON(), 
-            // Redirect event ID must be maintained in case there is a pending
-            // redirect event.
-            _redirectEventId: this._redirectEventId }, this.metadata.toJSON()), { 
-            // Required for compatibility with the legacy SDK (go/firebase-auth-sdk-persistence-parsing):
-            apiKey: this.auth.config.apiKey, appName: this.auth.name });
+fig.apiKey, appName: this.auth.name });
     }
     get refreshToken() {
         return this.stsTokenManager.refreshToken || '';
@@ -2834,11 +2602,7 @@ class UserImpl {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class InMemoryPersistence {
     constructor() {
@@ -2885,11 +2649,7 @@ const inMemoryPersistence = InMemoryPersistence;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function _persistenceKeyName(key, apiKey, appName) {
     return `${"firebase" /* PERSISTENCE */}:${key}:${apiKey}:${appName}`;
@@ -2958,11 +2718,7 @@ class PersistenceUserManager {
                 const blob = await persistence._get(key);
                 if (blob) {
                     const user = UserImpl._fromJSON(auth, blob); // throws for unparsable blob (wrong format)
-                    if (persistence !== selectedPersistence) {
-                        userToMigrate = user;
-                    }
-                    selectedPersistence = persistence;
-                    break;
+
                 }
             }
             catch (_a) { }
@@ -3005,19 +2761,11 @@ class PersistenceUserManager {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Determine the browser for the purposes of reporting usage to the API
- */
-function _getBrowserName(userAgent) {
-    const ua = userAgent.toLowerCase();
-    if (ua.includes('opera/') || ua.includes('opr/') || ua.includes('opios/')) {
-        return "Opera" /* OPERA */;
+/;
     }
     else if (_isIEMobile(ua)) {
         // Windows phone IEMobile browser.
@@ -3129,19 +2877,11 @@ function _isIframe() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /*
  * Determine the SDK version string
- */
-function _getClientVersion(clientPlatform, frameworks = []) {
-    let reportedPlatform;
-    switch (clientPlatform) {
-        case "Browser" /* BROWSER */:
+ */:
             // In a browser environment, report the browser name.
             reportedPlatform = _getBrowserName(getUA());
             break;
@@ -3170,11 +2910,7 @@ function _getClientVersion(clientPlatform, frameworks = []) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class AuthImpl {
     constructor(app, config) {
@@ -3265,11 +3001,7 @@ class AuthImpl {
         if (popupRedirectResolver && this.config.authDomain) {
             await this.getOrInitRedirectPersistenceManager();
             const redirectUserEventId = (_a = this.redirectUser) === null || _a === void 0 ? void 0 : _a._redirectEventId;
-            const storedUserEventId = storedUser === null || storedUser === void 0 ? void 0 : storedUser._redirectEventId;
-            const result = await this.tryRedirectSignIn(popupRedirectResolver);
-            // If the stored user (i.e. the old "currentUser") has a redirectId that
-            // matches the redirect user, then we want to initially sign in with the
-            // new user object from result.
+om result.
             // TODO(samgho): More thoroughly test all of this
             if ((!redirectUserEventId || redirectUserEventId === storedUserEventId) &&
                 (result === null || result === void 0 ? void 0 : result.user)) {
@@ -3306,11 +3038,7 @@ class AuthImpl {
         //    ┌> [Initialization] ─────┐
         //    ┌> [<other queue tasks>] │
         //    └─ [getRedirectResult] <─┘
-        //    where [] are tasks on the queue and arrows denote awaits
-        // Initialization will never complete because it's waiting on something
-        // that's waiting for initialization to complete!
-        //
-        // Instead, this method calls getRedirectResult() (stored in
+alls getRedirectResult() (stored in
         // _completeRedirectFn) with an optional parameter that instructs all of
         // the underlying auth operations to skip anything that mutates auth state.
         let result = null;
@@ -3683,11 +3411,7 @@ function emitEmulatorWarning(disableBanner) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Interface that represents the credentials returned by an {@link AuthProvider}.
@@ -3751,11 +3475,7 @@ class AuthCredential {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function resetPassword(auth, request) {
     return _performApiRequest(auth, "POST" /* POST */, "/v1/accounts:resetPassword" /* RESET_PASSWORD */, _addTidIfNecessary(auth, request));
@@ -3777,11 +3497,7 @@ async function applyActionCode$1(auth, request) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function signInWithPassword(auth, request) {
     return _performSignInRequest(auth, "POST" /* POST */, "/v1/accounts:signInWithPassword" /* SIGN_IN_WITH_PASSWORD */, _addTidIfNecessary(auth, request));
@@ -3812,11 +3528,7 @@ async function verifyAndChangeEmail(auth, request) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function signInWithEmailLink$1(auth, request) {
     return _performSignInRequest(auth, "POST" /* POST */, "/v1/accounts:signInWithEmailLink" /* SIGN_IN_WITH_EMAIL_LINK */, _addTidIfNecessary(auth, request));
@@ -3835,15 +3547,7 @@ async function signInWithEmailLinkForLinking(auth, request) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Interface that represents the credentials returned by {@link EmailAuthProvider} for
- * {@link ProviderId}.PASSWORD
+
  *
  * @remarks
  * Covers both {@link SignInMethod}.EMAIL_PASSWORD and
@@ -3907,11 +3611,7 @@ class EmailAuthCredential extends AuthCredential {
         switch (this.signInMethod) {
             case "password" /* EMAIL_PASSWORD */:
                 return signInWithPassword(auth, {
-                    returnSecureToken: true,
-                    email: this._email,
-                    password: this._password
-                });
-            case "emailLink" /* EMAIL_LINK */:
+MAIL_LINK */:
                 return signInWithEmailLink$1(auth, {
                     email: this._email,
                     oobCode: this._password
@@ -3933,11 +3633,7 @@ class EmailAuthCredential extends AuthCredential {
             case "emailLink" /* EMAIL_LINK */:
                 return signInWithEmailLinkForLinking(auth, {
                     idToken,
-                    email: this._email,
-                    oobCode: this._password
-                });
-            default:
-                _fail(auth, "internal-error" /* INTERNAL_ERROR */);
+rnal-error" /* INTERNAL_ERROR */);
         }
     }
     /** @internal */
@@ -3956,11 +3652,7 @@ class EmailAuthCredential extends AuthCredential {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function signInWithIdp(auth, request) {
     return _performSignInRequest(auth, "POST" /* POST */, "/v1/accounts:signInWithIdp" /* SIGN_IN_WITH_IDP */, _addTidIfNecessary(auth, request));
@@ -3972,15 +3664,7 @@ async function signInWithIdp(auth, request) {
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const IDP_REQUEST_URI$1 = 'http://localhost';
 /**
@@ -3999,11 +3683,7 @@ class OAuthCredential extends AuthCredential {
     /** @internal */
     static _fromParams(params) {
         const cred = new OAuthCredential(params.providerId, params.signInMethod);
-        if (params.idToken || params.accessToken) {
-            // OAuth 2 and either ID token or access token.
-            if (params.idToken) {
-                cred.idToken = params.idToken;
-            }
+
             if (params.accessToken) {
                 cred.accessToken = params.accessToken;
             }
@@ -4112,11 +3792,7 @@ class OAuthCredential extends AuthCredential {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function sendPhoneVerificationCode(auth, request) {
     return _performApiRequest(auth, "POST" /* POST */, "/v1/accounts:sendVerificationCode" /* SEND_VERIFICATION_CODE */, _addTidIfNecessary(auth, request));
@@ -4124,11 +3800,7 @@ async function sendPhoneVerificationCode(auth, request) {
 async function signInWithPhoneNumber$1(auth, request) {
     return _performSignInRequest(auth, "POST" /* POST */, "/v1/accounts:signInWithPhoneNumber" /* SIGN_IN_WITH_PHONE_NUMBER */, _addTidIfNecessary(auth, request));
 }
-async function linkWithPhoneNumber$1(auth, request) {
-    const response = await _performSignInRequest(auth, "POST" /* POST */, "/v1/accounts:signInWithPhoneNumber" /* SIGN_IN_WITH_PHONE_NUMBER */, _addTidIfNecessary(auth, request));
-    if (response.temporaryProof) {
-        throw _makeTaggedError(auth, "account-exists-with-different-credential" /* NEED_CONFIRMATION */, response);
-    }
+
     return response;
 }
 const VERIFY_PHONE_NUMBER_FOR_EXISTING_ERROR_MAP_ = {
@@ -4144,16 +3816,8 @@ async function verifyPhoneNumberForExisting(auth, request) {
  * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
+
  */
 /**
  * Represents the credentials returned by {@link PhoneAuthProvider}.
@@ -4246,11 +3910,7 @@ class PhoneAuthCredential extends AuthCredential {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Maps the mode string in action code URL to Action Code Info operation.
@@ -4288,11 +3948,7 @@ function parseDeepLink(url) {
         : null;
     // iOS custom scheme links.
     const iOSDeepLink = querystringDecode(extractQuerystring(url))['deep_link_id'];
-    const iOSDoubleDeepLink = iOSDeepLink
-        ? querystringDecode(extractQuerystring(iOSDeepLink))['link']
-        : null;
-    return iOSDoubleDeepLink || iOSDeepLink || doubleDeepLink || link || url;
-}
+
 /**
  * A utility class to parse email action URLs such as password reset, email verification,
  * email link sign in, etc.
@@ -4325,11 +3981,7 @@ class ActionCodeURL {
      * Parses the email action link string and returns an {@link ActionCodeURL} if the link is valid,
      * otherwise returns null.
      *
-     * @param link  - The email action link string.
-     * @returns The {@link ActionCodeURL} object, or null if the link is invalid.
-     *
-     * @public
-     */
+
     static parseLink(link) {
         const actionLink = parseDeepLink(link);
         try {
@@ -4360,11 +4012,7 @@ function parseActionCodeURL(link) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provider for generating {@link EmailAuthCredential}.
@@ -4426,11 +4074,7 @@ class EmailAuthProvider {
         _assert(actionCodeUrl, "argument-error" /* ARGUMENT_ERROR */);
         return EmailAuthCredential._fromEmailAndCode(email, actionCodeUrl.code, actionCodeUrl.tenantId);
     }
-}
-/**
- * Always set to {@link ProviderId}.PASSWORD, even for email link.
- */
-EmailAuthProvider.PROVIDER_ID = "password" /* PASSWORD */;
+password" /* PASSWORD */;
 /**
  * Always set to {@link SignInMethod}.EMAIL_PASSWORD.
  */
@@ -4450,11 +4094,7 @@ EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD = "emailLink" /* EMAIL_LINK */;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The base class for all Federated providers (OAuth (including OIDC), SAML).
@@ -4516,11 +4156,7 @@ class FederatedAuthProvider {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Common code to all OAuth providers. This is separate from the
@@ -4548,11 +4184,7 @@ class BaseOAuthProvider extends FederatedAuthProvider {
     }
     /**
      * Retrieve the current list of OAuth scopes.
-     */
-    getScopes() {
-        return [...this.scopes];
-    }
-}
+
 /**
  * Provider for generating generic {@link OAuthCredential}.
  *
@@ -4638,11 +4270,7 @@ class OAuthProvider extends BaseOAuthProvider {
      *
      * @param userCredential - The user credential.
      */
-    static credentialFromResult(userCredential) {
-        return OAuthProvider.oauthCredentialFromTaggedObject(userCredential);
-    }
-    /**
-     * Used to extract the underlying {@link OAuthCredential} from a {@link AuthError} which was
+ying {@link OAuthCredential} from a {@link AuthError} which was
      * thrown during a sign-in, link, or reauthenticate operation.
      *
      * @param userCredential - The user credential.
@@ -4688,11 +4316,7 @@ class OAuthProvider extends BaseOAuthProvider {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provider for generating an {@link OAuthCredential} for {@link ProviderId}.FACEBOOK.
@@ -4708,11 +4332,7 @@ class OAuthProvider extends BaseOAuthProvider {
  *
  * // After returning from the redirect when your app initializes you can obtain the result
  * const result = await getRedirectResult(auth);
- * if (result) {
- *   // This is the signed-in user
- *   const user = result.user;
- *   // This gives you a Facebook Access Token.
- *   const credential = provider.credentialFromResult(auth, result);
+credentialFromResult(auth, result);
  *   const token = credential.accessToken;
  * }
  * ```
@@ -4803,11 +4423,7 @@ FacebookAuthProvider.PROVIDER_ID = "facebook.com" /* FACEBOOK */;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provider for generating an an {@link OAuthCredential} for {@link ProviderId}.GOOGLE.
@@ -4884,11 +4500,7 @@ class GoogleAuthProvider extends BaseOAuthProvider {
     static credentialFromResult(userCredential) {
         return GoogleAuthProvider.credentialFromTaggedObject(userCredential);
     }
-    /**
-     * Used to extract the underlying {@link OAuthCredential} from a {@link AuthError} which was
-     * thrown during a sign-in, link, or reauthenticate operation.
-     *
-     * @param userCredential - The user credential.
+e user credential.
      */
     static credentialFromError(error) {
         return GoogleAuthProvider.credentialFromTaggedObject((error.customData || {}));
@@ -4925,11 +4537,7 @@ GoogleAuthProvider.PROVIDER_ID = "google.com" /* GOOGLE */;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provider for generating an {@link OAuthCredential} for {@link ProviderId}.GITHUB.
@@ -5003,11 +4611,7 @@ class GithubAuthProvider extends BaseOAuthProvider {
      *
      * @param userCredential - The user credential.
      */
-    static credentialFromError(error) {
-        return GithubAuthProvider.credentialFromTaggedObject((error.customData || {}));
-    }
-    static credentialFromTaggedObject({ _tokenResponse: tokenResponse }) {
-        if (!tokenResponse || !('oauthAccessToken' in tokenResponse)) {
+oauthAccessToken' in tokenResponse)) {
             return null;
         }
         if (!tokenResponse.oauthAccessToken) {
@@ -5036,11 +4640,7 @@ GithubAuthProvider.PROVIDER_ID = "github.com" /* GITHUB */;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const IDP_REQUEST_URI = 'http://localhost';
 /**
@@ -5124,20 +4724,12 @@ class SAMLAuthCredential extends AuthCredential {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const SAML_PROVIDER_PREFIX = 'saml.';
 /**
  * An {@link AuthProvider} for SAML.
- *
- * @public
- */
-class SAMLAuthProvider extends FederatedAuthProvider {
-    /**
+
      * Constructor. The providerId must start with "saml."
      * @param providerId - SAML provider ID.
      */
@@ -5209,11 +4801,7 @@ class SAMLAuthProvider extends FederatedAuthProvider {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provider for generating an {@link OAuthCredential} for {@link ProviderId}.TWITTER.
@@ -5248,11 +4836,7 @@ class SAMLAuthProvider extends FederatedAuthProvider {
  * const user = result.user;
  * // This gives you a Twitter Access Token and Secret.
  * const credential = provider.credentialFromResult(auth, result);
- * const token = credential.accessToken;
- * const secret = credential.secret;
- * ```
- *
- * @public
+
  */
 class TwitterAuthProvider extends BaseOAuthProvider {
     constructor() {
@@ -5320,11 +4904,7 @@ TwitterAuthProvider.PROVIDER_ID = "twitter.com" /* TWITTER */;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function signUp(auth, request) {
     return _performSignInRequest(auth, "POST" /* POST */, "/v1/accounts:signUp" /* SIGN_UP */, _addTidIfNecessary(auth, request));
@@ -5340,15 +4920,7 @@ async function signUp(auth, request) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-class UserCredentialImpl {
-    constructor(params) {
-        this.user = params.user;
+
         this.providerId = params.providerId;
         this._tokenResponse = params._tokenResponse;
         this.operationType = params.operationType;
@@ -5395,11 +4967,7 @@ function providerIdForResponse(response) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Asynchronously signs in as an anonymous user.
@@ -5433,20 +5001,12 @@ async function signInAnonymously(auth) {
 }
 
 /**
- * @license
- * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+pt in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class MultiFactorError extends FirebaseError {
     constructor(auth, error, operationType, user) {
@@ -5489,11 +5049,7 @@ function _processCredentialSavingMfaContextIfNecessary(auth, operationType, cred
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Takes a set of UserInfo provider data and converts it to a set of names
@@ -5514,11 +5070,7 @@ function providerDataAsNames(providerData) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Unlinks a provider from a user account.
@@ -5556,21 +5108,13 @@ async function _assertLinkedStatus(expected, user, provider) {
     _assert(providerIds.has(provider) === expected, user.auth, code);
 }
 
-/**
- * @license
- * Copyright 2019 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
+nse, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function _reauthenticate(user, credential, bypassAuthState = false) {
     const { auth } = user;
@@ -5580,11 +5124,7 @@ async function _reauthenticate(user, credential, bypassAuthState = false) {
         _assert(response.idToken, auth, "internal-error" /* INTERNAL_ERROR */);
         const parsed = _parseToken(response.idToken);
         _assert(parsed, auth, "internal-error" /* INTERNAL_ERROR */);
-        const { sub: localId } = parsed;
-        _assert(user.uid === localId, auth, "user-mismatch" /* USER_MISMATCH */);
-        return UserCredentialImpl._forOperation(user, operationType, response);
-    }
-    catch (e) {
+
         // Convert user deleted error into user mismatch
         if ((e === null || e === void 0 ? void 0 : e.code) === `auth/${"user-not-found" /* USER_DELETED */}`) {
             _fail(auth, "user-mismatch" /* USER_MISMATCH */);
@@ -5603,11 +5143,7 @@ async function _reauthenticate(user, credential, bypassAuthState = false) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function _signInWithCredential(auth, credential, bypassAuthState = false) {
     const operationType = "signIn" /* SIGN_IN */;
@@ -5639,11 +5175,7 @@ async function signInWithCredential(auth, credential) {
  * An {@link AuthProvider} can be used to generate the credential.
  *
  * @param user - The user.
- * @param credential - The auth credential.
- *
- * @public
- */
-async function linkWithCredential(user, credential) {
+(user, credential) {
     const userInternal = getModularInstance(user);
     await _assertLinkedStatus(false, userInternal, credential.providerId);
     return _link$1(userInternal, credential);
@@ -5674,11 +5206,7 @@ async function reauthenticateWithCredential(user, credential) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function signInWithCustomToken$1(auth, request) {
     return _performSignInRequest(auth, "POST" /* POST */, "/v1/accounts:signInWithCustomToken" /* SIGN_IN_WITH_CUSTOM_TOKEN */, _addTidIfNecessary(auth, request));
@@ -5690,15 +5218,7 @@ async function signInWithCustomToken$1(auth, request) {
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Asynchronously signs in using a custom token.
@@ -5737,19 +5257,11 @@ async function signInWithCustomToken(auth, customToken) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class MultiFactorInfoImpl {
     constructor(factorId, response) {
-        this.factorId = factorId;
-        this.uid = response.mfaEnrollmentId;
-        this.enrollmentTime = new Date(response.enrolledAt).toUTCString();
-        this.displayName = response.displayName;
-    }
+
     static _fromServerResponse(auth, enrollment) {
         if ('phoneInfo' in enrollment) {
             return PhoneMultiFactorInfo._fromServerResponse(auth, enrollment);
@@ -5770,18 +5282,10 @@ class PhoneMultiFactorInfo extends MultiFactorInfoImpl {
 /**
  * @license
  * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
+
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function _setActionCodeSettingsOnRequest(auth, request, actionCodeSettings) {
     var _a;
@@ -5814,11 +5318,7 @@ function _setActionCodeSettingsOnRequest(auth, request, actionCodeSettings) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Sends a password reset email to the given email address.
@@ -5830,11 +5330,7 @@ function _setActionCodeSettingsOnRequest(auth, request, actionCodeSettings) {
  * @example
  * ```javascript
  * const actionCodeSettings = {
- *   url: 'https://www.example.com/?email=user@example.com',
- *   iOS: {
- *      bundleId: 'com.example.ios'
- *   },
- *   android: {
+
  *     packageName: 'com.example.android',
  *     installApp: true,
  *     minimumVersion: '12'
@@ -5867,11 +5363,7 @@ async function sendPasswordResetEmail(auth, email, actionCodeSettings) {
  * Completes the password reset process, given a confirmation code and new password.
  *
  * @param auth - The {@link Auth} instance.
- * @param oobCode - A confirmation code sent to the user.
- * @param newPassword - The new password.
- *
- * @public
- */
+
 async function confirmPasswordReset(auth, oobCode, newPassword) {
     await resetPassword(getModularInstance(auth), {
         oobCode,
@@ -5938,11 +5430,7 @@ async function checkActionCode(auth, oobCode) {
                 : response.newEmail) || null,
             multiFactorInfo
         },
-        operation
-    };
-}
-/**
- * Checks a password reset code sent to the user by email or other out-of-band mechanism.
+ent to the user by email or other out-of-band mechanism.
  *
  * @returns the user's email address if valid.
  *
@@ -5958,11 +5446,7 @@ async function verifyPasswordResetCode(auth, code) {
 }
 /**
  * Creates a new user account associated with the specified email address and password.
- *
- * @remarks
- * On successful creation of the user account, this user will also be signed in to your application.
- *
- * User account creation can fail if the account already exists or the password is invalid.
+ if the account already exists or the password is invalid.
  *
  * Note: The email address acts as a unique identifier for the user and enables an email-based
  * password reset. This function will create a new user account and set the initial user password.
@@ -6001,11 +5485,7 @@ async function createUserWithEmailAndPassword(auth, email, password) {
  * @public
  */
 function signInWithEmailAndPassword(auth, email, password) {
-    return signInWithCredential(getModularInstance(auth), EmailAuthProvider.credential(email, password));
-}
 
-/**
- * @license
  * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -6014,11 +5494,7 @@ function signInWithEmailAndPassword(auth, email, password) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Sends a sign-in email link to the user with the specified email.
@@ -6045,11 +5521,7 @@ function signInWithEmailAndPassword(auth, email, password) {
  *   },
  *   handleCodeInApp: true
  * };
- * await sendSignInLinkToEmail(auth, 'user@example.com', actionCodeSettings);
- * // Obtain emailLink from the user.
- * if(isSignInWithEmailLink(auth, emailLink)) {
- *   await signInWithEmailLink('user@example.com', 'user@example.com', emailLink);
- * }
+
  * ```
  *
  * @param authInternal - The {@link Auth} instance.
@@ -6082,11 +5554,7 @@ function isSignInWithEmailLink(auth, emailLink) {
     const actionCodeUrl = ActionCodeURL.parseLink(emailLink);
     return (actionCodeUrl === null || actionCodeUrl === void 0 ? void 0 : actionCodeUrl.operation) === "EMAIL_SIGNIN" /* EMAIL_SIGNIN */;
 }
-/**
- * Asynchronously signs in using an email and sign-in email link.
- *
- * @remarks
- * If no link is passed, the link is inferred from the current URL.
+ is inferred from the current URL.
  *
  * Fails with an error if the email address is invalid or OTP in email link expires.
  *
@@ -6138,11 +5606,7 @@ async function signInWithEmailLink(auth, email, emailLink) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function createAuthUri(auth, request) {
     return _performApiRequest(auth, "POST" /* POST */, "/v1/accounts:createAuthUri" /* CREATE_AUTH_URI */, _addTidIfNecessary(auth, request));
@@ -6158,11 +5622,7 @@ async function createAuthUri(auth, request) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Gets the list of possible sign in methods for the given email address.
@@ -6290,19 +5750,11 @@ async function verifyBeforeUpdateEmail(user, newEmail, actionCodeSettings) {
 
 /**
  * @license
- * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+icense at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function updateProfile$1(auth, request) {
     return _performApiRequest(auth, "POST" /* POST */, "/v1/accounts:update" /* SET_ACCOUNT_INFO */, request);
@@ -6318,11 +5770,7 @@ async function updateProfile$1(auth, request) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Updates a user's profile data.
@@ -6417,20 +5865,12 @@ async function updateEmailOrPassword(user, email, password) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Parse the `AdditionalUserInfo` from the ID token response.
  *
- */
-function _fromIdTokenResponse(idTokenResponse) {
-    var _a, _b;
-    if (!idTokenResponse) {
-        return null;
+
     }
     const { providerId } = idTokenResponse;
     const profile = idTokenResponse.rawUserInfo
@@ -6446,11 +5886,7 @@ function _fromIdTokenResponse(idTokenResponse) {
                 ? signInProvider
                 : null;
             // Uses generic class in accordance with the legacy SDK.
-            return new GenericAdditionalUserInfo(isNewUser, filteredProviderId);
-        }
-    }
-    if (!providerId) {
-        return null;
+
     }
     switch (providerId) {
         case "facebook.com" /* FACEBOOK */:
@@ -6532,11 +5968,7 @@ function getAdditionalUserInfo(userCredential) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // Non-optional auth methods.
 /**
@@ -6590,11 +6022,7 @@ function onIdTokenChanged(auth, nextOrObserver, error, completed) {
  *
  * @public
  */
-function onAuthStateChanged(auth, nextOrObserver, error, completed) {
-    return getModularInstance(auth).onAuthStateChanged(nextOrObserver, error, completed);
-}
-/**
- * Sets the current language to the default device/browser preference.
+he default device/browser preference.
  *
  * @param auth - The {@link Auth} instance.
  *
@@ -6610,11 +6038,7 @@ function useDeviceLanguage(auth) {
  * @remarks
  * A new instance copy of the user provided will be made and set as currentUser.
  *
- * This will trigger {@link onAuthStateChanged} and {@link onIdTokenChanged} listeners
- * like other sign in methods.
- *
- * The operation fails with an error if the user to be updated belongs to a different Firebase
- * project.
+
  *
  * @param auth - The {@link Auth} instance.
  * @param user - The new {@link User}.
@@ -6695,11 +6119,7 @@ class MultiFactorSessionImpl {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class MultiFactorResolverImpl {
     constructor(session, hints, signInResolver) {
@@ -6713,11 +6133,7 @@ class MultiFactorResolverImpl {
         const hints = (error.serverResponse.mfaInfo || []).map(enrollment => MultiFactorInfoImpl._fromServerResponse(auth, enrollment));
         _assert(error.serverResponse.mfaPendingCredential, auth, "internal-error" /* INTERNAL_ERROR */);
         const session = MultiFactorSessionImpl._fromMfaPendingCredential(error.serverResponse.mfaPendingCredential);
-        return new MultiFactorResolverImpl(session, hints, async (assertion) => {
-            const mfaResponse = await assertion._process(auth, session);
-            // Clear out the unneeded fields from the old login response
-            delete error.serverResponse.mfaInfo;
-            delete error.serverResponse.mfaPendingCredential;
+sponse.mfaPendingCredential;
             // Use in the new token & refresh token in the old response
             const idTokenResponse = Object.assign(Object.assign({}, error.serverResponse), { idToken: mfaResponse.idToken, refreshToken: mfaResponse.refreshToken });
             // TODO: we should collapse this switch statement into UserCredentialImpl._forOperation and have it support the SIGN_IN case
@@ -6768,11 +6184,7 @@ function getMultiFactorResolver(auth, error) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function startEnrollPhoneMfa(auth, request) {
     return _performApiRequest(auth, "POST" /* POST */, "/v2/accounts/mfaEnrollment:start" /* START_PHONE_MFA_ENROLLMENT */, Object.assign({ tenantId: auth.tenantId }, request));
@@ -6832,11 +6244,7 @@ class MultiFactorUserImpl {
         catch (e) {
             if (e.code !== `auth/${"user-token-expired" /* TOKEN_EXPIRED */}`) {
                 throw e;
-            }
-        }
-    }
-}
-const multiFactorUserCache = new WeakMap();
+WeakMap();
 /**
  * The {@link MultiFactorUser} corresponding to the user.
  *
@@ -6867,11 +6275,7 @@ const STORAGE_AVAILABLE_KEY = '__sak';
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // There are two different browser persistence types: local and session.
 // Both have the same implementation but use a different underlying storage
@@ -6918,11 +6322,7 @@ class BrowserPersistenceClass {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function _iframeCannotSyncWebStorage() {
     const ua = getUA();
@@ -7003,11 +6403,7 @@ class BrowserLocalPersistence extends BrowserPersistenceClass {
             }
         }
         const triggerListeners = () => {
-            // Keep local map up to date in case storage event is triggered before
-            // poll.
-            const storedValue = this.storage.getItem(key);
-            if (!poll && this.localCache[key] === storedValue) {
-                // Real storage event which has already been detected, do nothing.
+vent which has already been detected, do nothing.
                 // This seems to trigger in some IE browsers for some reason.
                 return;
             }
@@ -7076,11 +6472,7 @@ class BrowserLocalPersistence extends BrowserPersistenceClass {
         }
         if (!this.listeners[key]) {
             this.listeners[key] = new Set();
-            // Populate the cache to avoid spuriously triggering on first poll.
-            this.localCache[key] = this.storage.getItem(key);
-        }
-        this.listeners[key].add(listener);
-    }
+
     _removeListener(key, listener) {
         if (this.listeners[key]) {
             this.listeners[key].delete(listener);
@@ -7127,11 +6519,7 @@ const browserLocalPersistence = BrowserLocalPersistence;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class BrowserSessionPersistence extends BrowserPersistenceClass {
     constructor() {
@@ -7165,11 +6553,7 @@ const browserSessionPersistence = BrowserSessionPersistence;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Shim for Promise.allSettled, note the slightly different format of `fulfilled` vs `status`.
@@ -7183,11 +6567,7 @@ function _allSettled(promises) {
             return {
                 fulfilled: true,
                 value
-            };
-        }
-        catch (reason) {
-            return {
-                fulfilled: false,
+
                 reason
             };
         }
@@ -7204,11 +6584,7 @@ function _allSettled(promises) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Interface class for receiving messages.
@@ -7238,11 +6614,7 @@ class Receiver {
         this.receivers.push(newInstance);
         return newInstance;
     }
-    isListeningto(eventTarget) {
-        return this.eventTarget === eventTarget;
-    }
-    /**
-     * Fans out a MessageEvent to the appropriate listeners.
+ the appropriate listeners.
      *
      * @remarks
      * Sends an {@link Status.ACK} upon receipt and a {@link Status.DONE} once all handlers have
@@ -7319,11 +6691,7 @@ Receiver.receivers = [];
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function _generateEventId(prefix = '', digits = 10) {
     let random = '';
@@ -7343,11 +6711,7 @@ function _generateEventId(prefix = '', digits = 10) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Interface for sending messages and waiting for a completion response.
@@ -7453,17 +6817,9 @@ class Sender {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
-/**
- * Lazy accessor for window, since the compat layer won't tree shake this out,
- * we need to make sure not to mess with window unless we have to
- */
-function _window() {
+
     return window;
 }
 function _setWindowLocation(url) {
@@ -7480,11 +6836,7 @@ function _setWindowLocation(url) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function _isWorker() {
     return (typeof _window()['WorkerGlobalScope'] !== 'undefined' &&
@@ -7501,11 +6853,7 @@ async function _getActiveServiceWorker() {
     catch (_a) {
         return null;
     }
-}
-function _getServiceWorkerController() {
-    var _a;
-    return ((_a = navigator === null || navigator === void 0 ? void 0 : navigator.serviceWorker) === null || _a === void 0 ? void 0 : _a.controller) || null;
-}
+
 function _getWorkerGlobalScope() {
     return _isWorker() ? self : null;
 }
@@ -7520,11 +6868,7 @@ function _getWorkerGlobalScope() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const DB_NAME = 'firebaseLocalStorageDb';
 const DB_VERSION = 1;
@@ -7544,11 +6888,7 @@ class DBPromise {
         return new Promise((resolve, reject) => {
             this.request.addEventListener('success', () => {
                 resolve(this.request.result);
-            });
-            this.request.addEventListener('error', () => {
-                reject(this.request.error);
-            });
-        });
+
     }
 }
 function getObjectStore(db, isReadWrite) {
@@ -7659,11 +6999,7 @@ class IndexedDBLocalPersistence {
      * IndexedDB events do not propagate from the main window to the worker context.  We rely on a
      * postMessage interface to send these events to the worker ourselves.
      */
-    async initializeServiceWorkerMessaging() {
-        return _isWorker() ? this.initializeReceiver() : this.initializeSender();
-    }
-    /**
-     * As the worker we should listen to events from the main window.
+sten to events from the main window.
      */
     async initializeReceiver() {
         this.receiver = Receiver._getInstance(_getWorkerGlobalScope());
@@ -7683,11 +7019,7 @@ class IndexedDBLocalPersistence {
      * As the main window, we should let the worker know when keys change (set and remove).
      *
      * @remarks
-     * {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/ready | ServiceWorkerContainer.ready}
-     * may not resolve.
-     */
-    async initializeSender() {
-        var _a, _b;
+
         // Check to see if there's an active service worker.
         this.activeServiceWorker = await _getActiveServiceWorker();
         if (!this.activeServiceWorker) {
@@ -7793,11 +7125,7 @@ class IndexedDBLocalPersistence {
                 keys.push(key);
             }
         }
-        for (const localKey of Object.keys(this.localCache)) {
-            if (this.localCache[localKey] && !keysInResult.has(localKey)) {
-                // Deleted
-                this.notifyListeners(localKey, null);
-                keys.push(localKey);
+y);
             }
         }
         return keys;
@@ -7820,11 +7148,7 @@ class IndexedDBLocalPersistence {
             clearInterval(this.pollTimer);
             this.pollTimer = null;
         }
-    }
-    _addListener(key, listener) {
-        if (Object.keys(this.listeners).length === 0) {
-            this.startPolling();
-        }
+
         if (!this.listeners[key]) {
             this.listeners[key] = new Set();
             // Populate the cache to avoid spuriously triggering on first poll.
@@ -7860,15 +7184,7 @@ const indexedDBLocalPersistence = IndexedDBLocalPersistence;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 function startSignInPhoneMfa(auth, request) {
     return _performApiRequest(auth, "POST" /* POST */, "/v2/accounts/mfaSignIn:start" /* START_PHONE_MFA_SIGN_IN */, Object.assign({ tenantId: auth.tenantId }, request));
 }
@@ -7886,11 +7202,7 @@ function finalizeSignInPhoneMfa(auth, request) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function getRecaptchaParams(auth) {
     return ((await _performApiRequest(auth, "GET" /* GET */, "/v1/recaptchaParams" /* GET_RECAPTCHA_PARAM */)).recaptchaSiteKey || '');
@@ -7906,11 +7218,7 @@ async function getRecaptchaParams(auth) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getScriptParentElement() {
     var _a, _b;
@@ -7946,11 +7254,7 @@ function _generateCallbackName(prefix) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const _SOLVE_TIME_MS = 500;
 const _EXPIRATION_TIME_MS = 60000;
@@ -8074,11 +7378,7 @@ function generateRandomAlphaNumericString(len) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // ReCaptcha will load using the same callback, so the callback function needs
 // to be kept around
@@ -8170,11 +7470,7 @@ class MockReCaptchaLoaderImpl {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const RECAPTCHA_VERIFIER_TYPE = 'recaptcha';
 const DEFAULT_PARAMS = {
@@ -8227,11 +7523,7 @@ class RecaptchaVerifier {
         this.recaptcha = null;
         this.auth = _castAuth(authExtern);
         this.isInvisible = this.parameters.size === 'invisible';
-        _assert(typeof document !== 'undefined', this.auth, "operation-not-supported-in-this-environment" /* OPERATION_NOT_SUPPORTED */);
-        const container = typeof containerOrId === 'string'
-            ? document.getElementById(containerOrId)
-            : containerOrId;
-        _assert(container, this.auth, "argument-error" /* ARGUMENT_ERROR */);
+uth, "argument-error" /* ARGUMENT_ERROR */);
         this.container = container;
         this.parameters.callback = this.makeTokenCallback(this.parameters.callback);
         this._recaptchaLoader = this.auth.settings.appVerificationDisabledForTesting
@@ -8250,11 +7542,7 @@ class RecaptchaVerifier {
         const id = await this.render();
         const recaptcha = this.getAssertedRecaptcha();
         const response = recaptcha.getResponse(id);
-        if (response) {
-            return response;
-        }
-        return new Promise(resolve => {
-            const tokenChange = (token) => {
+token) => {
                 if (!token) {
                     return; // Ignore token expirations.
                 }
@@ -8270,11 +7558,7 @@ class RecaptchaVerifier {
     /**
      * Renders the reCAPTCHA widget on the page.
      *
-     * @returns A Promise that resolves with the reCAPTCHA widget ID.
-     */
-    render() {
-        try {
-            this.assertNotDestroyed();
+ed();
         }
         catch (e) {
             // This method returns a promise. Since it's not async (we want to return the
@@ -8310,11 +7594,7 @@ class RecaptchaVerifier {
                 this.container.removeChild(node);
             });
         }
-    }
-    validateStartingState() {
-        _assert(!this.parameters.sitekey, this.auth, "argument-error" /* ARGUMENT_ERROR */);
-        _assert(this.isInvisible || !this.container.hasChildNodes(), this.auth, "argument-error" /* ARGUMENT_ERROR */);
-        _assert(typeof document !== 'undefined', this.auth, "operation-not-supported-in-this-environment" /* OPERATION_NOT_SUPPORTED */);
+== 'undefined', this.auth, "operation-not-supported-in-this-environment" /* OPERATION_NOT_SUPPORTED */);
     }
     makeTokenCallback(existing) {
         return token => {
@@ -8389,11 +7669,7 @@ function domReady() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class ConfirmationResultImpl {
     constructor(verificationId, onConfirmation) {
@@ -8442,11 +7718,7 @@ async function signInWithPhoneNumber(auth, phoneNumber, appVerifier) {
  *
  * @param user - The user.
  * @param phoneNumber - The user's phone number in E.164 format (e.g. +16505550101).
- * @param appVerifier - The {@link ApplicationVerifier}.
- *
- * @public
- */
-async function linkWithPhoneNumber(user, phoneNumber, appVerifier) {
+r(user, phoneNumber, appVerifier) {
     const userInternal = getModularInstance(user);
     await _assertLinkedStatus(false, userInternal, "phone" /* PHONE */);
     const verificationId = await _verifyPhoneNumber(userInternal.auth, phoneNumber, getModularInstance(appVerifier));
@@ -8538,11 +7810,7 @@ async function _verifyPhoneNumber(auth, options, verifier) {
  * const verificationId = await provider.verifyPhoneNumber('+16505550101', applicationVerifier);
  * // Obtain the verificationCode from the user.
  * const phoneCredential = PhoneAuthProvider.credential(verificationId, verificationCode);
- * await updatePhoneNumber(user, phoneCredential);
- * ```
- *
- * @param user - The user.
- * @param credential - A credential authenticating the new phone number.
+al authenticating the new phone number.
  *
  * @public
  */
@@ -8560,11 +7828,7 @@ async function updatePhoneNumber(user, credential) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provider for generating an {@link PhoneAuthCredential}.
@@ -8725,11 +7989,7 @@ PhoneAuthProvider.PHONE_SIGN_IN_METHOD = "phone" /* PHONE */;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Chooses a popup/redirect resolver to use. This prefers the override (which
@@ -8754,11 +8014,7 @@ function _withDefaultResolver(auth, resolverOverride) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class IdpCredential extends AuthCredential {
     constructor(params) {
@@ -8769,11 +8025,7 @@ class IdpCredential extends AuthCredential {
         return signInWithIdp(auth, this._buildIdpRequest());
     }
     _linkToIdToken(auth, idToken) {
-        return signInWithIdp(auth, this._buildIdpRequest(idToken));
-    }
-    _getReauthenticationResolver(auth) {
-        return signInWithIdp(auth, this._buildIdpRequest());
-    }
+
     _buildIdpRequest(idToken) {
         const request = {
             requestUri: this.params.requestUri,
@@ -8814,11 +8066,7 @@ async function _link(params) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Popup event manager. Handles the popup's entire lifecycle; listens to auth
@@ -8916,11 +8164,7 @@ class AbstractPopupRedirectOperation {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const _POLL_WINDOW_CLOSE_TIMEOUT = new Delay(2000, 10000);
 /**
@@ -8948,11 +8192,7 @@ const _POLL_WINDOW_CLOSE_TIMEOUT = new Delay(2000, 10000);
  * Non-OAuth providers like {@link EmailAuthProvider} will throw an error.
  * @param resolver - An instance of {@link PopupRedirectResolver}, optional
  * if already supplied to {@link initializeAuth} or provided by {@link getAuth}.
- *
- *
- * @public
- */
-async function signInWithPopup(auth, provider, resolver) {
+th, provider, resolver) {
     const authInternal = _castAuth(auth);
     _assertInstanceOf(auth, provider, FederatedAuthProvider);
     const resolverInternal = _withDefaultResolver(authInternal, resolver);
@@ -9113,15 +8353,7 @@ PopupOperation.currentPopupAction = null;
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const PENDING_REDIRECT_KEY = 'pendingRedirect';
 // We only get one redirect outcome for any one auth, so just store it
@@ -9146,11 +8378,7 @@ class RedirectAction extends AbstractPopupRedirectOperation {
         if (!readyOutcome) {
             try {
                 const hasPendingRedirect = await _getAndClearPendingRedirectStatus(this.resolver, this.auth);
-                const result = hasPendingRedirect ? await super.execute() : null;
-                readyOutcome = () => Promise.resolve(result);
-            }
-            catch (e) {
-                readyOutcome = () => Promise.reject(e);
+ => Promise.reject(e);
             }
             redirectOutcomeMap.set(this.auth._key(), readyOutcome);
         }
@@ -9205,16 +8433,8 @@ function pendingRedirectKey(auth) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Authenticates a Firebase client using a full-page redirect flow.
- *
- * @remarks
+
+
  * To handle the results and errors for this operation, refer to {@link getRedirectResult}.
  *
  * @example
@@ -9312,11 +8532,7 @@ async function _reauthenticateWithRedirect(user, provider, resolver) {
  * await linkWithRedirect(result.user, provider);
  * // This will trigger a full page redirect away from your app
  *
- * // After returning from the redirect when your app initializes you can obtain the result
- * const result = await getRedirectResult(auth);
- * ```
- *
- * @param user - The user.
+
  * @param provider - The provider to authenticate. The provider has to be an {@link OAuthProvider}.
  * Non-OAuth providers like {@link EmailAuthProvider} will throw an error.
  * @param resolver - An instance of {@link PopupRedirectResolver}, optional
@@ -9411,11 +8627,7 @@ async function prepareUserForRedirect(user) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // The amount of time to store the UIDs of seen events; this is
 // set to 10 min by default
@@ -9517,19 +8729,11 @@ function isRedirectEvent(event) {
 
 /**
  * @license
- * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+icense at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function _getProjectConfig(auth, request = {}) {
     return _performApiRequest(auth, "GET" /* GET */, "/v1/projects" /* GET_PROJECT_CONFIG */, request);
@@ -9545,11 +8749,7 @@ async function _getProjectConfig(auth, request = {}) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const IP_ADDRESS_REGEX = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/;
 const HTTP_REGEX = /^https?/;
@@ -9611,17 +8811,9 @@ function matchDomain(expected) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
-const NETWORK_TIMEOUT = new Delay(30000, 60000);
-/**
- * Reset unlaoded GApi modules. If gapi.load fails due to a network error,
- * it will stop working after a retrial. This is a hack to fix this issue.
- */
+
 function resetUnloadedGapiModules() {
     // Clear last failed gapi.load state to force next gapi.load to first
     // load the failed gapi.iframes module.
@@ -9723,11 +8915,7 @@ function _loadGapi(auth) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const PING_TIMEOUT = new Delay(5000, 15000);
 const IFRAME_PATH = '__/auth/iframe';
@@ -9812,11 +9000,7 @@ async function _openIframe(auth) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const BASE_POPUP_OPTIONS = {
     location: 'yes',
@@ -9831,11 +9015,7 @@ const FIREFOX_EMPTY_URL = 'http://localhost';
 class AuthPopup {
     constructor(window) {
         this.window = window;
-        this.associatedEvent = null;
-    }
-    close() {
-        if (this.window) {
-            try {
+
                 this.window.close();
             }
             catch (e) { }
@@ -9896,11 +9076,7 @@ function openAsNewWindowIOS(url, target) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * URL for Authentication widget which will initiate the OAuth handshake
@@ -9949,11 +9125,7 @@ function _getRedirectUrl(auth, provider, authType, redirectUrl, eventId, additio
     // TODO: maybe set fw as Frameworks.join(",")
     const paramsDict = params;
     for (const key of Object.keys(paramsDict)) {
-        if (paramsDict[key] === undefined) {
-            delete paramsDict[key];
-        }
-    }
-    return `${getHandlerBase(auth)}?${querystring(paramsDict).slice(1)}`;
+)}?${querystring(paramsDict).slice(1)}`;
 }
 function getHandlerBase({ config }) {
     if (!config.emulator) {
@@ -9969,15 +9141,7 @@ function getHandlerBase({ config }) {
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 /**
  * The special web storage event
  *
@@ -10039,11 +9203,7 @@ class BrowserPopupRedirectResolver {
             var _a;
             const isSupported = (_a = result === null || result === void 0 ? void 0 : result[0]) === null || _a === void 0 ? void 0 : _a[WEB_STORAGE_SUPPORT_KEY];
             if (isSupported !== undefined) {
-                cb(!!isSupported);
-            }
-            _fail(auth, "internal-error" /* INTERNAL_ERROR */);
-        }, gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER);
-    }
+
     _originValidation(auth) {
         const key = auth._key();
         if (!this.originValidationPromises[key]) {
@@ -10142,11 +9302,7 @@ var version = "0.17.2";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class AuthInterop {
     constructor(auth) {
@@ -10155,11 +9311,7 @@ class AuthInterop {
     }
     getUid() {
         var _a;
-        this.assertAuthConfigured();
-        return ((_a = this.auth.currentUser) === null || _a === void 0 ? void 0 : _a.uid) || null;
-    }
-    async getToken(forceRefresh) {
-        this.assertAuthConfigured();
+();
         await this.auth._initializationPromise;
         if (!this.auth.currentUser) {
             return null;
@@ -10212,11 +9364,7 @@ class AuthInterop {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getVersionForPlatform(clientPlatform) {
     switch (clientPlatform) {
@@ -10248,11 +9396,7 @@ function registerAuth(clientPlatform) {
                 authDomain,
                 clientPlatform,
                 apiHost: "identitytoolkit.googleapis.com" /* API_HOST */,
-                tokenApiHost: "securetoken.googleapis.com" /* TOKEN_API_HOST */,
-                apiScheme: "https" /* API_SCHEME */,
-                sdkClientVersion: _getClientVersion(clientPlatform)
-            };
-            const authInstance = new AuthImpl(app, config);
+new AuthImpl(app, config);
             _initializeAuthInstance(authInstance, deps);
             return authInstance;
         })(app);
@@ -10287,11 +9431,7 @@ function registerAuth(clientPlatform) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns the Auth instance associated with the provided {@link https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js#FirebaseApp}.

@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { DEFAULT_VAPID_KEY, ENDPOINT } from '../util/constants';
-import { ERROR_FACTORY, ErrorCode } from '../util/errors';
+ } from '../util/errors';
 import { SubscriptionOptions, TokenDetails } from '../interfaces/token-details';
 
 import { AppConfig } from '../interfaces/app-config';

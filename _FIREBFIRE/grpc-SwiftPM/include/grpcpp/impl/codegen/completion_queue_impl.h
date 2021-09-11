@@ -8,15 +8,7 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
-/// A completion queue implements a concurrent producer-consumer queue, with
+ a concurrent producer-consumer queue, with
 /// two main API-exposed methods: \a Next and \a AsyncNext. These
 /// methods are the essential component of the gRPC C++ asynchronous API.
 /// There is also a \a Shutdown method to indicate that a given completion queue

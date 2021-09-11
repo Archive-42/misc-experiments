@@ -47,15 +47,7 @@ function __spreadArray(to, from) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-var _a;
-/**
- * The JS SDK supports 5 log levels and also allows a user the ability to
+ls and also allows a user the ability to
  * silence the logs altogether.
  *
  * The order is a follows:
@@ -301,19 +293,11 @@ function areCookiesEnabled() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var ERROR_NAME = 'FirebaseError';
 // Based on code from:
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
-var FirebaseError = /** @class */ (function (_super) {
-    __extends(FirebaseError, _super);
-    function FirebaseError(code, message, customData) {
-        var _this = _super.call(this, message) || this;
+his, message) || this;
         _this.code = code;
         _this.customData = customData;
         _this.name = ERROR_NAME;
@@ -405,11 +389,7 @@ function isObject(thing) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The amount of milliseconds to exponentially increase.
@@ -417,11 +397,7 @@ function isObject(thing) {
 var DEFAULT_INTERVAL_MILLIS = 1000;
 /**
  * The factor to backoff by.
- * Should be a number greater than 1.
- */
-var DEFAULT_BACKOFF_FACTOR = 2;
-/**
- * The maximum milliseconds to increase to.
+crease to.
  *
  * <p>Visible for testing
  */
@@ -472,11 +448,7 @@ function calculateBackoffMillis(backoffCount, intervalMillis, backoffFactor) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getModularInstance(service) {
     if (service && service._delegate) {
@@ -488,11 +460,7 @@ function getModularInstance(service) {
 }
 
 /**
- * Component for service name T, e.g. `auth`, `auth-internal`
- */
-var Component = /** @class */ (function () {
-    /**
-     *
+
      * @param name The public service name, e.g. app, auth, firestore, database
      * @param instanceFactory Service factory responsible for creating the public interface
      * @param type whether the service provided by the component is public or private
@@ -841,11 +809,7 @@ const version$1 = "0.5.0";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const PENDING_TIMEOUT_MS = 10000;
 const PACKAGE_VERSION = `w:${version$1}`;
@@ -861,15 +825,7 @@ const SERVICE_NAME = 'Installations';
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const ERROR_DESCRIPTION_MAP = {
     ["missing-app-config-values" /* MISSING_APP_CONFIG_VALUES */]: 'Missing App configuration value: "{$valueName}"',
@@ -889,18 +845,10 @@ function isServerError(error) {
 /**
  * @license
  * Copyright 2019 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
+
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getInstallationsEndpoint({ projectId }) {
     return `${INSTALLATIONS_API_URL}/projects/${projectId}/installations`;
@@ -924,11 +872,7 @@ async function getErrorFromResponse(requestName, response) {
     });
 }
 function getHeaders$1({ apiKey }) {
-    return new Headers({
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'x-goog-api-key': apiKey
-    });
+
 }
 function getHeadersWithAuth(appConfig, { refreshToken }) {
     const headers = getHeaders$1(appConfig);
@@ -966,11 +910,7 @@ function getAuthorizationHeader(refreshToken) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function createInstallationRequest(appConfig, { fid }) {
     const endpoint = getInstallationsEndpoint(appConfig);
@@ -998,11 +938,7 @@ async function createInstallationRequest(appConfig, { fid }) {
         return registeredInstallationEntry;
     }
     else {
-        throw await getErrorFromResponse('Create Installation', response);
-    }
-}
 
-/**
  * @license
  * Copyright 2019 Google LLC
  *
@@ -1012,11 +948,7 @@ async function createInstallationRequest(appConfig, { fid }) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Returns a promise that resolves after given time passes. */
 function sleep(ms) {
@@ -1035,11 +967,7 @@ function sleep(ms) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function bufferToBase64UrlSafe(array) {
     const b64 = btoa(String.fromCharCode(...array));
@@ -1052,15 +980,7 @@ function bufferToBase64UrlSafe(array) {
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const VALID_FID_PATTERN = /^[cdef][\w-]{21}$/;
 const INVALID_FID = '';
@@ -1079,11 +999,7 @@ function generateFid() {
         fidByteArray[0] = 0b01110000 + (fidByteArray[0] % 0b00010000);
         const fid = encode(fidByteArray);
         return VALID_FID_PATTERN.test(fid) ? fid : INVALID_FID;
-    }
-    catch (_a) {
-        // FID generation errored
-        return INVALID_FID;
-    }
+
 }
 /** Converts a FID Uint8Array to a base64 string representation. */
 function encode(fidByteArray) {
@@ -1100,15 +1016,7 @@ function encode(fidByteArray) {
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 /** Returns a string key that can be used to identify the app. */
 function getKey(appConfig) {
     return `${appConfig.appName}!${appConfig.appId}`;
@@ -1124,11 +1032,7 @@ function getKey(appConfig) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const fidChangeCallbacks = new Map();
 /**
@@ -1155,11 +1059,7 @@ function broadcastFidChange(key, fid) {
         channel.postMessage({ key, fid });
     }
     closeBroadcastChannel();
-}
-let broadcastChannel = null;
-/** Opens and returns a BroadcastChannel if it is supported by the browser. */
-function getBroadcastChannel() {
-    if (!broadcastChannel && 'BroadcastChannel' in self) {
+adcastChannel' in self) {
         broadcastChannel = new BroadcastChannel('[Firebase] FID Change');
         broadcastChannel.onmessage = e => {
             callFidChangeCallbacks(e.data.key, e.data.fid);
@@ -1176,19 +1076,11 @@ function closeBroadcastChannel() {
 
 /**
  * @license
- * Copyright 2019 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+icense at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const DATABASE_NAME = 'firebase-installations-database';
 const DATABASE_VERSION = 1;
@@ -1240,11 +1132,7 @@ async function remove(appConfig) {
  */
 async function update(appConfig, updateFn) {
     const key = getKey(appConfig);
-    const db = await getDbPromise();
-    const tx = db.transaction(OBJECT_STORE_NAME, 'readwrite');
-    const store = tx.objectStore(OBJECT_STORE_NAME);
-    const oldValue = await store.get(key);
-    const newValue = updateFn(oldValue);
+Value);
     if (newValue === undefined) {
         await store.delete(key);
     }
@@ -1268,11 +1156,7 @@ async function update(appConfig, updateFn) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Updates and returns the InstallationEntry from the database.
@@ -1328,11 +1212,7 @@ function triggerRegistrationIfNecessary(appConfig, installationEntry) {
             fid: installationEntry.fid,
             registrationStatus: 1 /* IN_PROGRESS */,
             registrationTime: Date.now()
-        };
-        const registrationPromise = registerInstallation(appConfig, inProgressEntry);
-        return { installationEntry: inProgressEntry, registrationPromise };
-    }
-    else if (installationEntry.registrationStatus === 1 /* IN_PROGRESS */) {
+gistrationStatus === 1 /* IN_PROGRESS */) {
         return {
             installationEntry,
             registrationPromise: waitUntilFidRegistration(appConfig)
@@ -1428,11 +1308,7 @@ function hasInstallationRequestTimedOut(installationEntry) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function generateAuthTokenRequest({ appConfig, platformLoggerProvider }, installationEntry) {
     const endpoint = getGenerateAuthTokenEndpoint(appConfig, installationEntry);
@@ -1478,11 +1354,7 @@ function getGenerateAuthTokenEndpoint(appConfig, { fid }) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a valid authentication token for the installation. Generates a new
@@ -1496,11 +1368,7 @@ async function refreshAuthToken(installations, forceRefresh = false) {
         if (!isEntryRegistered(oldEntry)) {
             throw ERROR_FACTORY$1.create("not-registered" /* NOT_REGISTERED */);
         }
-        const oldAuthToken = oldEntry.authToken;
-        if (!forceRefresh && isAuthTokenValid(oldAuthToken)) {
-            // There is a valid token in the DB.
-            return oldEntry;
-        }
+
         else if (oldAuthToken.requestStatus === 1 /* IN_PROGRESS */) {
             // There already is a token request in progress.
             tokenPromise = waitUntilAuthTokenRequest(installations, forceRefresh);
@@ -1546,11 +1414,7 @@ async function waitUntilAuthTokenRequest(installations, forceRefresh) {
         return authToken;
     }
 }
-/**
- * Called only if there is a GenerateAuthToken request in progress.
- *
- * Updates the InstallationEntry in the DB based on the status of the
- * GenerateAuthToken request.
+
  *
  * Returns the updated InstallationEntry.
  */
@@ -1623,11 +1487,7 @@ function hasAuthTokenRequestTimedOut(authToken) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Creates a Firebase Installation if there isn't one for the app and
@@ -1660,11 +1520,7 @@ async function getId(installations) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a Firebase Installations auth token, identifying the current
@@ -1699,15 +1555,7 @@ async function completeInstallationRegistration(appConfig) {
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-function extractAppConfig(app) {
-    if (!app || !app.options) {
+
         throw getMissingValueError('App Configuration');
     }
     if (!app.name) {
@@ -1740,18 +1588,10 @@ function getMissingValueError(valueName) {
 /**
  * @license
  * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
+
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const INSTALLATIONS_NAME = 'installations';
 const INSTALLATIONS_NAME_INTERNAL = 'installations-internal';
@@ -1784,11 +1624,7 @@ function registerInstallations() {
 }
 
 /**
- * Firebase Installations
- *
- * @packageDocumentation
- */
-registerInstallations();
+
 registerVersion(name$1, version$1);
 
 /**
@@ -1801,11 +1637,7 @@ registerVersion(name$1, version$1);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Type constant for Firebase Analytics.
@@ -1828,29 +1660,17 @@ const GTAG_URL = 'https://www.googletagmanager.com/gtag/js';
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const logger = new Logger('@firebase/analytics');
 
 /**
  * @license
  * Copyright 2019 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
+
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Makeshift polyfill for Promise.allSettled(). Resolves when all promises
@@ -1897,11 +1717,7 @@ function getOrCreateDataLayer(dataLayerName) {
  * @param measurementIdToAppId Map of GA measurementIDs to corresponding Firebase appId.
  * @param measurementId GA Measurement ID to set config for.
  * @param gtagParams Gtag config params to set.
- */
-async function gtagOnConfig(gtagCore, initializationPromisesMap, dynamicConfigPromisesList, measurementIdToAppId, measurementId, gtagParams) {
-    // If config is already fetched, we know the appId and can use it to look up what FID promise we
-    /// are waiting for, and wait only on that one.
-    const correspondingAppId = measurementIdToAppId[measurementId];
+asurementIdToAppId[measurementId];
     try {
         if (correspondingAppId) {
             await initializationPromisesMap[correspondingAppId];
@@ -1924,11 +1740,7 @@ async function gtagOnConfig(gtagCore, initializationPromisesMap, dynamicConfigPr
     gtagCore("config" /* CONFIG */, measurementId, gtagParams);
 }
 /**
- * Wrapped gtag logic when gtag is called with 'event' command.
- *
- * @param gtagCore Basic gtag function that just appends to dataLayer.
- * @param initializationPromisesMap Map of appIds to their initialization promises.
- * @param dynamicConfigPromisesList Array of dynamic config fetch promises.
+st Array of dynamic config fetch promises.
  * @param measurementId GA Measurement ID to log event to.
  * @param gtagParams Params to log with this event.
  */
@@ -1942,11 +1754,7 @@ async function gtagOnEvent(gtagCore, initializationPromisesMap, dynamicConfigPro
             // Make it an array if is isn't, so it can be dealt with the same way.
             if (!Array.isArray(gaSendToList)) {
                 gaSendToList = [gaSendToList];
-            }
-            // Checking 'send_to' fields requires having all measurement ID results back from
-            // the dynamic config fetch.
-            const dynamicConfigResults = await promiseAllSettled(dynamicConfigPromisesList);
-            for (const sendToId of gaSendToList) {
+f gaSendToList) {
                 // Any fetched dynamic measurement ID that matches this 'send_to' ID
                 const foundConfig = dynamicConfigResults.find(config => config.measurementId === sendToId);
                 const initializationPromise = foundConfig && initializationPromisesMap[foundConfig.appId];
@@ -2084,11 +1892,7 @@ function findGtagScriptOnPage() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const ERRORS = {
     ["already-exists" /* ALREADY_EXISTS */]: 'A Firebase Analytics instance with the appId {$id} ' +
@@ -2128,11 +1932,7 @@ const ERROR_FACTORY = new ErrorFactory('analytics', 'Analytics', ERRORS);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Backoff factor for 503 errors, which we want to be conservative about
@@ -2188,11 +1988,7 @@ async function fetchDynamicConfig(appFields) {
     const appUrl = DYNAMIC_CONFIG_URL.replace('{app-id}', appId);
     const response = await fetch(appUrl, request);
     if (response.status !== 200 && response.status !== 304) {
-        let errorMessage = '';
-        try {
-            // Try to get any error message text from server response.
-            const jsonResponse = (await response.json());
-            if ((_a = jsonResponse.error) === null || _a === void 0 ? void 0 : _a.message) {
+e.error) === null || _a === void 0 ? void 0 : _a.message) {
                 errorMessage = jsonResponse.error.message;
             }
         }
@@ -2232,11 +2028,7 @@ retryData = defaultRetryData, timeoutMillis) {
     setTimeout(async () => {
         // Note a very low delay, eg < 10ms, can elapse before listeners are initialized.
         signal.abort();
-    }, timeoutMillis !== undefined ? timeoutMillis : FETCH_TIMEOUT_MILLIS);
-    return attemptFetchDynamicConfigWithRetry({ appId, apiKey, measurementId }, throttleMetadata, signal, retryData);
-}
-/**
- * Runs one retry attempt.
+
  * @param appFields Necessary app config fields.
  * @param throttleMetadata Ongoing metadata to determine throttling times.
  * @param signal Abort signal.
@@ -2363,11 +2155,7 @@ class AnalyticsAbortSignal {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function validateIndexedDB() {
     if (!isIndexedDBAvailable()) {
@@ -2469,17 +2257,9 @@ async function _initializeAnalytics(app, dynamicConfigPromisesList, measurementI
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
-/**
- * Analytics Service class.
- */
-class AnalyticsService {
-    constructor(app) {
+
         this.app = app;
     }
     _delete() {
@@ -2581,11 +2361,7 @@ function warnOnBrowserContextMismatch() {
  */
 function factory(app, installations, options) {
     warnOnBrowserContextMismatch();
-    const appId = app.options.appId;
-    if (!appId) {
-        throw ERROR_FACTORY.create("no-app-id" /* NO_APP_ID */);
-    }
-    if (!app.options.apiKey) {
+
         if (app.options.measurementId) {
             logger.warn(`The "apiKey" field is empty in the local Firebase config. This is needed to fetch the latest` +
                 ` measurement ID for this Firebase app. Falling back to the measurement ID ${app.options.measurementId}` +
@@ -2626,11 +2402,7 @@ function factory(app, installations, options) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Logs an analytics event through the Firebase SDK.
@@ -2742,11 +2514,7 @@ function getAnalytics(app = getApp()) {
 /**
  * Returns an {@link Analytics} instance for the given app.
  *
- * @public
- *
- * @param app - The {@link https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js#FirebaseApp} to use.
- */
-function initializeAnalytics(app, options = {}) {
+ options = {}) {
     // Dependencies
     const analyticsProvider = _getProvider(app, ANALYTICS_TYPE);
     if (analyticsProvider.isInitialized()) {

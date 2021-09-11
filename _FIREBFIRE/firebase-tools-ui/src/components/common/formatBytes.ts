@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-// This has been copied as is from firebase-tools
-// https://github.com/FirebasePrivate/firebase-tools/blob/15a582cd2d92ad7477e9364a61bb17a98478fe8e/src/profileReport.js#L77
+vate/firebase-tools/blob/15a582cd2d92ad7477e9364a61bb17a98478fe8e/src/profileReport.js#L77
 const formatNumber = function (num: number) {
   var parts = num.toFixed(2).split('.');
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');

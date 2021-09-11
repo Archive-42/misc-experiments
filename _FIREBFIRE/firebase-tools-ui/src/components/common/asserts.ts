@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/**
- * Asserts that a condition is truthy, or throw an error.
+uthy, or throw an error.
  * @param assertion the condition to be asserted truthy.
  * @param error the error message to be thrown if assertion is falsy.
  */

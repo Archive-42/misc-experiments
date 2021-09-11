@@ -9,15 +9,7 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
 
-/**
  * This is the PHP xDS Interop test client. This script is meant to be run by
  * the main xDS Interep test runner "run_xds_tests.py", not to be run
  * by itself standalone.

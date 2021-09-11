@@ -52,15 +52,7 @@ var __assign = function() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-var stringToByteArray$1 = function (str) {
-    // TODO(user): Use native implementations if/when available
-    var out = [];
+
     var p = 0;
     for (var i = 0; i < str.length; i++) {
         var c = str.charCodeAt(i);
@@ -343,19 +335,11 @@ var base64urlEncodeWithoutPadding = function (str) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function createMockUserToken(token, projectId) {
     if (token.uid) {
-        throw new Error('The "uid" field is no longer supported by mockUserToken. Please use "sub" instead for Firebase Auth User ID.');
-    }
-    // Unsecured JWTs use "none" as the algorithm.
-    var header = {
-        alg: 'none',
+
         type: 'JWT'
     };
     var project = projectId || 'demo-project';
@@ -389,11 +373,7 @@ function createMockUserToken(token, projectId) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var ERROR_NAME = 'FirebaseError';
 // Based on code from:
@@ -401,11 +381,7 @@ var ERROR_NAME = 'FirebaseError';
 var FirebaseError = /** @class */ (function (_super) {
     __extends(FirebaseError, _super);
     function FirebaseError(code, message, customData) {
-        var _this = _super.call(this, message) || this;
-        _this.code = code;
-        _this.customData = customData;
-        _this.name = ERROR_NAME;
-        // Fix For ES5
+
         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
         Object.setPrototypeOf(_this, FirebaseError.prototype);
         // Maintains proper stack trace for where our error was thrown.
@@ -457,11 +433,7 @@ var PATTERN = /\{\$([^}]+)}/g;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getModularInstance(service) {
     if (service && service._delegate) {
@@ -473,11 +445,7 @@ function getModularInstance(service) {
 }
 
 /**
- * Component for service name T, e.g. `auth`, `auth-internal`
- */
-var Component = /** @class */ (function () {
-    /**
-     *
+
      * @param name The public service name, e.g. app, auth, firestore, database
      * @param instanceFactory Service factory responsible for creating the public interface
      * @param type whether the service provided by the component is public or private
@@ -523,11 +491,7 @@ var Component = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Error codes for requests made by the the XhrIo wrapper.
@@ -543,17 +507,9 @@ var ErrorCode;
  * @license
  * Copyright 2017 Google LLC
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+es/LICENSE-2.0
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * @fileoverview Constants used in the Firebase Storage library.
@@ -573,11 +529,7 @@ const CONFIG_STORAGE_BUCKET_KEY = 'storageBucket';
  */
 const DEFAULT_MAX_OPERATION_RETRY_TIME = 2 * 60 * 1000;
 /**
- * 10 minutes
- *
- * The timeout for upload.
- */
-const DEFAULT_MAX_UPLOAD_RETRY_TIME = 10 * 60 * 1000;
+ME = 10 * 60 * 1000;
 
 /**
  * An error returned by the Firebase Storage SDK.
@@ -721,11 +673,7 @@ function internalError(message) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Network layer for browsers. We use this instead of goog.net.XhrIo because
@@ -749,11 +697,7 @@ class XhrConnection {
                 resolve();
             });
         });
-    }
-    /**
-     * @override
-     */
-    send(url, method, body, headers) {
+rs) {
         if (this.sent_) {
             throw internalError('cannot .send() more than once');
         }
@@ -850,11 +794,7 @@ function newConnection() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Factory-like class for creating XhrIo instances.
@@ -875,22 +815,14 @@ class ConnectionPool {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Firebase Storage location data.
  *
  * @internal
  */
-class Location {
-    constructor(bucket, path) {
-        this.bucket = bucket;
-        this.path_ = path;
-    }
+
     get path() {
         return this.path_;
     }
@@ -911,11 +843,7 @@ class Location {
             bucketLocation = Location.makeFromUrl(bucketString, host);
         }
         catch (e) {
-            // Not valid URL, use as-is. This lets you put bare bucket names in
-            // config.
-            return new Location(bucketString, '');
-        }
-        if (bucketLocation.path === '') {
+== '') {
             return bucketLocation;
         }
         else {
@@ -1006,11 +934,7 @@ class FailRequest {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * @param f May be invoked
@@ -1046,11 +970,7 @@ callback, timeout) {
             f(handler, canceled());
         }, millis);
     }
-    function handler(success, ...args) {
-        if (triggeredCallback) {
-            return;
-        }
-        if (success) {
+
             triggerCallback.call(null, success, ...args);
             return;
         }
@@ -1123,11 +1043,7 @@ function stop(id) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function isJustDef(p) {
     return p !== void 0;
@@ -1167,15 +1083,7 @@ function validateNumber(argument, minValue, maxValue, value) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-function makeUrl(urlPart, host, protocol) {
-    let origin = host;
-    if (protocol == null) {
+
         origin = `https://${host}`;
     }
     return `${protocol}://${origin}/v0${urlPart}`;
@@ -1204,11 +1112,7 @@ function makeQueryString(params) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class NetworkRequest {
     constructor(url, method, headers, body, successCodes, additionalRetryCodes, callback, errorCallback, timeout, progressCallback, pool) {
@@ -1219,11 +1123,7 @@ class NetworkRequest {
         this.url_ = url;
         this.method_ = method;
         this.headers_ = headers;
-        this.body_ = body;
-        this.successCodes_ = successCodes.slice();
-        this.additionalRetryCodes_ = additionalRetryCodes.slice();
-        this.callback_ = callback;
-        this.errorCallback_ = errorCallback;
+orCallback;
         this.progressCallback_ = progressCallback;
         this.timeout_ = timeout;
         this.pool_ = pool;
@@ -1256,11 +1156,7 @@ class NetworkRequest {
                 connection.addUploadProgressListener(progressListener);
             }
             // eslint-disable-next-line @typescript-eslint/no-floating-promises
-            connection
-                .send(self.url_, self.method_, self.body_, self.headers_)
-                .then(() => {
-                if (self.progressCallback_ !== null) {
-                    connection.removeUploadProgressListener(progressListener);
+moveUploadProgressListener(progressListener);
                 }
                 self.pendingConnection_ = null;
                 const hitServer = connection.getErrorCode() === ErrorCode.NO_ERROR;
@@ -1407,11 +1303,7 @@ function makeRequest(requestInfo, appId, authToken, appCheckToken, pool, firebas
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getBlobBuilder() {
     if (typeof BlobBuilder !== 'undefined') {
@@ -1463,11 +1355,7 @@ function sliceBlob(blob, start, end) {
     }
     else if (blob.mozSlice) {
         return blob.mozSlice(start, end);
-    }
-    else if (blob.slice) {
-        return blob.slice(start, end);
-    }
-    return null;
+
 }
 
 /**
@@ -1480,11 +1368,7 @@ function sliceBlob(blob, start, end) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Converts a Base64 encoded string to a binary string. */
 function decodeBase64(encoded) {
@@ -1501,11 +1385,7 @@ function decodeBase64(encoded) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An enumeration of the possible string formats for upload.
@@ -1544,11 +1424,7 @@ const StringFormat = {
      * be overridden in the metadata object).
      */
     DATA_URL: 'data_url'
-};
-class StringData {
-    constructor(data, contentType) {
-        this.data = data;
-        this.contentType = contentType || null;
+tType || null;
     }
 }
 /**
@@ -1565,11 +1441,7 @@ function dataFromString(format, stringData) {
             return new StringData(dataURLBytes_(stringData), dataURLContentType_(stringData));
         // do nothing
     }
-    // assert(false);
-    throw unknown();
-}
-function utf8Bytes_(value) {
-    const b = [];
+
     for (let i = 0; i < value.length; i++) {
         let c = value.charCodeAt(i);
         if (c <= 127) {
@@ -1705,11 +1577,7 @@ function endsWith(s, end) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * @param opt_elideCopy - If true, doesn't copy mutable input data
@@ -1773,11 +1641,7 @@ class FbsBlob {
     static getBlob(...args) {
         if (isNativeBlobDefined()) {
             const blobby = args.map((val) => {
-                if (val instanceof FbsBlob) {
-                    return val.data_;
-                }
-                else {
-                    return val;
+
                 }
             });
             return new FbsBlob(getBlob.apply(null, blobby));
@@ -1821,11 +1685,7 @@ class FbsBlob {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns the Object resulting from parsing the given JSON, or null if the
@@ -1857,11 +1717,7 @@ function jsonObjectOrNull(s) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * @fileoverview Contains helper methods for manipulating paths.
@@ -1897,11 +1753,7 @@ function child(path, childPath) {
  * '/foo/bar' -> 'bar'
  * '/foo/bar/baz/' -> 'baz/'
  * '/a' -> 'a'
- */
-function lastComponent(path) {
-    const index = path.lastIndexOf('/', path.length - 2);
-    if (index === -1) {
-        return path;
+
     }
     else {
         return path.slice(index + 1);
@@ -1918,11 +1770,7 @@ function lastComponent(path) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function noXform_(metadata, value) {
     return value;
@@ -1937,11 +1785,7 @@ class Mapping {
 }
 let mappings_ = null;
 function xformPath(fullPath) {
-    if (!isString(fullPath) || fullPath.length < 2) {
-        return fullPath;
-    }
-    else {
-        return lastComponent(fullPath);
+Path);
     }
 }
 function getMappings() {
@@ -1998,11 +1842,7 @@ function fromResource(service, resource, mappings) {
     const metadata = {};
     metadata['type'] = 'file';
     const len = mappings.length;
-    for (let i = 0; i < len; i++) {
-        const mapping = mappings[i];
-        metadata[mapping.local] = mapping.xform(metadata, resource[mapping.server]);
-    }
-    addRef(metadata, service);
+
     return metadata;
 }
 function fromResourceString(service, resourceString, mappings) {
@@ -2064,11 +1904,7 @@ function toResourceString(metadata, mappings) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const PREFIXES_KEY = 'prefixes';
 const ITEMS_KEY = 'items';
@@ -2140,11 +1976,7 @@ class RequestInfo {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Throws the UNKNOWN StorageError if cndn is false.
@@ -2152,11 +1984,7 @@ class RequestInfo {
 function handlerCheck(cndn) {
     if (!cndn) {
         throw unknown();
-    }
-}
-function metadataHandler(service, mappings) {
-    function handler(xhr, text) {
-        const metadata = fromResourceString(service, text, mappings);
+urceString(service, text, mappings);
         handlerCheck(metadata !== null);
         return metadata;
     }
@@ -2228,11 +2056,7 @@ function getMetadata$2(service, location, mappings) {
     const method = 'GET';
     const timeout = service.maxOperationRetryTime;
     const requestInfo = new RequestInfo(url, method, metadataHandler(service, mappings), timeout);
-    requestInfo.errorHandler = objectErrorHandler(location);
-    return requestInfo;
-}
-function list$2(service, location, delimiter, pageToken, maxResults) {
-    const urlParams = {};
+
     if (location.isRoot) {
         urlParams['prefix'] = '';
     }
@@ -2522,11 +2346,7 @@ function continueResumableUpload(location, service, url, blob, chunkSize, mappin
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An event that is triggered on a task.
@@ -2594,11 +2414,7 @@ function taskStateFromInternalTaskState(state) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class Observer {
     constructor(nextOrObserver, error, complete) {
@@ -2618,20 +2434,12 @@ class Observer {
 }
 
 /**
- * @license
- * Copyright 2017 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+pt in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a function that invokes f with its arguments asynchronously as a
@@ -2656,11 +2464,7 @@ function async(f) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Represents a blob being uploaded. Can be used to pause/resume/cancel the
@@ -2698,11 +2502,7 @@ class UploadTask {
             this._chunkMultiplier = 1;
             if (error._codeEquals("canceled" /* CANCELED */)) {
                 this._needToFetchStatus = true;
-                this.completeTransitions_();
-            }
-            else {
-                this._error = error;
-                this._transition("error" /* ERROR */);
+"error" /* ERROR */);
             }
         };
         this._metadataErrorHandler = error => {
@@ -2731,11 +2531,7 @@ class UploadTask {
     _shouldDoResumable(blob) {
         return blob.size() > 256 * 1024;
     }
-    _start() {
-        if (this._state !== "running" /* RUNNING */) {
-            // This can happen if someone pauses us in a resume callback, for example.
-            return;
-        }
+
         if (this._request !== undefined) {
             return;
         }
@@ -2760,11 +2556,7 @@ class UploadTask {
         }
         else {
             this._oneShotUpload();
-        }
-    }
-    _resolveToken(callback) {
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
-        Promise.all([
+
             this._ref.storage._getAuthToken(),
             this._ref.storage._getAppCheckToken()
         ]).then(([authToken, appCheckToken]) => {
@@ -3140,11 +2932,7 @@ class UploadTask {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provides methods to interact with a bucket in the Firebase Storage service.
@@ -3248,11 +3036,7 @@ function uploadBytes$1(ref, data, metadata) {
         .makeRequestWithTokens(requestInfo)
         .then(request => request.getPromise())
         .then(finalMetadata => {
-        return {
-            metadata: finalMetadata,
-            ref
-        };
-    });
+
 }
 /**
  * Uploads data to this object's location.
@@ -3448,11 +3232,7 @@ function _getChild$1(ref, childPath) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function isUrl(path) {
     return /^[A-Za-z]+:\/\//.test(path);
@@ -3560,11 +3340,7 @@ class FirebaseStorageImpl {
         this._deleted = false;
         this._maxOperationRetryTime = DEFAULT_MAX_OPERATION_RETRY_TIME;
         this._maxUploadRetryTime = DEFAULT_MAX_UPLOAD_RETRY_TIME;
-        this._requests = new Set();
-        if (_url != null) {
-            this._bucket = Location.makeFromBucketSpec(_url, this._host);
-        }
-        else {
+
             this._bucket = extractBucket(this._host, this.app.options);
         }
     }
@@ -3690,11 +3466,7 @@ const version = "0.8.2";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Type constant for Firebase Storage.
@@ -3711,11 +3483,7 @@ const STORAGE_TYPE = 'storage';
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Uploads data to this object's location.
@@ -3810,11 +3578,7 @@ function list(ref, options) {
 /**
  * List all items (files) and prefixes (folders) under this storage reference.
  *
- * This is a helper method for calling list() repeatedly until there are
- * no more results. The default pagination size is 1000.
- *
- * Note: The results may not be consistent if objects are changed while this
- * operation is running.
+
  *
  * Warning: `listAll` may potentially consume too many resources if there are
  * too many results.
@@ -3831,11 +3595,7 @@ function listAll(ref) {
     return listAll$1(ref);
 }
 /**
- * Returns the download URL for the given {@link StorageReference}.
- * @public
- * @param ref - {@link StorageReference} to get the download URL for.
- * @returns A `Promise` that resolves with the download
- *     URL for this object.
+
  */
 function getDownloadURL(ref) {
     ref = getModularInstance(ref);

@@ -47,15 +47,7 @@ function __spreadArray(to, from) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-var ERROR_NAME = 'FirebaseError';
-// Based on code from:
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
+en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
 var FirebaseError = /** @class */ (function (_super) {
     __extends(FirebaseError, _super);
     function FirebaseError(code, message, customData) {
@@ -115,19 +107,11 @@ var PATTERN = /\{\$([^}]+)}/g;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The amount of milliseconds to exponentially increase.
- */
-var DEFAULT_INTERVAL_MILLIS = 1000;
-/**
- * The factor to backoff by.
- * Should be a number greater than 1.
+n 1.
  */
 var DEFAULT_BACKOFF_FACTOR = 2;
 /**
@@ -182,11 +166,7 @@ function calculateBackoffMillis(backoffCount, intervalMillis, backoffFactor) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getModularInstance(service) {
     if (service && service._delegate) {
@@ -194,11 +174,7 @@ function getModularInstance(service) {
     }
     else {
         return service;
-    }
-}
-
-/**
- * Component for service name T, e.g. `auth`, `auth-internal`
+e.g. `auth`, `auth-internal`
  */
 var Component = /** @class */ (function () {
     /**
@@ -248,11 +224,7 @@ var Component = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var _a;
 /**
@@ -264,11 +236,7 @@ var _a;
  *
  * All of the log types above the current log level will be captured (i.e. if
  * you set the log level to `INFO`, errors will still be logged, but `DEBUG` and
- * `VERBOSE` logs will not)
- */
-var LogLevel;
-(function (LogLevel) {
-    LogLevel[LogLevel["DEBUG"] = 0] = "DEBUG";
+0] = "DEBUG";
     LogLevel[LogLevel["VERBOSE"] = 1] = "VERBOSE";
     LogLevel[LogLevel["INFO"] = 2] = "INFO";
     LogLevel[LogLevel["WARN"] = 3] = "WARN";
@@ -744,11 +712,7 @@ const version$1 = "0.5.0";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const PENDING_TIMEOUT_MS = 10000;
 const PACKAGE_VERSION = `w:${version$1}`;
@@ -764,15 +728,7 @@ const SERVICE_NAME = 'Installations';
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const ERROR_DESCRIPTION_MAP$1 = {
     ["missing-app-config-values" /* MISSING_APP_CONFIG_VALUES */]: 'Missing App configuration value: "{$valueName}"',
@@ -792,18 +748,10 @@ function isServerError(error) {
 /**
  * @license
  * Copyright 2019 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
+
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getInstallationsEndpoint({ projectId }) {
     return `${INSTALLATIONS_API_URL}/projects/${projectId}/installations`;
@@ -827,11 +775,7 @@ async function getErrorFromResponse(requestName, response) {
     });
 }
 function getHeaders({ apiKey }) {
-    return new Headers({
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'x-goog-api-key': apiKey
-    });
+
 }
 function getHeadersWithAuth(appConfig, { refreshToken }) {
     const headers = getHeaders(appConfig);
@@ -869,11 +813,7 @@ function getAuthorizationHeader(refreshToken) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function createInstallationRequest(appConfig, { fid }) {
     const endpoint = getInstallationsEndpoint(appConfig);
@@ -901,11 +841,7 @@ async function createInstallationRequest(appConfig, { fid }) {
         return registeredInstallationEntry;
     }
     else {
-        throw await getErrorFromResponse('Create Installation', response);
-    }
-}
 
-/**
  * @license
  * Copyright 2019 Google LLC
  *
@@ -915,11 +851,7 @@ async function createInstallationRequest(appConfig, { fid }) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /** Returns a promise that resolves after given time passes. */
 function sleep(ms) {
@@ -938,11 +870,7 @@ function sleep(ms) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function bufferToBase64UrlSafe(array) {
     const b64 = btoa(String.fromCharCode(...array));
@@ -955,15 +883,7 @@ function bufferToBase64UrlSafe(array) {
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const VALID_FID_PATTERN = /^[cdef][\w-]{21}$/;
 const INVALID_FID = '';
@@ -982,11 +902,7 @@ function generateFid() {
         fidByteArray[0] = 0b01110000 + (fidByteArray[0] % 0b00010000);
         const fid = encode(fidByteArray);
         return VALID_FID_PATTERN.test(fid) ? fid : INVALID_FID;
-    }
-    catch (_a) {
-        // FID generation errored
-        return INVALID_FID;
-    }
+
 }
 /** Converts a FID Uint8Array to a base64 string representation. */
 function encode(fidByteArray) {
@@ -1003,15 +919,7 @@ function encode(fidByteArray) {
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 /** Returns a string key that can be used to identify the app. */
 function getKey(appConfig) {
     return `${appConfig.appName}!${appConfig.appId}`;
@@ -1027,11 +935,7 @@ function getKey(appConfig) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const fidChangeCallbacks = new Map();
 /**
@@ -1058,11 +962,7 @@ function broadcastFidChange(key, fid) {
         channel.postMessage({ key, fid });
     }
     closeBroadcastChannel();
-}
-let broadcastChannel = null;
-/** Opens and returns a BroadcastChannel if it is supported by the browser. */
-function getBroadcastChannel() {
-    if (!broadcastChannel && 'BroadcastChannel' in self) {
+adcastChannel' in self) {
         broadcastChannel = new BroadcastChannel('[Firebase] FID Change');
         broadcastChannel.onmessage = e => {
             callFidChangeCallbacks(e.data.key, e.data.fid);
@@ -1079,19 +979,11 @@ function closeBroadcastChannel() {
 
 /**
  * @license
- * Copyright 2019 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+icense at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const DATABASE_NAME = 'firebase-installations-database';
 const DATABASE_VERSION = 1;
@@ -1143,11 +1035,7 @@ async function remove(appConfig) {
  */
 async function update(appConfig, updateFn) {
     const key = getKey(appConfig);
-    const db = await getDbPromise();
-    const tx = db.transaction(OBJECT_STORE_NAME, 'readwrite');
-    const store = tx.objectStore(OBJECT_STORE_NAME);
-    const oldValue = await store.get(key);
-    const newValue = updateFn(oldValue);
+Value);
     if (newValue === undefined) {
         await store.delete(key);
     }
@@ -1171,11 +1059,7 @@ async function update(appConfig, updateFn) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Updates and returns the InstallationEntry from the database.
@@ -1231,11 +1115,7 @@ function triggerRegistrationIfNecessary(appConfig, installationEntry) {
             fid: installationEntry.fid,
             registrationStatus: 1 /* IN_PROGRESS */,
             registrationTime: Date.now()
-        };
-        const registrationPromise = registerInstallation(appConfig, inProgressEntry);
-        return { installationEntry: inProgressEntry, registrationPromise };
-    }
-    else if (installationEntry.registrationStatus === 1 /* IN_PROGRESS */) {
+gistrationStatus === 1 /* IN_PROGRESS */) {
         return {
             installationEntry,
             registrationPromise: waitUntilFidRegistration(appConfig)
@@ -1331,11 +1211,7 @@ function hasInstallationRequestTimedOut(installationEntry) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function generateAuthTokenRequest({ appConfig, platformLoggerProvider }, installationEntry) {
     const endpoint = getGenerateAuthTokenEndpoint(appConfig, installationEntry);
@@ -1381,11 +1257,7 @@ function getGenerateAuthTokenEndpoint(appConfig, { fid }) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a valid authentication token for the installation. Generates a new
@@ -1399,11 +1271,7 @@ async function refreshAuthToken(installations, forceRefresh = false) {
         if (!isEntryRegistered(oldEntry)) {
             throw ERROR_FACTORY$1.create("not-registered" /* NOT_REGISTERED */);
         }
-        const oldAuthToken = oldEntry.authToken;
-        if (!forceRefresh && isAuthTokenValid(oldAuthToken)) {
-            // There is a valid token in the DB.
-            return oldEntry;
-        }
+
         else if (oldAuthToken.requestStatus === 1 /* IN_PROGRESS */) {
             // There already is a token request in progress.
             tokenPromise = waitUntilAuthTokenRequest(installations, forceRefresh);
@@ -1449,11 +1317,7 @@ async function waitUntilAuthTokenRequest(installations, forceRefresh) {
         return authToken;
     }
 }
-/**
- * Called only if there is a GenerateAuthToken request in progress.
- *
- * Updates the InstallationEntry in the DB based on the status of the
- * GenerateAuthToken request.
+
  *
  * Returns the updated InstallationEntry.
  */
@@ -1526,11 +1390,7 @@ function hasAuthTokenRequestTimedOut(authToken) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Creates a Firebase Installation if there isn't one for the app and
@@ -1563,11 +1423,7 @@ async function getId(installations) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Returns a Firebase Installations auth token, identifying the current
@@ -1602,15 +1458,7 @@ async function completeInstallationRegistration(appConfig) {
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-function extractAppConfig(app) {
-    if (!app || !app.options) {
+
         throw getMissingValueError('App Configuration');
     }
     if (!app.name) {
@@ -1643,18 +1491,10 @@ function getMissingValueError(valueName) {
 /**
  * @license
  * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
+
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const INSTALLATIONS_NAME = 'installations';
 const INSTALLATIONS_NAME_INTERNAL = 'installations-internal';
@@ -1687,11 +1527,7 @@ function registerInstallations() {
 }
 
 /**
- * Firebase Installations
- *
- * @packageDocumentation
- */
-registerInstallations();
+
 registerVersion(name$1, version$1);
 
 const name = "@firebase/remote-config";
@@ -1707,11 +1543,7 @@ const version = "0.2.0";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Shims a minimal AbortSignal.
@@ -1738,16 +1570,8 @@ class RemoteConfigAbortSignal {
  * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
+
  */
 const RC_COMPONENT_NAME = 'remote-config';
 
@@ -1761,11 +1585,7 @@ const RC_COMPONENT_NAME = 'remote-config';
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const ERROR_DESCRIPTION_MAP = {
     ["registration-window" /* REGISTRATION_WINDOW */]: 'Undefined window object. This SDK only supports usage in a browser environment.',
@@ -1803,15 +1623,7 @@ function hasErrorCode(e, errorCode) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-const DEFAULT_VALUE_FOR_BOOLEAN = false;
-const DEFAULT_VALUE_FOR_STRING = '';
-const DEFAULT_VALUE_FOR_NUMBER = 0;
+0;
 const BOOLEAN_TRUTHY_VALUES = ['1', 'true', 't', 'yes', 'y', 'on'];
 class Value {
     constructor(_source, _value = DEFAULT_VALUE_FOR_STRING) {
@@ -1843,20 +1655,12 @@ class Value {
 }
 
 /**
- * @license
- * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+pt in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  *
@@ -1865,11 +1669,7 @@ class Value {
  *
  * @public
  */
-function getRemoteConfig(app = getApp()) {
-    app = getModularInstance(app);
-    const rcProvider = _getProvider(app, RC_COMPONENT_NAME);
-    return rcProvider.getImmediate();
-}
+
 /**
  * Makes the last fetched config available to the getters.
  * @param remoteConfig - The {@link RemoteConfig} instance.
@@ -1907,11 +1707,7 @@ async function activate(remoteConfig) {
  */
 function ensureInitialized(remoteConfig) {
     const rc = getModularInstance(remoteConfig);
-    if (!rc._initializePromise) {
-        rc._initializePromise = rc._storageCache.loadFromStorage().then(() => {
-            rc._isInitializationComplete = true;
-        });
-    }
+
     return rc._initializePromise;
 }
 /**
@@ -1956,11 +1752,7 @@ async function fetchConfig(remoteConfig) {
  * Gets all config.
  *
  * @param remoteConfig - The {@link RemoteConfig} instance.
- * @returns All config.
- *
- * @public
- */
-function getAll(remoteConfig) {
+
     const rc = getModularInstance(remoteConfig);
     return getAllKeys(rc._storageCache.getActiveConfig(), rc.defaultConfig).reduce((allConfigs, key) => {
         allConfigs[key] = getValue(remoteConfig, key);
@@ -2075,11 +1867,7 @@ function getAllKeys(obj1 = {}, obj2 = {}) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Implements the {@link RemoteConfigClient} abstraction with success response caching.
@@ -2160,11 +1948,7 @@ class CachingClient {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Attempts to get the most accurate browser language setting.
@@ -2187,20 +1971,12 @@ function getUserLanguage(navigatorLanguage = navigator) {
 }
 
 /**
- * @license
- * Copyright 2019 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+pt in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Implements the Client abstraction for the Remote Config REST API.
@@ -2276,11 +2052,7 @@ class RestClient {
             throw ERROR_FACTORY.create(errorCode, {
                 originalErrorMessage: originalError.message
             });
-        }
-        let status = response.status;
-        // Normalizes nullable header to optional.
-        const responseEtag = response.headers.get('ETag') || undefined;
-        let config;
+
         let state;
         // JSON parsing throws SyntaxError if the response body isn't a JSON string.
         // Requesting application/json and checking for a 200 ensures there's JSON data.
@@ -2312,11 +2084,7 @@ class RestClient {
         // Encapsulates HTTP specifics in this class as much as possible. Status is still the best for
         // differentiating success states (200 from 304; the state body param is undefined in a
         // standard 304).
-        if (status !== 304 && status !== 200) {
-            throw ERROR_FACTORY.create("fetch-status" /* FETCH_STATUS */, {
-                httpStatus: status
-            });
-        }
+
         return { status, eTag: responseEtag, config };
     }
 }
@@ -2331,11 +2099,7 @@ class RestClient {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Supports waiting on a backoff by:
@@ -2438,11 +2202,7 @@ class RetryingClient {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const DEFAULT_FETCH_TIMEOUT_MILLIS = 60 * 1000; // One minute
 const DEFAULT_CACHE_MAX_AGE_MILLIS = 12 * 60 * 60 * 1000; // Twelve hours.
@@ -2455,11 +2215,7 @@ class RemoteConfig {
     constructor(
     // Required by FirebaseServiceFactory interface.
     app, 
-    // JS doesn't support private yet
-    // (https://github.com/tc39/proposal-class-fields#private-fields), so we hint using an
-    // underscore prefix.
-    /**
-     * @internal
+
      */
     _client, 
     /**
@@ -2508,11 +2264,7 @@ class RemoteConfig {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Converts an error event associated with a {@link IDBRequest} to a {@link FirebaseError}.
@@ -2566,11 +2318,7 @@ function openDatabase() {
  * Abstracts data persistence.
  */
 class Storage {
-    /**
-     * @param appId enables storage segmentation by app (ID + name).
-     * @param appName enables storage segmentation by app (ID + name).
-     * @param namespace enables storage segmentation by namespace.
-     */
+
     constructor(appId, appName, namespace, openDbPromise = openDatabase()) {
         this.appId = appId;
         this.appName = appName;
@@ -2636,11 +2384,7 @@ class Storage {
                     }
                     else {
                         resolve(undefined);
-                    }
-                };
-            }
-            catch (e) {
-                reject(ERROR_FACTORY.create("storage-get" /* STORAGE_GET */, {
+ORY.create("storage-get" /* STORAGE_GET */, {
                     originalErrorMessage: e && e.message
                 }));
             }
@@ -2709,11 +2453,7 @@ class Storage {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A memory cache layer over storage to support the SDK's synchronous read requirements.
@@ -2786,11 +2526,7 @@ class StorageCache {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function registerRemoteConfig() {
     _registerComponent(new Component(RC_COMPONENT_NAME, remoteConfigFactory, "PUBLIC" /* PUBLIC */).setMultipleInstances(true));
@@ -2845,15 +2581,7 @@ function registerRemoteConfig() {
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 // This API is put in a separate file, so we can stub fetchConfig and activate in tests.
 // It's not possible to stub standalone functions from the same module.
 /**

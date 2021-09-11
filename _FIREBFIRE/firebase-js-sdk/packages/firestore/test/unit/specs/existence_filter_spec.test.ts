@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { newQueryForPath } from '../../../src/core/query';
-import { Code } from '../../../src/util/error';
+c/util/error';
 import { deletedDoc, doc, query } from '../../util/helpers';
 
 import { describeSpec, specTest } from './describe_spec';

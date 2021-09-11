@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { RemoteConfig } from './public_types';
-import { activate, fetchConfig } from './api';
+from './api';
 import { getModularInstance } from '@firebase/util';
 
 // This API is put in a separate file, so we can stub fetchConfig and activate in tests.

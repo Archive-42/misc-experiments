@@ -8,15 +8,7 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
-#include "test/core/tsi/alts/handshaker/alts_handshaker_service_api_test_lib.h"
+shaker/alts_handshaker_service_api_test_lib.h"
 
 bool grpc_gcp_handshaker_resp_set_peer_rpc_versions(
     grpc_gcp_HandshakerResp* resp, upb_arena* arena, uint32_t max_major,

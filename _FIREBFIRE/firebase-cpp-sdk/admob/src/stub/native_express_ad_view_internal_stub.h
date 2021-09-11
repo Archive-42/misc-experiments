@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-#ifndef FIREBASE_ADMOB_SRC_STUB_NATIVE_EXPRESS_AD_VIEW_INTERNAL_STUB_H_
-#define FIREBASE_ADMOB_SRC_STUB_NATIVE_EXPRESS_AD_VIEW_INTERNAL_STUB_H_
+ATIVE_EXPRESS_AD_VIEW_INTERNAL_STUB_H_
 
 #include "admob/src/common/native_express_ad_view_internal.h"
 

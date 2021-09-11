@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-#ifndef FIREBASE_APP_CLIENT_UNITY_SRC_EXPORT_FIX_H_
-#define FIREBASE_APP_CLIENT_UNITY_SRC_EXPORT_FIX_H_
+_SRC_EXPORT_FIX_H_
 
 // Stub function to add well known export to swig. See export_fix.cc for better
 // description

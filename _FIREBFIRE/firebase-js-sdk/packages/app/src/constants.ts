@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { name as appName } from '../package.json';
-import { name as appCompatName } from '../../app-compat/package.json';
+from '../../app-compat/package.json';
 import { name as analyticsCompatName } from '../../../packages/analytics-compat/package.json';
 import { name as analyticsName } from '../../../packages/analytics/package.json';
 import { name as appCheckCompatName } from '../../../packages/app-check-compat/package.json';

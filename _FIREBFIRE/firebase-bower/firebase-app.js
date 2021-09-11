@@ -112,15 +112,7 @@ function __spreadArray(to, from) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-var Deferred = /** @class */ (function () {
-    function Deferred() {
-        var _this = this;
+
         this.reject = function () { };
         this.resolve = function () { };
         this.promise = new Promise(function (resolve, reject) {
@@ -170,19 +162,11 @@ var Deferred = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var ERROR_NAME = 'FirebaseError';
 // Based on code from:
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
-var FirebaseError = /** @class */ (function (_super) {
-    __extends(FirebaseError, _super);
-    function FirebaseError(code, message, customData) {
-        var _this = _super.call(this, message) || this;
+his, message) || this;
         _this.code = code;
         _this.customData = customData;
         _this.name = ERROR_NAME;
@@ -315,11 +299,7 @@ var Component = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var DEFAULT_ENTRY_NAME$1 = '[DEFAULT]';
 
@@ -327,17 +307,9 @@ var DEFAULT_ENTRY_NAME$1 = '[DEFAULT]';
  * @license
  * Copyright 2019 Google LLC
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+es/LICENSE-2.0
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Provider for instance for service name T, e.g. 'auth', 'auth-internal'
@@ -349,11 +321,7 @@ var Provider = /** @class */ (function () {
         this.container = container;
         this.component = null;
         this.instances = new Map();
-        this.instancesDeferred = new Map();
-        this.instancesOptions = new Map();
-        this.onInitCallbacks = new Map();
-    }
-    /**
+
      * @param identifier A provider can provide mulitple instances of a service
      * if this.component.multipleInstances is true.
      */
@@ -659,11 +627,7 @@ function isComponentEager(component) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * ComponentContainer that provides Providers for service name T, e.g. `auth`, `auth-internal`
@@ -679,11 +643,7 @@ var ComponentContainer = /** @class */ (function () {
      * @param overwrite When a component with the same name has already been registered,
      * if overwrite is true: overwrite the existing component with the new component and create a new
      * provider with the new component. It can be useful in tests where you want to use different mocks
-     * for different tests.
-     * if overwrite is false: throw an exception
-     */
-    ComponentContainer.prototype.addComponent = function (component) {
-        var provider = this.getProvider(component.name);
+ovider(component.name);
         if (provider.isComponentSet()) {
             throw new Error("Component " + component.name + " has already been registered with " + this.name);
         }
@@ -729,11 +689,7 @@ var ComponentContainer = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var _a;
 /**
@@ -753,11 +709,7 @@ var instances = [];
  */
 var LogLevel;
 (function (LogLevel) {
-    LogLevel[LogLevel["DEBUG"] = 0] = "DEBUG";
-    LogLevel[LogLevel["VERBOSE"] = 1] = "VERBOSE";
-    LogLevel[LogLevel["INFO"] = 2] = "INFO";
-    LogLevel[LogLevel["WARN"] = 3] = "WARN";
-    LogLevel[LogLevel["ERROR"] = 4] = "ERROR";
+4] = "ERROR";
     LogLevel[LogLevel["SILENT"] = 5] = "SILENT";
 })(LogLevel || (LogLevel = {}));
 var levelStringToEnum = {
@@ -991,11 +943,7 @@ function setUserLogHandler(logCallback, options) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class PlatformLoggerServiceImpl {
     constructor(container) {
@@ -1019,11 +967,7 @@ class PlatformLoggerServiceImpl {
         })
             .filter(logString => logString)
             .join(' ');
-    }
-}
-/**
- *
- * @param provider check if this provider provides a VersionService
+provider provides a VersionService
  *
  * NOTE: Using Provider<'app-version'> is a hack to indicate that the provider
  * provides VersionService. The provider is not necessarily a 'app-version'
@@ -1047,11 +991,7 @@ const version$1 = "0.7.0";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const logger = new Logger('https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js');
 
@@ -1079,11 +1019,7 @@ const name$d = "@firebase/functions-compat";
 
 const name$c = "@firebase/installations";
 
-const name$b = "@firebase/installations-compat";
-
-const name$a = "@firebase/messaging";
-
-const name$9 = "@firebase/messaging-compat";
+ng-compat";
 
 const name$8 = "@firebase/performance";
 
@@ -1114,11 +1050,7 @@ const version$2 = "9.0.2";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The default app name
@@ -1150,10 +1082,6 @@ const PLATFORM_LOG_STRING = {
     [name$4]: 'fire-gcs',
     [name$3]: 'fire-gcs-compat',
     [name$2]: 'fire-fst',
-    [name$1]: 'fire-fst-compat',
-    'fire-js': 'fire-js',
-    [name$p]: 'fire-js-all'
-};
 
 /**
  * @license
@@ -1165,11 +1093,7 @@ const PLATFORM_LOG_STRING = {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * @internal
@@ -1205,11 +1129,7 @@ function _addOrOverwriteComponent(app, component) {
 /**
  *
  * @param component - the component to register
- * @returns whether or not the component is registered successfully
- *
- * @internal
- */
-function _registerComponent(component) {
+nent) {
     const componentName = component.name;
     if (_components.has(componentName)) {
         logger.debug(`There were multiple attempts to register component ${componentName}.`);
@@ -1264,11 +1184,7 @@ function _clearComponents() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const ERRORS = {
     ["no-app" /* NO_APP */]: "No Firebase App '{$appName}' has been created - " +
@@ -1292,11 +1208,7 @@ const ERROR_FACTORY = new ErrorFactory('app', 'Firebase', ERRORS);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 class FirebaseAppImpl {
     constructor(options, config, container) {
@@ -1312,11 +1224,7 @@ class FirebaseAppImpl {
     get automaticDataCollectionEnabled() {
         this.checkDestroyed();
         return this._automaticDataCollectionEnabled;
-    }
-    set automaticDataCollectionEnabled(val) {
-        this.checkDestroyed();
-        this._automaticDataCollectionEnabled = val;
-    }
+
     get name() {
         this.checkDestroyed();
         return this._name;
@@ -1340,11 +1248,7 @@ class FirebaseAppImpl {
     }
     /**
      * This function will throw an Error if the App has already been deleted -
-     * use before performing API actions on the App.
-     */
-    checkDestroyed() {
-        if (this.isDeleted) {
-            throw ERROR_FACTORY.create("app-deleted" /* APP_DELETED */, { appName: this._name });
+reate("app-deleted" /* APP_DELETED */, { appName: this._name });
         }
     }
 }
@@ -1359,11 +1263,7 @@ class FirebaseAppImpl {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The current SDK version.
@@ -1411,11 +1311,7 @@ function initializeApp(options, rawConfig = {}) {
  * An exception is thrown if the app being retrieved has not yet been
  * initialized.
  *
- * @example
- * ```javascript
- * // Return the default app
- * const app = getApp();
- * ```
+
  *
  * @example
  * ```javascript
@@ -1544,11 +1440,7 @@ function setLogLevel(logLevel) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function registerCoreComponents(variant) {
     _registerComponent(new Component('platform-logger', container => new PlatformLoggerServiceImpl(container), "PRIVATE" /* PRIVATE */));
@@ -1579,11 +1471,7 @@ var version = "9.0.2";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 registerVersion(name, version, 'cdn');
 

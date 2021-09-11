@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-import { DocumentData as DocumentData_2 } from '@firebase/firestore-types';
-import { FirebaseApp } from '@firebase/app';
-import { FirebaseAuthInternalName } from '@firebase/auth-interop-types';
+ } from '@firebase/auth-interop-types';
 import { _FirebaseService } from '@firebase/app';
 import { LogLevelString as LogLevel } from '@firebase/logger';
 import { Provider } from '@firebase/component';
@@ -695,19 +687,11 @@ export declare class FirestoreError extends Error {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The set of Firestore status codes. The codes are the same at the ones
- * exposed by gRPC here:
- * https://github.com/grpc/grpc/blob/master/doc/statuscodes.md
- *
- * Possible values:
- * - 'cancelled': The operation was cancelled (typically by the caller).
+as cancelled (typically by the caller).
  * - 'unknown': Unknown error or an error from a different error domain.
  * - 'invalid-argument': Client specified an invalid argument. Note that this
  *   differs from 'failed-precondition'. 'invalid-argument' indicates
@@ -767,11 +751,7 @@ export declare type FirestoreErrorCode =
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * An immutable object representing a geographic location in Firestore. The
@@ -779,11 +759,7 @@ export declare type FirestoreErrorCode =
  *
  * Latitude values are in the range of [-90, 90].
  * Longitude values are in the range of [-180, 180].
- */
-export declare class GeoPoint {
-  /**
-   * Creates a new immutable `GeoPoint` object with the provided latitude and
-   * longitude values.
+
    * @param latitude - The latitude as number between -90 and 90.
    * @param longitude - The longitude as number between -180 and 180.
    */
@@ -1686,11 +1662,7 @@ export declare function terminate(firestore: FirebaseFirestore): Promise<void>;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A `Timestamp` represents a point in time independent of any time zone or
@@ -1702,11 +1674,7 @@ export declare function terminate(firestore: FirebaseFirestore): Promise<void>;
  * are 60 seconds long, i.e. leap seconds are "smeared" so that no leap second
  * table is needed for interpretation. Range is from 0001-01-01T00:00:00Z to
  * 9999-12-31T23:59:59.999999999Z.
- *
- * For examples and further specifications, refer to the
- * {@link https://github.com/google/protobuf/blob/master/src/google/protobuf/timestamp.proto | Timestamp definition}.
- */
-export declare class Timestamp {
+
   readonly seconds: number;
   readonly nanoseconds: number;
   /**

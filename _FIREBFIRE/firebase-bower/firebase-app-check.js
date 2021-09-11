@@ -47,15 +47,7 @@ function __spreadArray(to, from) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-var stringToByteArray$1 = function (str) {
-    // TODO(user): Use native implementations if/when available
-    var out = [];
+
     var p = 0;
     for (var i = 0; i < str.length; i++) {
         var c = str.charCodeAt(i);
@@ -341,19 +333,11 @@ var base64Decode = function (str) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var Deferred = /** @class */ (function () {
     function Deferred() {
-        var _this = this;
-        this.reject = function () { };
-        this.resolve = function () { };
-        this.promise = new Promise(function (resolve, reject) {
-            _this.resolve = resolve;
+ve;
             _this.reject = reject;
         });
     }
@@ -422,11 +406,7 @@ function getGlobal() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var ERROR_NAME = 'FirebaseError';
 // Based on code from:
@@ -434,11 +414,7 @@ var ERROR_NAME = 'FirebaseError';
 var FirebaseError = /** @class */ (function (_super) {
     __extends(FirebaseError, _super);
     function FirebaseError(code, message, customData) {
-        var _this = _super.call(this, message) || this;
-        _this.code = code;
-        _this.customData = customData;
-        _this.name = ERROR_NAME;
-        // Fix For ES5
+
         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
         Object.setPrototypeOf(_this, FirebaseError.prototype);
         // Maintains proper stack trace for where our error was thrown.
@@ -490,11 +466,7 @@ var PATTERN = /\{\$([^}]+)}/g;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Evaluates a JSON string into a javascript object.
@@ -506,21 +478,13 @@ function jsonEval(str) {
     return JSON.parse(str);
 }
 
-/**
- * @license
- * Copyright 2017 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
+nse, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Decodes a Firebase auth. token into constituent parts.
@@ -536,11 +500,7 @@ var decode = function (token) {
         header = jsonEval(base64Decode(parts[0]) || '');
         claims = jsonEval(base64Decode(parts[1]) || '');
         signature = parts[2];
-        data = claims['d'] || {};
-        delete claims['d'];
-    }
-    catch (e) { }
-    return {
+
         header: header,
         claims: claims,
         data: data,
@@ -572,11 +532,7 @@ var issuedAtTime = function (token) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getModularInstance(service) {
     if (service && service._delegate) {
@@ -596,11 +552,7 @@ var Component = /** @class */ (function () {
      * @param name The public service name, e.g. app, auth, firestore, database
      * @param instanceFactory Service factory responsible for creating the public interface
      * @param type whether the service provided by the component is public or private
-     */
-    function Component(name, instanceFactory, type) {
-        this.name = name;
-        this.instanceFactory = instanceFactory;
-        this.type = type;
+
         this.multipleInstances = false;
         /**
          * Properties to be added to the service namespace
@@ -638,11 +590,7 @@ var Component = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 var _a;
 /**
@@ -666,11 +614,7 @@ var LogLevel;
     LogLevel[LogLevel["SILENT"] = 5] = "SILENT";
 })(LogLevel || (LogLevel = {}));
 var levelStringToEnum = {
-    'debug': LogLevel.DEBUG,
-    'verbose': LogLevel.VERBOSE,
-    'info': LogLevel.INFO,
-    'warn': LogLevel.WARN,
-    'error': LogLevel.ERROR,
+
     'silent': LogLevel.SILENT
 };
 /**
@@ -831,11 +775,7 @@ var Logger = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const APP_CHECK_STATES = new Map();
 const DEFAULT_STATE = {
@@ -863,15 +803,7 @@ function getDebugState() {
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-const BASE_ENDPOINT = 'https://content-firebaseappcheck.googleapis.com/v1beta';
+ntent-firebaseappcheck.googleapis.com/v1beta';
 const EXCHANGE_RECAPTCHA_TOKEN_METHOD = 'exchangeRecaptchaToken';
 const EXCHANGE_DEBUG_TOKEN_METHOD = 'exchangeDebugToken';
 const TOKEN_REFRESH_TIME = {
@@ -901,15 +833,7 @@ const TOKEN_REFRESH_TIME = {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Port from auth proactiverefresh.js
- *
+
  */
 // TODO: move it to @firebase/util?
 // TODO: allow to config whether refresh should happen in the background
@@ -941,11 +865,7 @@ class Refresher {
     isRunning() {
         return !!this.pending;
     }
-    async process(hasSucceeded) {
-        this.stop();
-        try {
-            this.pending = new Deferred();
-            await sleep(this.getNextRun(hasSucceeded));
+extRun(hasSucceeded));
             // Why do we resolve a promise, then immediate wait for it?
             // We do it to make the promise chain cancellable.
             // We can call stop() which rejects the promise before the following line execute, which makes
@@ -1009,11 +929,7 @@ function sleep(ms) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const ERRORS = {
     ["already-initialized" /* ALREADY_INITIALIZED */]: 'You have already called initializeAppCheck() for FirebaseApp {$appName} with ' +
@@ -1044,11 +960,7 @@ const ERROR_FACTORY = new ErrorFactory('appCheck', 'AppCheck', ERRORS);
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getRecaptcha() {
     return self.grecaptcha;
@@ -1057,11 +969,7 @@ function ensureActivated(app) {
     if (!getState(app).activated) {
         throw ERROR_FACTORY.create("use-before-activation" /* USE_BEFORE_ACTIVATION */, {
             appName: app.name
-        });
-    }
-}
-/**
- * Copied from https://stackoverflow.com/a/2117523
+low.com/a/2117523
  */
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
@@ -1080,11 +988,7 @@ function uuidv4() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 async function exchangeToken({ url, body }, platformLoggerProvider) {
     const headers = {
@@ -1096,11 +1000,7 @@ async function exchangeToken({ url, body }, platformLoggerProvider) {
     });
     if (platformLogger) {
         headers['X-Firebase-Client'] = platformLogger.getPlatformInfoString();
-    }
-    const options = {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers
+
     };
     let response;
     try {
@@ -1132,11 +1032,7 @@ async function exchangeToken({ url, body }, platformLoggerProvider) {
     if (!match || !match[2] || isNaN(Number(match[1]))) {
         throw ERROR_FACTORY.create("fetch-parse-error" /* FETCH_PARSE_ERROR */, {
             originalErrorMessage: `ttl field (timeToLive) is not in standard Protobuf Duration ` +
-                `format: ${responseBody.ttl}`
-        });
-    }
-    const timeToLiveAsNumber = Number(match[1]) * 1000;
-    const now = Date.now();
+
     return {
         token: responseBody.attestationToken,
         expireTimeMillis: now + timeToLiveAsNumber,
@@ -1174,11 +1070,7 @@ function getExchangeDebugTokenRequest(app, debugToken) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const DB_NAME = 'firebase-app-check-database';
 const DB_VERSION = 1;
@@ -1230,11 +1122,7 @@ function readTokenFromIndexedDB(app) {
 function writeTokenToIndexedDB(app, token) {
     return write(computeKey(app), token);
 }
-function writeDebugTokenToIndexedDB(token) {
-    return write(DEBUG_TOKEN_KEY, token);
-}
-function readDebugTokenFromIndexedDB() {
-    return read(DEBUG_TOKEN_KEY);
+
 }
 async function write(key, value) {
     const db = await getDBPromise();
@@ -1293,11 +1181,7 @@ function computeKey(app) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const logger = new Logger('https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js-check');
 
@@ -1311,11 +1195,7 @@ const logger = new Logger('https://www.gstatic.com/firebasejs/9.0.2/firebase-app
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Always resolves. In case of an error reading from indexeddb, resolve with undefined
@@ -1357,11 +1237,7 @@ async function readOrCreateDebugTokenFromStorage() {
     }
     catch (_e) {
         // failed to read from indexeddb. We assume there is no existing debug token, and generate a new one.
-    }
-    if (!existingDebugToken) {
-        // create a new debug token
-        const newToken = uuidv4();
-        // We don't need to block on writing to indexeddb
+ on writing to indexeddb
         // In case persistence failed, a new debug token will be generated everytime the page is refreshed.
         // It renders the debug token useless because you have to manually register(whitelist) the new token in the firebase console again and again.
         // If you see this error trying to use debug token, it probably means you are using a browser that doesn't support indexeddb.
@@ -1376,21 +1252,13 @@ async function readOrCreateDebugTokenFromStorage() {
     }
 }
 
-/**
- * @license
- * Copyright 2020 Google LLC
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function isDebugMode() {
     const debugState = getDebugState();
@@ -1436,11 +1304,7 @@ function initializeDebugMode() {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 // Initial hardcoded value agreed upon across platforms for initial launch.
 // Format left open for possible dynamic error values and other fields in the future.
@@ -1458,11 +1322,7 @@ function formatDummyToken(tokenErrorData) {
  * This function always resolves.
  * The result will contain an error field if there is any error.
  * In case there is an error, the token field in the result will be populated with a dummy value
- */
-async function getToken$2(appCheck, forceRefresh = false) {
-    const app = appCheck.app;
-    ensureActivated(app);
-    const state = getState(app);
+
     /**
      * First check if there is a token in memory from a previous `getToken()` call.
      */
@@ -1508,11 +1368,7 @@ async function getToken$2(appCheck, forceRefresh = false) {
         // ensureActivated() at the top of this function checks that
         // initializeAppCheck() has been called.
         token = await state.provider.getToken();
-    }
-    catch (e) {
-        // `getToken()` should never throw, but logging error text to console will aid debugging.
-        logger.error(e);
-        error = e;
+
     }
     let interopTokenResult;
     if (!token) {
@@ -1672,11 +1528,7 @@ function makeDummyTokenResult(error) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * AppCheck Service class.
@@ -1718,11 +1570,7 @@ const version = "0.4.0";
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const RECAPTCHA_URL = 'https://www.google.com/recaptcha/api.js';
 function initialize(app, siteKey) {
@@ -1752,11 +1600,7 @@ function initialize(app, siteKey) {
     else {
         grecaptcha.ready(() => {
             renderInvisibleWidget(app, siteKey, grecaptcha, divId);
-            initialized.resolve(grecaptcha);
-        });
-    }
-    return initialized.promise;
-}
+
 async function getToken$1(app) {
     ensureActivated(app);
     // ensureActivated() guarantees that reCAPTCHAState is set
@@ -1798,18 +1642,10 @@ function loadReCAPTCHAScript(onload) {
 /**
  * @license
  * Copyright 2021 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
+
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * App Check provider that can obtain a reCAPTCHA V3 token and exchange it
@@ -1889,11 +1725,7 @@ class CustomProvider {
         // custom provider
         const customToken = await this._customProviderOptions.getToken();
         // Try to extract IAT from custom token, in case this token is not
-        // being newly issued. JWT timestamps are in seconds since epoch.
-        const issuedAtTimeSeconds = issuedAtTime(customToken.token);
-        // Very basic validation, use current timestamp as IAT if JWT
-        // has no `iat` field or value is out of bounds.
-        const issuedAtTimeMillis = issuedAtTimeSeconds !== null &&
+= issuedAtTimeSeconds !== null &&
             issuedAtTimeSeconds < Date.now() &&
             issuedAtTimeSeconds > 0
             ? issuedAtTimeSeconds * 1000
@@ -1930,11 +1762,7 @@ class CustomProvider {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Activate App Check for the given app. Can be called only once per app.
@@ -2018,11 +1846,7 @@ function setTokenAutoRefreshEnabled(appCheckInstance, isTokenAutoRefreshEnabled)
     setState(app, Object.assign(Object.assign({}, state), { isTokenAutoRefreshEnabled }));
 }
 /**
- * Get the current App Check token. Attaches to the most recent
- * in-flight request if one is present. Returns null if no token
- * is present and no token requests are in-flight.
- *
- * @param appCheckInstance - The App Check service instance.
+App Check service instance.
  * @param forceRefresh - If true, will always try to fetch a fresh token.
  * If false, will use a cached token if found in storage.
  * @public

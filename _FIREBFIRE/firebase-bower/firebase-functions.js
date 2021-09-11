@@ -41,15 +41,7 @@ function __extends(d, b) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-var ERROR_NAME = 'FirebaseError';
-// Based on code from:
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
+en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
 var FirebaseError = /** @class */ (function (_super) {
     __extends(FirebaseError, _super);
     function FirebaseError(code, message, customData) {
@@ -109,19 +101,11 @@ var PATTERN = /\{\$([^}]+)}/g;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 function getModularInstance(service) {
     if (service && service._delegate) {
-        return service._delegate;
-    }
-    else {
-        return service;
-    }
+
 }
 
 /**
@@ -175,11 +159,7 @@ var Component = /** @class */ (function () {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const LONG_TYPE = 'type.googleapis.com/google.protobuf.Int64Value';
 const UNSIGNED_LONG_TYPE = 'type.googleapis.com/google.protobuf.UInt64Value';
@@ -187,11 +167,7 @@ function mapValues(
 // { [k: string]: unknown } is no longer a wildcard assignment target after typescript 3.5
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 o, f) {
-    const result = {};
-    for (const key in o) {
-        if (o.hasOwnProperty(key)) {
-            result[key] = f(o[key]);
-        }
+
     }
     return result;
 }
@@ -280,11 +256,7 @@ function decode(json) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Type constant for Firebase Functions.
@@ -296,16 +268,8 @@ const FUNCTIONS_TYPE = 'functions';
  * Copyright 2017 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
+
  */
 /**
  * Standard error codes for different ways a request can fail, as defined by:
@@ -321,11 +285,7 @@ const errorCodeMap = {
     INVALID_ARGUMENT: 'invalid-argument',
     DEADLINE_EXCEEDED: 'deadline-exceeded',
     NOT_FOUND: 'not-found',
-    ALREADY_EXISTS: 'already-exists',
-    PERMISSION_DENIED: 'permission-denied',
-    UNAUTHENTICATED: 'unauthenticated',
-    RESOURCE_EXHAUSTED: 'resource-exhausted',
-    FAILED_PRECONDITION: 'failed-precondition',
+precondition',
     ABORTED: 'aborted',
     OUT_OF_RANGE: 'out-of-range',
     UNIMPLEMENTED: 'unimplemented',
@@ -449,11 +409,7 @@ function _errorForResponse(status, bodyJSON) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Helper class to get metadata that should be included with a function call.
@@ -473,11 +429,7 @@ class ContextProvider {
                 /* get() never rejects */
             });
         }
-        if (!this.messaging) {
-            messagingProvider.get().then(messaging => (this.messaging = messaging), () => {
-                /* get() never rejects */
-            });
-        }
+
         if (!this.appCheck) {
             appCheckProvider.get().then(appCheck => (this.appCheck = appCheck), () => {
                 /* get() never rejects */
@@ -544,11 +496,7 @@ class ContextProvider {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const DEFAULT_REGION = 'us-central1';
 /**
@@ -572,11 +520,7 @@ class FunctionsService {
     /**
      * Creates a new Functions service for the given app.
      * @param app - The FirebaseApp to use.
-     */
-    constructor(app, authProvider, messagingProvider, appCheckProvider, regionOrCustomDomain = DEFAULT_REGION, fetchImpl) {
-        this.app = app;
-        this.fetchImpl = fetchImpl;
-        this.emulatorOrigin = null;
+l;
         this.contextProvider = new ContextProvider(authProvider, messagingProvider, appCheckProvider);
         // Cancels all ongoing requests when resolved.
         this.cancelAllRequests = new Promise(resolve => {
@@ -742,11 +686,7 @@ async function call(functionsInstance, name, data, options) {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 const AUTH_INTERNAL_NAME = 'auth-internal';
 const APP_CHECK_INTERNAL_NAME = 'app-check-internal';
@@ -774,15 +714,7 @@ const version = "0.7.1";
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 /**
  * Returns a {@link Functions} instance for the given app.
  * @param app - The {@link https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js#FirebaseApp} to use.
@@ -813,11 +745,7 @@ function connectFunctionsEmulator(functionsInstance, host, port) {
 }
 /**
  * Returns a reference to the callable HTTPS trigger with the given name.
- * @param name - The name of the trigger.
- * @public
- */
-function httpsCallable(functionsInstance, name, options) {
-    return httpsCallable$1(getModularInstance(functionsInstance), name, options);
+ularInstance(functionsInstance), name, options);
 }
 
 /**

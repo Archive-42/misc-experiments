@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { SettingsService } from './settings_service';
-import { ERROR_FACTORY, ErrorCode } from '../utils/errors';
+ } from '../utils/errors';
 import { consoleLogger } from '../utils/console_logger';
 
 const DEFAULT_SEND_INTERVAL_MS = 10 * 1000;

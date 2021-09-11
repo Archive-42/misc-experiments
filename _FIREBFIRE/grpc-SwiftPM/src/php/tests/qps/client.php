@@ -9,15 +9,7 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
 
-/*
  * PHP client for QPS testing works as follows:
  * 1. Gets initiated by a call from a proxy that implements the worker service. The
  *    argument to this client is the proxy connection information

@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import React, { useEffect, useState } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+xt } from 'react-hook-form';
 
 import { Field, SelectField } from '../../../components/common/Field';
 import { NUMBER_REGEX, isBoolean, isNumber } from '../utils';

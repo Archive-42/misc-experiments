@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { getIidPromise } from './iid_service';
-import { getConfig } from './remote_config_service';
+te_config_service';
 import { Api } from './api_service';
 import { PerformanceController } from '../controllers/perf';
 

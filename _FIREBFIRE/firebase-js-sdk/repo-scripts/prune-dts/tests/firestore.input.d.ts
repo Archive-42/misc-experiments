@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-import { DocumentData as DocumentData_2 } from '@firebase/firestore-types';
-import { FirebaseApp } from '@firebase/app';
-import { FirebaseAuthInternalName } from '@firebase/auth-interop-types';
+ } from '@firebase/auth-interop-types';
 import { _FirebaseService } from '@firebase/app';
 import { LogLevelString as LogLevel } from '@firebase/logger';
 import { Provider } from '@firebase/component';
@@ -204,19 +196,11 @@ declare abstract class BasePath<B extends BasePath<B>> {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * BatchID is a locally assigned ID for a batch of mutations that have been
- * applied.
- */
-declare type BatchId = number;
 
-/**
  * Represents a bound of a query.
  *
  * The bound is specified with the given components representing a position and
@@ -372,11 +356,7 @@ export declare class Bytes {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Immutable class that represents a "proto" byte string.
@@ -384,11 +364,7 @@ export declare class Bytes {
  * Proto byte strings can either be Base64-encoded strings or Uint8Arrays when
  * sent on the wire. This class abstracts away this differentiation by holding
  * the proto byte string in a common class that must be converted into a string
- * before being sent as a proto.
- */
-declare class ByteString {
-  private readonly binaryString;
-  static readonly EMPTY_BYTE_STRING: ByteString;
+NG: ByteString;
   private constructor();
   static fromBase64String(base64: string): ByteString;
   static fromUint8Array(array: Uint8Array): ByteString;
@@ -564,11 +540,7 @@ export declare class CollectionReference<T = DocumentData> extends Query<T> {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 declare type Comparator<K> = (key1: K, key2: K) => number;
 
@@ -580,11 +552,7 @@ declare interface ComponentConfiguration {
   initialUser: User;
   maxConcurrentLimboResolutions: number;
 }
-
-declare type CompositeFilterOp = 'OPERATOR_UNSPECIFIED' | 'AND';
-
-/**
- * A Listener for credential change events. The listener should fetch a new
+ge events. The listener should fetch a new
  * token and may need to invalidate other state if the current user has also
  * changed.
  */
@@ -636,11 +604,7 @@ declare class DatabaseId {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 declare class DatabaseInfo {
   readonly databaseId: DatabaseId;
@@ -656,11 +620,7 @@ declare class DatabaseInfo {
    * @param databaseId - The database to use.
    * @param persistenceKey - A unique identifier for this Firestore's local
    * storage (used in conjunction with the databaseId).
-   * @param host - The Firestore backend host to connect to.
-   * @param ssl - Whether to use SSL when connecting.
-   * @param forceLongPolling - Whether to use the forceLongPolling option
-   * when using WebChannel as the network transport.
-   * @param autoDetectLongPolling - Whether to use the detectBufferingProxy
+ - Whether to use the detectBufferingProxy
    * option when using WebChannel as the network transport.
    */
   constructor(
@@ -1685,11 +1645,7 @@ export declare class FirestoreError extends Error {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * The set of Firestore status codes. The codes are the same at the ones
@@ -1709,11 +1665,7 @@ export declare class FirestoreError extends Error {
  *   a successful response from a server could have been delayed long enough
  *   for the deadline to expire.
  * - 'not-found': Some requested document was not found.
- * - 'already-exists': Some document that we attempted to create already
- *   exists.
- * - 'permission-denied': The caller does not have permission to execute the
- *   specified operation.
- * - 'resource-exhausted': Some resource has been exhausted, perhaps a
+esource has been exhausted, perhaps a
  *   per-user quota, or perhaps the entire file system is out of space.
  * - 'failed-precondition': Operation was rejected because the system is not
  *   in a state required for the operation's execution.
@@ -2069,11 +2021,7 @@ declare interface FirstPartyCredentialsSettings {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 declare type FulfilledHandler<T, R> =
   | ((result: T) => R | PersistencePromise<R>)
@@ -2097,15 +2045,7 @@ declare interface GarbageCollectionScheduler {
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
+
  * An immutable object representing a geographic location in Firestore. The
  * location is represented as latitude/longitude pair.
  *
@@ -2131,11 +2071,7 @@ export declare class GeoPoint {
    */
   get longitude(): number;
   /**
-   * Returns true if this `GeoPoint` is equal to the provided one.
-   *
-   * @param other - The `GeoPoint` to compare against.
-   * @returns true if this `GeoPoint` is equal to the provided one.
-   */
+
   isEqual(other: GeoPoint): boolean;
   toJSON(): {
     latitude: number;
@@ -2952,11 +2888,7 @@ declare type NullableMaybeDocumentMap = SortedMap<
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A map implementation that uses objects as keys. Objects must have an
@@ -2988,11 +2920,7 @@ declare class ObjectMap<KeyType, ValueType> {
    */
   delete(key: KeyType): boolean;
   forEach(fn: (key: KeyType, val: ValueType) => void): void;
-  isEmpty(): boolean;
-}
-
-/**
- * An ObjectValue represents a MapValue in the Firestore Proto and offers the
+pValue in the Firestore Proto and offers the
  * ability to add and remove fields (via the ObjectValueBuilder).
  */
 declare class ObjectValue {
@@ -4717,11 +4645,7 @@ declare type StructuredQuery = firestoreV1ApiClientInterfaces.StructuredQuery;
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * SyncEngine is the central controller in the client SDK architecture. It is
@@ -4757,10 +4681,6 @@ declare interface Target {
   readonly collectionGroup: string | null;
   readonly orderBy: OrderBy[];
   readonly filters: Filter[];
-  readonly limit: number | null;
-  readonly startAt: Bound | null;
-  readonly endAt: Bound | null;
-}
 
 /**
  * Represents cached targets received from the remote backend.
@@ -5184,11 +5104,7 @@ declare const enum TimerId {
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * A `Timestamp` represents a point in time independent of any time zone or
@@ -5228,11 +5144,7 @@ export declare class Timestamp {
    *     1970-01-01T00:00:00Z.
    * @returns A new `Timestamp` representing the same point in time as the given
    *     number of milliseconds.
-   */
-  static fromMillis(milliseconds: number): Timestamp;
-  /**
-   * Creates a new timestamp.
-   *
+
    * @param seconds - The number of seconds of UTC time since Unix epoch
    *     1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
    *     9999-12-31T23:59:59Z inclusive.
@@ -5549,11 +5461,7 @@ export declare function useFirestoreEmulator(
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+
  */
 /**
  * Simple wrapper around a nullable UID. Mostly exists to make code more
@@ -5597,11 +5505,7 @@ declare class ViewSnapshot {
     fromCache: boolean,
     syncStateChanged: boolean,
     excludesMetadataChanges: boolean
-  );
-  /** Returns a view snapshot as if all documents in the snapshot were added. */
-  static fromInitialDocuments(
-    query: Query_2,
-    documents: DocumentSet,
+
     mutatedKeys: DocumentKeySet,
     fromCache: boolean
   ): ViewSnapshot;

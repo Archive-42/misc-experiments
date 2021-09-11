@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-// AndroidManifestPatcher will create Plugin/Android/AndroidManifest.xml required to build Android
-// app which is using Firebase Cloud Messaging.
-// This is a temporary solution before we introduce better method to configure AndroidManifest.xml
+efore we introduce better method to configure AndroidManifest.xml
 // for Firebase Cloud Messaging.
 
 namespace Firebase.Messaging.Editor {

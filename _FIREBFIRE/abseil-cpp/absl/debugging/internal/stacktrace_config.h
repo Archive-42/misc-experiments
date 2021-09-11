@@ -7,15 +7,7 @@
  *
  *      https://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
-
- * Defines ABSL_STACKTRACE_INL_HEADER to the *-inl.h containing
- * actual unwinder implementation.
- * This header is "private" to stacktrace.cc.
+acktrace.cc.
  * DO NOT include it into any other files.
 */
 #ifndef ABSL_DEBUGGING_INTERNAL_STACKTRACE_CONFIG_H_

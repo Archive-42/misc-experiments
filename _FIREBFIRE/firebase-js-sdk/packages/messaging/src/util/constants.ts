@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-export const DEFAULT_SW_PATH = '/firebase-messaging-sw.js';
-export const DEFAULT_SW_SCOPE = '/firebase-cloud-messaging-push-scope';
+/firebase-cloud-messaging-push-scope';
 
 export const DEFAULT_VAPID_KEY =
   'BDOU99-h67HcA6JeFXHbSNMu7e2yNNu3RzoMj8TM4W88jITfq7ZmPvIM1Iv-4_l2LxQcYwhqby2xGpWwzjfAnG4';

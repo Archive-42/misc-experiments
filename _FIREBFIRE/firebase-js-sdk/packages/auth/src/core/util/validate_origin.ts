@@ -8,15 +8,7 @@
  *
  *   http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import { _getProjectConfig } from '../../api/project_config/get_project_config';
-import { AuthInternal } from '../../model/auth';
+../model/auth';
 import { AuthErrorCode } from '../errors';
 import { _fail } from './assert';
 import { _getCurrentUrl } from './location';

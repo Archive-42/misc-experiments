@@ -7,15 +7,7 @@
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-// An Objective-C++ wrapper class that conforms to the GADRewardBasedVideoAdDelegate protocol.
-// When the delegate for receiving state change messages from a GADRewardBasedVideoAd is notified,
+g state change messages from a GADRewardBasedVideoAd is notified,
 // this wrapper class forwards the notification to the RewardedVideoInternalIOS object to handle
 // the state changes for rewarded video.
 

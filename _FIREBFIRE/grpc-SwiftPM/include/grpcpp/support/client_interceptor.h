@@ -8,15 +8,7 @@
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
-#ifndef GRPCPP_SUPPORT_CLIENT_INTERCEPTOR_H
+ERCEPTOR_H
 #define GRPCPP_SUPPORT_CLIENT_INTERCEPTOR_H
 
 #include <grpcpp/impl/codegen/client_interceptor.h>
