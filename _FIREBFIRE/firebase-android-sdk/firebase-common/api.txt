@@ -1,0 +1,63 @@
+// Signature format: 2.0
+package com.google.firebase {
+
+  public class FirebaseApp {
+    method @NonNull public android.content.Context getApplicationContext();
+    method @NonNull public static java.util.List<com.google.firebase.FirebaseApp> getApps(@NonNull android.content.Context);
+    method @NonNull public static com.google.firebase.FirebaseApp getInstance();
+    method @NonNull public static com.google.firebase.FirebaseApp getInstance(@NonNull String);
+    method @NonNull public String getName();
+    method @NonNull public com.google.firebase.FirebaseOptions getOptions();
+    method @Nullable public static com.google.firebase.FirebaseApp initializeApp(@NonNull android.content.Context);
+    method @NonNull public static com.google.firebase.FirebaseApp initializeApp(@NonNull android.content.Context, @NonNull com.google.firebase.FirebaseOptions);
+    method @NonNull public static com.google.firebase.FirebaseApp initializeApp(@NonNull android.content.Context, @NonNull com.google.firebase.FirebaseOptions, @NonNull String);
+    method public void setAutomaticResourceManagementEnabled(boolean);
+    field @NonNull public static final String DEFAULT_APP_NAME = "[DEFAULT]";
+  }
+
+  public class FirebaseNetworkException extends com.google.firebase.FirebaseException {
+    ctor public FirebaseNetworkException(@NonNull String);
+  }
+
+  public final class FirebaseOptions {
+    method @Nullable public static com.google.firebase.FirebaseOptions fromResource(@NonNull android.content.Context);
+    method @NonNull public String getApiKey();
+    method @NonNull public String getApplicationId();
+    method @Nullable public String getDatabaseUrl();
+    method @Nullable public String getGcmSenderId();
+    method @Nullable public String getProjectId();
+    method @Nullable public String getStorageBucket();
+  }
+
+  public static final class FirebaseOptions.Builder {
+    ctor public FirebaseOptions.Builder();
+    ctor public FirebaseOptions.Builder(@NonNull com.google.firebase.FirebaseOptions);
+    method @NonNull public com.google.firebase.FirebaseOptions build();
+    method @NonNull public com.google.firebase.FirebaseOptions.Builder setApiKey(@NonNull String);
+    method @NonNull public com.google.firebase.FirebaseOptions.Builder setApplicationId(@NonNull String);
+    method @NonNull public com.google.firebase.FirebaseOptions.Builder setDatabaseUrl(@Nullable String);
+    method @NonNull public com.google.firebase.FirebaseOptions.Builder setGcmSenderId(@Nullable String);
+    method @NonNull public com.google.firebase.FirebaseOptions.Builder setProjectId(@Nullable String);
+    method @NonNull public com.google.firebase.FirebaseOptions.Builder setStorageBucket(@Nullable String);
+  }
+
+  public class FirebaseTooManyRequestsException extends com.google.firebase.FirebaseException {
+    ctor public FirebaseTooManyRequestsException(@NonNull String);
+  }
+
+}
+
+package com.google.firebase.provider {
+
+  public class FirebaseInitProvider extends android.content.ContentProvider {
+    ctor public FirebaseInitProvider();
+    method public int delete(@NonNull android.net.Uri, @Nullable String, @Nullable String[]);
+    method @Nullable public String getType(@NonNull android.net.Uri);
+    method @Nullable public android.net.Uri insert(@NonNull android.net.Uri, @Nullable android.content.ContentValues);
+    method public boolean onCreate();
+    method @Nullable public android.database.Cursor query(@NonNull android.net.Uri, @Nullable String[], @Nullable String, @Nullable String[], @Nullable String);
+    method public int update(@NonNull android.net.Uri, @Nullable android.content.ContentValues, @Nullable String, @Nullable String[]);
+  }
+
+}
+

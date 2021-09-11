@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Inherit from ../pom.xml -->
+  <parent>
+    <groupId>com.firebase</groupId>
+    <artifactId>geofire</artifactId>
+    <version>3.0.1-SNAPSHOT</version>
+    <relativePath>../</relativePath>
+  </parent>
+
+  <artifactId>geofire-java</artifactId>
+  <packaging>jar</packaging>
+
+  <name>geofire-java</name>
+  <description>GeoFire is an open-source library for Android/Java that allows you to store and query a set of keys based on their geographic location.</description>
+  <organization>
+    <name>Firebase</name>
+    <url>https://www.firebase.com/</url>
+  </organization>
+  <url>https://github.com/firebase/geofire-java</url>
+  <scm>
+    <connection>scm:git:git@github.com:firebase/geofire-java.git</connection>
+    <developerConnection>scm:git:git@github.com:firebase/geofire-java.git</developerConnection>
+    <url>https://github.com/firebase/geofire-java</url>
+    <tag>HEAD</tag>
+  </scm>
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>http://firebase.mit-license.org</url>
+    </license>
+  </licenses>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <distributionManagement>
+    <repository>
+        <id>geofire</id>
+        <url>https://api.bintray.com/maven/firebase/geofire/geofire-java</url>
+    </repository>
+  </distributionManagement>
+
+  <build>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.firebase</groupId>
+      <artifactId>geofire-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- Provided dependencies -->
+    <dependency>
+      <groupId>com.google.firebase</groupId>
+      <artifactId>firebase-admin</artifactId>
+      <version>[6.0.0,)</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.firebase</groupId>
+      <artifactId>geofire-testing</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

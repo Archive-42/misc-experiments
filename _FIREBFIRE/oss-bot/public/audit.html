@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OSS Bot Audit</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+      integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="audit.css" />
+
+    <script defer src="/__/firebase/5.5.3/firebase-app.js"></script>
+    <script defer src="/__/firebase/5.5.3/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.5.3/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+
+    <!-- Bue development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./audit.js"></script>
+  </head>
+
+  <body>
+    <div id="app" v-cloak>
+      <div class="header">
+        <div class="header-inner">
+          <span class="title">Audit Log</span>
+          <span class="repo">{{org}}/{{repo}}</span>
+        </div>
+      </div>
+      <table
+        id="log-table"
+        class="pure-table pure-table-bordered pure-table-striped"
+      >
+        <thead>
+          <tr>
+            <th id="col-link">Link</th>
+            <th id="col-time">Time</th>
+            <th id="col-event">Event</th>
+            <th id="col-target">Target</th>
+            <th id="col-details">Details</th>
+            <th id="col-reason">Reason</th>
+          </tr>
+        </thead>
+        <tbody id="log-table-body">
+          <tr v-for="entry in entries">
+            <td><a :href="entry.selfLink()">link</a></td>
+            <td>{{entry.timeString()}}</td>
+            <td>{{entry.data.event}}</td>
+            <td>
+              <a :href="entry.targetLink()" target="_blank"
+                >{{entry.data.target}}</a
+              >
+            </td>
+            <td>
+              <table class="details-table pure-table" v-if="entry.hasDetails()">
+                <tbody>
+                  <tr v-for="detail in entry.detailsEntries()">
+                    <td class="key"><code>{{detail[0]}}</code></td>
+                    <td class="value"><code>{{detail[1]}}</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>{{entry.data.reason || "N/A"}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      initializeApp();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("All scripts loaded, initializing...");
+        firebase.auth().signInAnonymously().then(initializeData);
+      });
+    </script>
+  </body>
+</html>

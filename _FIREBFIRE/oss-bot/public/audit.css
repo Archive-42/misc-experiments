@@ -1,0 +1,81 @@
+body {
+  font-family: sans-serif;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+#app {
+}
+
+.header {
+  background-color: rgb(3, 155, 229);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.header-inner {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.header .repo {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header .title {
+  display: block;
+  color: white;
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+#log-table {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+td {
+  align-content: center;
+}
+
+#col-link {
+  width: 5%;
+}
+
+#col-time {
+  width: 15%;
+}
+
+#col-event {
+  width: 10%;
+}
+
+#col-target {
+  width: 10%;
+}
+
+#col-details {
+  width: 30%;
+}
+
+#col-reason {
+  width: 30%;
+}
+
+.details-table {
+  width: 100%;
+}
+
+.details-table .key {
+  width: 80px;
+  background-color: #d7dfff !important;
+}
+
+.details-table .value {
+  background-color: #ffffff !important;
+}

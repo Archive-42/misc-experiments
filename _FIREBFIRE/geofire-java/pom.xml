@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.firebase</groupId>
+  <artifactId>geofire</artifactId>
+  <version>3.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>geofire</name>
+  <description>GeoFire is an open-source library for Android/Java that allows you to store and query a set of keys based on their geographic location.</description>
+  <organization>
+    <name>Firebase</name>
+    <url>https://www.firebase.com/</url>
+  </organization>
+  <url>https://github.com/firebase/geofire-java</url>
+  <scm>
+    <connection>scm:git:git@github.com:firebase/geofire-java.git</connection>
+    <developerConnection>scm:git:git@github.com:firebase/geofire-java.git</developerConnection>
+    <url>https://github.com/firebase/geofire-java</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>samtstern</id>
+      <name>Sam Stern</name>
+      <email>samstern@google.com</email>
+      <organization>Firebase</organization>
+      <organizationUrl>https://firebase.google.com</organizationUrl>
+      <roles>
+        <role>Project-Administrator</role>
+        <role>Developer</role>
+      </roles>
+      <timezone>-8</timezone>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>http://firebase.mit-license.org</url>
+    </license>
+  </licenses>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <modules>
+      <module>common</module>
+      <module>java</module>
+      <module>testing</module>
+  </modules>
+
+  <distributionManagement>
+    <repository>
+        <id>geofire</id>
+        <url>https://api.bintray.com/maven/firebase/geofire/geofire</url>
+    </repository>
+  </distributionManagement>
+
+  <build>
+    <!--
+       Add -Dbuildtime.output.log=true to profile maven task times.
+    -->
+    <extensions>
+        <extension>
+            <groupId>co.leantechniques</groupId>
+            <artifactId>maven-buildtime-extension</artifactId>
+            <version>2.0.3</version>
+        </extension>
+    </extensions>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9.1</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <excludePackageNames>com.firebase.geofire.*</excludePackageNames>
+          <show>public</show>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.3</version>
+        <executions>
+          <execution>
+            <id>add-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+      </plugin>
+
+      <!-- Runs unit tests (class name must end with Test) -->
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.19.1</version>
+      </plugin>
+
+      <!-- Runs integration tests (class name must end with IT) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>2.20.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- Dependencies defined in child POMs -->
+  </dependencies>
+</project>

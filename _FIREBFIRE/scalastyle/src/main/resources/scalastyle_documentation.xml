@@ -1,0 +1,516 @@
+<scalastyle-documentation>
+ <check id="file.size.limit">
+ <justification>
+ Files which are too long can be hard to read and understand.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+ <check level="warning" class="org.scalastyle.file.FileLengthChecker" enabled="true">
+  <parameters>
+   <parameter name="maxFileLength">800</parameter>
+  </parameters>
+ </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="line.size.limit">
+ <justification>
+ Lines that are too long can be hard to read and horizontal scrolling is annoying.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+ <check level="warning" class="org.scalastyle.file.FileLineLengthChecker" enabled="true">
+  <parameters>
+   <parameter name="maxLineLength" type="integer" default="100" />
+   <parameter name="tabSize" type="integer" default="2" />
+   <parameter name="ignoreImports" type="boolean" default="true" />
+  </parameters>
+ </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+
+ <check id="magic.number">
+ <justification>
+ Replacing a magic number with a named constant can make code easier to read and understand, and can avoid some subtle bugs.
+ </justification>
+ <extra-description>
+ A simple assignment to a val is not considered to be a magic number, for example:
+
+    val foo = 4
+
+is not a magic number, but
+
+    var foo = 4
+
+is considered to be a magic number.
+ </extra-description>
+ <example-configuration>
+ <![CDATA[
+ <check level="warning" class="org.scalastyle.scalariform.MagicNumberChecker" enabled="true">
+  <parameters>
+   <parameter name="ignore">-1,0,1,2,3</parameter>
+  </parameters>
+ </check>
+ ]]>
+ </example-configuration>
+ </check>
+ <check id="regex">
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.file.RegexChecker" enabled="true">
+      <parameters>
+        <parameter name="regex">(?m)^\s\*$(\r|)\n^\s*$(\r|)\n</parameter>
+      </parameters>
+      <customMessage>No double blank lines</customMessage>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="number.of.types">
+ <justification>
+ If there are too many classes/objects defined in a single file, this can cause the code to be difficult to understand.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.NumberOfTypesChecker" enabled="true">
+      <parameters>
+        <parameter name="maxTypes">20</parameter>
+      </parameters>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="cyclomatic.complexity">
+ <justification>
+ If the code is too complex, then this can make code hard to read.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.CyclomaticComplexityChecker" enabled="true">
+      <parameters>
+        <parameter name="maximum">10</parameter>
+      </parameters>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="uppercase.l">
+ <justification>
+ A lowercase L (l) can look similar to a number 1 with some fonts.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.UppercaseLChecker" enabled="true"/>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="if.brace">
+ <justification>
+ Some people find if clauses with braces easier to read.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.IfBraceChecker" enabled="true">
+      <parameters>
+        <parameter name="singleLineAllowed">true</parameter>
+        <parameter name="doubleLineAllowed">false</parameter>
+      </parameters>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="method.length">
+ <justification>
+ Long methods can be hard to read and understand.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.MethodLengthChecker" enabled="true">
+      <parameters>
+        <parameter name="maxLength">50</parameter>
+      </parameters>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="method.name">
+ <justification>
+ The Scala style guide recommends that method names conform to certain standards. If the methods are overriding another method, and the overridden method
+ cannot be changed, then use the ignoreOverride parameter.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.MethodNamesChecker" enabled="true">
+      <parameters>
+        <parameter name="regex">^[A-Za-z]*$</parameter>
+        <parameter name="ignoreRegex">^.*$</parameter>
+        <parameter name="ignoreOverride">false</parameter>
+      </parameters>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="number.of.methods">
+ <justification>
+ If a type declares too many methods, this can be an indication of bad design.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.NumberOfMethodsInTypeChecker" enabled="true">
+      <parameters>
+        <parameter name="maxMethods">30</parameter>
+      </parameters>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="public.methods.have.type">
+ <justification>
+ A public method declared on a type is effectively an API declaration. Explicitly declaring a return type means that other code which depends on that type won't break unexpectedly.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.PublicMethodsHaveTypeChecker" enabled="true">
+      <parameters>
+        <parameter name="ignoreOverride">false</parameter>
+      </parameters>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="newline.at.eof">
+ <justification>
+ Some version control systems don't cope well with files which don't end with a newline character.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.file.NewlineAtEofChecker" enabled="true"/>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="no.newline.at.eof">
+ <justification>
+ Because Mirco Dotta wanted it.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.file.NoNewlineAtEofChecker" enabled="true"/>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="while">
+ <justification>
+ while loops are deprecated if you're using a strict functional style
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.WhileChecker" enabled="true"/>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="var.field">
+ <justification>
+ var (mutable fields) are deprecated if you're using a strict functional style
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.VarFieldChecker" enabled="true"/>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="var.local">
+ <justification>
+ vars (mutable local variables) loops are deprecated if you're using a strict functional style
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.VarLocalChecker" enabled="true"/>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="if.redundant">
+ <justification>
+ If expressions with boolean constants in both branches can be eliminated without affecting readability. Prefer simply `cond` to `if (cond) true else false` and `!cond` to `if (cond) false else true`.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.RedundantIfChecker" enabled="true"/>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="token">
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.TokenChecker" enabled="true">
+      <parameters>
+        <parameter name="regex">^[ai]sInstanceOf$</parameter>
+      </parameters>
+      <customMessage>Avoid casting.</customMessage>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="deprecated.java">
+ <justification>
+ You should be using the Scala @deprecated instead.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.DeprecatedJavaChecker" enabled="true" />
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="empty.class">
+ <justification>
+ If a class / trait has no members, then braces are unnecessary, and can be removed.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.EmptyClassChecker" enabled="true" />
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="class.type.parameter.name">
+ <justification>
+ Scala generic type names are generally single upper case letters. This check checks for classes and traits.
+
+ Note that this check only checks the innermost type parameter, to allow for List\[T\].
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.ClassTypeParameterChecker" enabled="true">
+      <parameters>
+        <parameter name="regex">^[A-Z_]$</parameter>
+      </parameters>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="underscore.import">
+ <justification>
+  Importing all classes from a package or static members from a class leads to tight coupling between packages or classes and might lead to problems when a new version of a library introduces name clashes.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.UnderscoreImportChecker" enabled="true" />
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="lowercase.pattern.match">
+ <justification>
+  A lower case pattern match clause with no other tokens is the same as \_; this is not true for patterns which start with an upper
+  case letter. This can cause confusion, and may not be what was intended:
+
+    val foo = "foo"
+    val Bar = "bar"
+    "bar" match { case Bar => "we got bar" }   // result = "we got bar"
+    "bar" match { case foo => "we got foo" }   // result = "we got foo"
+    "bar" match { case `foo` => "we got foo" } // result = MatchError
+
+  This checker raises a warning with the second match. To fix it, use an identifier which starts with an upper case letter (best), use case \_ or,
+  if you wish to refer to the value, add a type `: Any`
+
+    val lc = "lc"
+    "something" match { case lc: Any => "lc" } // result = "lc"
+    "something" match { case _ => "lc" } // result = "lc"
+
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.LowercasePatternMatchChecker" enabled="true" />
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="multiple.string.literals">
+ <justification>
+  Code duplication makes maintenance more difficult, so it can be better to replace the multiple occurrences with a constant.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.MultipleStringLiteralsChecker" enabled="true">
+      <parameters>
+        <parameter name="allowed">1</parameter>
+        <parameter name="ignoreRegex">^\"\"$</parameter>
+      </parameters>
+    </check>
+ ]]>
+ </example-configuration>
+ </check>
+
+
+ <check id="import.grouping">
+ <justification>
+  If imports are spread throughout the file, knowing what is in scope at any one place can be difficult to work out.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.ImportGroupingChecker" enabled="true" />
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="not.implemented.error.usage">
+ <justification>
+  The ??? operator denotes that an implementation is missing. This rule helps to avoid potential runtime errors because of not implemented code.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.NotImplementedErrorUsage" enabled="true" />
+ ]]>
+ </example-configuration>
+ </check>
+ <check id="block.import">
+ <justification>
+  Block imports can lead to annoying merge errors in large code bases that are maintained by lot of developers. This rule allows to ensure that only single imports are used in order to minimize merge errors in import declarations.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.BlockImportChecker" enabled="true"/>
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="procedure.declaration">
+ <justification>
+  A procedure style declaration can cause confusion - the developer may have simply forgotten to add a '=', and now their method returns Unit rather than the inferred type:
+
+    def foo() { println("hello"); 5 }
+    def foo() = { println("hello"); 5 }
+
+  This checker raises a warning with the first line. To fix it, use an explicit return type, or add a '=' before the body.
+
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.ProcedureDeclarationChecker" enabled="true" />
+ ]]>
+ </example-configuration>
+ </check>
+
+ <check id="for.brace">
+ <justification>
+  Usage of braces (rather than parentheses) within a for comprehension mean that you don't have to specify a semi-colon at the end of every line:
+
+    for {      // braces
+      t &lt;- List(1,2,3)
+      if (i % 2 == 0)
+    } yield t
+
+  is preferred to
+
+    for (      // parentheses
+      t &lt;- List(1,2,3);
+      if (i % 2 == 0)
+    ) yield t
+
+  To fix it, replace the () with {}. And then remove the ; at the end of the lines.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.ForBraceChecker" enabled="true" />
+ ]]>
+ </example-configuration>
+ </check>
+<check id="space.after.comment.start">
+<justification>
+To bring consistency with how comments should be formatted, leave a space right after the beginning of the comment.
+
+    package foobar
+
+    object Foobar {
+    /**WRONG
+    *
+    */
+    /** Correct*/
+    val d = 2 /*Wrong*/ //Wrong
+    /**
+    *Correct
+    */
+    val e = 3/** Correct*/ // Correct
+    }
+</justification>
+<example-configuration>
+<![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.SpaceAfterCommentStartChecker" enabled="true" />
+]]>
+</example-configuration>
+
+</check>
+    <check id="non.ascii.character.disallowed">
+        <justification>
+            Scala allows unicode characters as operators and some editors misbehave when they see non-ascii character.
+            In a project collaborated by a community of developers. This check can be helpful in such situations.
+
+
+            "value".match {
+            case "value" => println("matched")
+            ...
+            }
+
+            is preferred to
+
+            "value".match {
+            case "value" ⇒ println("matched")
+            ...
+            }
+
+            To fix it, replace the (unicode operator)⇒ with =>.
+        </justification>
+        <example-configuration>
+            <![CDATA[
+    <check level="warning" class="org.scalastyle.scalariform.NonASCIICharacterChecker" enabled="true" />
+]]>
+        </example-configuration>
+</check>
+
+<check id="header.matches">
+ <justification>
+  A lot of projects require a header with a copyright notice, or they require a license in each file. This does a simple text comparison between the header and the first lines of the file.
+  You can have multiple lines, but make sure you surround the text with a CDATA section. You can also specify a regular expression, as long as you set the regex parameter to true.
+ </justification>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.file.HeaderMatchesChecker" enabled="true">
+  <parameters>
+   <parameter name="regex">false</parameter>
+   <parameter name="header"><![CDATA[// Copyright (C) 2011-2012 the original author or authors.]]]]><![CDATA[></parameter>
+  </parameters>
+ </check>
+ ]]>
+ </example-configuration>
+ <example-configuration>
+ <![CDATA[
+    <check level="warning" class="org.scalastyle.file.HeaderMatchesChecker" enabled="true">
+  <parameters>
+   <parameter name="regex">true</parameter>
+   <parameter name="header"><![CDATA[// Copyright (C) (?:\d{4}-)?\d{4} the original author or authors.]]]]><![CDATA[></parameter>
+  </parameters>
+ </check>
+ ]]>
+ </example-configuration>
+ </check>
+</scalastyle-documentation>
