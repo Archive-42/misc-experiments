@@ -1,9 +1,0 @@
-language: scala
-scala:
-  - 2.10.3
-jdk:
-  - oraclejdk7
-  - openjdk7
-notifications:
-  email:
-    - matthew@farwell.co.uk

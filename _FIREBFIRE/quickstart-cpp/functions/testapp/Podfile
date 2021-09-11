@@ -1,7 +1,0 @@
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-# Cloud Functions for Firebase test application.
-target 'testapp' do
-  pod 'Firebase/Functions', '7.0.0'
-  pod 'Firebase/Auth', '7.0.0'
-end
